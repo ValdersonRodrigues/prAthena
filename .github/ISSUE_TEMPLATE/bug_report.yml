@@ -1,81 +1,89 @@
 name: Bug Report
-description: Create an Issue that details broken or unexpected behaviour
+description: Criar um Relatório detalhando comportamento quebrado ou inesperado
 labels: ["type:bug"]
 body:
   - type: input
     id: hash
     attributes:
-      label: rAthena Hash
+      label: Hash do rAthena
       description: |
-        Please specify the rAthena [GitHub hash](https://help.github.com/articles/autolinked-references-and-urls/#commit-shas) on which you encountered this issue.
-        One way to get your hash is to type `git rev-parse --short HEAD` on your console.
+        Por favor, especifique o [hash do GitHub](https://help.github.com/articles/autolinked-references-and-urls/#commit-shas) do rAthena no qual você encontrou este problema.
+        Uma forma de obter o hash é digitando `git rev-parse --short HEAD` no seu console.
     validations:
       required: true
+
   - type: input
     id: date
     attributes:
-      label: Client Date
-      description: Specify the client date you are using when this Issue occured.
+      label: Data do Cliente
+      description: Especifique a data do cliente que você está usando quando este problema ocorreu.
       placeholder: YYYY-MM-DD
     validations:
       required: true
+
   - type: dropdown
     id: mode
     attributes:
-      label: Server Mode
-      description: Specify the server-mode you are using when this Issue occured.
+      label: Modo do Servidor
+      description: Especifique o modo do servidor que você está usando quando este problema ocorreu.
       multiple: true
       options:
-        - Pre-Renewal
+        - Pré-Renewal
         - Renewal
     validations:
       required: true
+
   - type: textarea
     id: result
     attributes:
-      label: Result
-      description: Describe the issue that you experienced in detail.
+      label: Resultado
+      description: Descreva o problema que você experienciou em detalhes.
       placeholder: |
-        1. In this environment...
-        2. With this config...
-        3. Trigger event '...'
-        4. See error...
+        1. Neste ambiente...
+        2. Com esta configuração...
+        3. Disparar o evento '...'
+        4. Ver erro...
     validations:
       required: true
+
   - type: textarea
     id: logs
     attributes:
-      label: Relevant Log Output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      label: Saída de Log Relevante
+      description: Copie e cole qualquer saída de log relevante. Isso será automaticamente formatado como código, então não há necessidade de crases.
       render: Shell
     validations:
       required: false
+
   - type: textarea
     id: expected
     attributes:
-      label: Expected Result
-      description: Describe what you would expect to happen in detail.
+      label: Resultado Esperado
+      description: Descreva em detalhes o que você esperava que acontecesse.
     validations:
       required: true
+
   - type: textarea
     id: howto
     attributes:
-      label: How to Reproduce
-      description: If you have not stated in the description of the result already, please give us a short guide how we can reproduce your issue.
+      label: Como Reproduzir
+      description: Caso ainda não tenha explicado na descrição do resultado, forneça um guia curto de como podemos reproduzir o problema.
     validations:
       required: true
+
   - type: textarea
     id: info
     attributes:
-      label: Official Information
-      description: If possible, provide information from official servers (kRO or other sources) which prove that the result is wrong. Please take into account that iRO (especially iRO Wiki) is not always the same as kRO.
+      label: Informações Oficiais
+      description: Se possível, forneça informações de servidores oficiais (kRO ou outras fontes) que provem que o resultado está errado. Leve em conta que iRO (especialmente iRO Wiki) nem sempre é igual ao kRO.
     validations:
       required: true
+
   - type: textarea
     id: modifications
     attributes:
-      label: Modifications that may affect results
+      label: Modificações que podem afetar os resultados
       description: |
-        If you are using any modifications, especially in /src/, you must type them here.
-        Even the smallest changes can cause things to break. We need to know what you have customized.
-        This can be either configurations you changed, database values you changed, or even external source modifications.
+        Se você estiver usando quaisquer modificações, especialmente em /src/, você deve listá-las aqui.
+        Mesmo alterações pequenas podem causar problemas. Precisamos saber o que você personalizou.
+        Isso pode incluir configurações modificadas, valores alterados no banco de dados, ou até modificações externas no source.
