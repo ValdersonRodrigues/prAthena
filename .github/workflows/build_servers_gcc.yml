@@ -1,4 +1,4 @@
-name: Build servers with GCC
+name: Compilar servidores com GCC
 # build_servers_gcc.yml
 
 concurrency:
@@ -12,27 +12,27 @@ on:
       - master
   pull_request:
     paths:
-      # Always trigger all Github Actions if an action or something CI related was changed
+      # Sempre acionar todas as GitHub Actions se uma action ou algo relacionado ao CI foi alterado
       - '.github/workflows/**'
       - 'tools/ci/**'
-      # This workflow should run when a file in a source directory has been modified.
+      # Este workflow deve rodar quando um arquivo em um diretório de código fonte foi modificado.
       - 'src/**'
       - '3rdparty/**'
 
 jobs:
   build:
-    # Github Actions checks for '[ci skip]', '[skip ci]', '[no ci]', '[skip actions]', or '[actions skip]' but not a hyphenated version.
-    # It's a catch-all incase a Pull Request has been opened and someone is on auto-pilot.
+    # GitHub Actions verifica por '[ci skip]', '[skip ci]', '[no ci]', '[skip actions]', ou '[actions skip]' mas não versões hifenizadas.
+    # É um catch-all caso um Pull Request tenha sido aberto e alguém esteja no piloto automático.
     if: "!contains(github.event.head_commit.message, 'ci-skip')"
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-          # The ubuntu-latest label currently points to ubuntu-24.04.
-          # Available: ubuntu-24.04, ubuntu-22.04
+          # A label ubuntu-latest atualmente aponta para ubuntu-24.04.
+          # Disponível: ubuntu-24.04, ubuntu-22.04
           os: [ubuntu-latest]
-          # Older versions of GCC are not available via unaltered aptitude repo lists.
+          # Versões mais antigas do GCC não estão disponíveis via listas de repositórios aptitude não alteradas.
           gcc: ['9', '10', '11', '12']
-          # GCC 13 was removed from 22.04, include it as a separate job
+          # GCC 13 foi removido do 22.04, incluí-lo como um job separado
           include:
             - os: ubuntu-24.04
               gcc: 13
@@ -40,22 +40,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Update & Install packages
-        # Ubuntu runners already have most of the packages rAthena requires to build.
+      - name: Atualizar & Instalar pacotes
+        # Os runners do Ubuntu já possuem a maioria dos pacotes que o rAthena requer para compilar.
         # https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-Readme.md
         run: |
           sudo apt update
           sudo apt install zlib1g-dev libpcre3-dev gcc-${{ matrix.gcc }} g++-${{ matrix.gcc }}
 
-      - name: Command - configure
+      - name: Comando - configure
         env:
             CONFIGURE_FLAGS: 'CC=gcc-${{ matrix.gcc }} CXX=g++-${{ matrix.gcc }}'
-        # -Werror: to treat all warnings as errors
-        # -Wno-error=builtin-declaration-mismatch: otherwise ./configure checks fail
+        # -Werror: para tratar todos os warnings como erros
+        # -Wno-error=builtin-declaration-mismatch: caso contrário as verificações do ./configure falham
         run: ./configure $CONFIGURE_FLAGS --enable-buildbot=yes CXXFLAGS='-Werror -Wno-error=builtin-declaration-mismatch'
       
-      - name: Command - make clean
+      - name: Comando - make clean
         run: make clean
 
-      - name: Command - make all
+      - name: Comando - make all
         run: make all

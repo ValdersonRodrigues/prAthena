@@ -1,4 +1,4 @@
-name: Build servers with Clang
+name: Compilar servidores com Clang
 # build_servers_clang.yml
 
 concurrency:
@@ -12,43 +12,43 @@ on:
       - master
   pull_request:
     paths:
-      # Always trigger all Github Actions if an action or something CI related was changed
+      # Sempre acionar todas as GitHub Actions se uma action ou algo relacionado ao CI foi alterado
       - '.github/workflows/**'
       - 'tools/ci/**'
-      # This workflow should run when a file in a source directory has been modified.
+      # Este workflow deve rodar quando um arquivo em um diretório de código fonte foi modificado.
       - 'src/**'
       - '3rdparty/**'
 
 jobs:
   build:
-    # Github Actions checks for '[ci skip]', '[skip ci]', '[no ci]', '[skip actions]', or '[actions skip]' but not a hyphenated version.
-    # It's a catch-all incase a Pull Request has been opened and someone is on auto-pilot.
+    # GitHub Actions verifica por '[ci skip]', '[skip ci]', '[no ci]', '[skip actions]', ou '[actions skip]' mas não versões hifenizadas.
+    # É um catch-all caso um Pull Request tenha sido aberto e alguém esteja no piloto automático.
     if: "!contains(github.event.head_commit.message, 'ci-skip')"
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-          # The ubuntu-latest label currently points to ubuntu-24.04.
-          # Available: ubuntu-24.04, ubuntu-22.04
+          # A label ubuntu-latest atualmente aponta para ubuntu-24.04.
+          # Disponíveis: ubuntu-24.04, ubuntu-22.04
           os: [ubuntu-22.04]
-          # Version list can be found on https://github.com/marketplace/actions/install-clang
+          # Lista de versões pode ser encontrada em https://github.com/marketplace/actions/install-clang
           clang: ['13','14','15','16','17','18','19','20']
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Clang
+      - name: Configurar Clang
         uses: egor-tensin/setup-clang@v1
         with:
           version: ${{ matrix.clang }}
           platform: x64
 
-      - name: Command - configure
+      - name: Comando - configure
         env:
             CONFIGURE_FLAGS: 'CC=clang-${{ matrix.clang }} CXX=clang++-${{ matrix.clang }} --enable-buildbot=yes'
         run: ./configure $CONFIGURE_FLAGS
 
-      - name: Command - make clean
+      - name: Comando - make clean
         run: make clean
 
-      - name: Command - make all
+      - name: Comando - make all
         run: make all

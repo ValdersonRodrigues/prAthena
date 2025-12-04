@@ -1,4 +1,4 @@
-name: Build servers with MSVS
+name: Compilar servidores com MSVS
 # build_servers_msbuild.yml
 
 concurrency:
@@ -12,37 +12,37 @@ on:
       - master
   pull_request:
     paths:
-      # Always trigger all Github Actions if an action or something CI related was changed
+      # Sempre acionar todas as GitHub Actions se uma action ou algo relacionado ao CI foi alterado
       - '.github/workflows/**'
       - 'tools/ci/**'
-      # This workflow should run when a file in a source directory has been modified.
+      # Este workflow deve rodar quando um arquivo em um diretório de código fonte foi modificado.
       - 'src/**'
       - '3rdparty/**'
 
 jobs:
   build:
-    # Github Actions checks for '[ci skip]', '[skip ci]', '[no ci]', '[skip actions]', or '[actions skip]' but not a hyphenated version.
-    # It's a catch-all incase a Pull Request has been opened and someone is on auto-pilot.
+    # GitHub Actions verifica por '[ci skip]', '[skip ci]', '[no ci]', '[skip actions]', ou '[actions skip]' mas não versões hifenizadas.
+    # É um catch-all caso um Pull Request tenha sido aberto e alguém esteja no piloto automático.
     if: "!contains(github.event.head_commit.message, 'ci-skip')"
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-          # The windows-latest label currently points to windows-2019.
-          # Available: windows-2016, windows-2019 and windows-2022
+          # A label windows-latest atualmente aponta para windows-2019.
+          # Disponível: windows-2016, windows-2019 e windows-2022
           os: [windows-latest]
-          # We run build checks for both Renewal and PRE-Renewal
+          # Executamos verificações de compilação tanto para Renewal quanto para PRE-Renewal
           mode: ['PRE', 'RE']
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Add msbuild to PATH
+      - name: Adicionar msbuild ao PATH
         uses: microsoft/setup-msbuild@v2
 
-      - name: Build solution in Debug
+      - name: Compilar solução em Debug
         if: ${{ matrix.mode == 'PRE' }}
         run: msbuild rAthena.sln -t:rebuild -property:Configuration=Debug /p:DefineConstants="BUILDBOT%3BPRERE" /warnaserror
 
-      - name: Build solution in Debug
+      - name: Compilar solução em Debug
         if: ${{ matrix.mode == 'RE' }}
         run: msbuild rAthena.sln -t:rebuild -property:Configuration=Debug /p:DefineConstants="BUILDBOT" /warnaserror

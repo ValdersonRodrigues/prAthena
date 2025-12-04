@@ -1,4 +1,4 @@
-name: Build servers with CMake
+name: Compilar servidores com CMake
 # build_servers_cmake.yml
 
 concurrency:
@@ -12,42 +12,42 @@ on:
       - master
   pull_request:
     paths:
-      # Always trigger all Github Actions if an action or something CI related was changed
+      # Sempre acionar todas as GitHub Actions se uma action ou algo relacionado ao CI foi alterado
       - '.github/workflows/**'
       - 'tools/ci/**'
-      # This workflow should run when a file in a source directory has been modified.
+      # Este workflow deve rodar quando um arquivo em um diretório de código fonte foi modificado.
       - 'src/**'
       - '3rdparty/**'
-      # This workflow should run whenever a CMake related file has been modified
+      # Este workflow deve rodar sempre que um arquivo relacionado ao CMake foi modificado
       - '**/CMakeLists.txt'
 
 jobs:
   build:
-    # Github Actions checks for '[ci skip]', '[skip ci]', '[no ci]', '[skip actions]', or '[actions skip]' but not a hyphenated version.
-    # It's a catch-all incase a Pull Request has been opened and someone is on auto-pilot.
+    # GitHub Actions verifica por '[ci skip]', '[skip ci]', '[no ci]', '[skip actions]', ou '[actions skip]' mas não versões hifenizadas.
+    # É um catch-all caso um Pull Request tenha sido aberto e alguém esteja no piloto automático.
     if: "!contains(github.event.head_commit.message, 'ci-skip')"
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-          # The ubuntu-latest label currently points to ubuntu-24.04.
-          # Available: ubuntu-24.04, ubuntu-22.04
+          # A label ubuntu-latest atualmente aponta para ubuntu-24.04.
+          # Disponível: ubuntu-24.04, ubuntu-22.04
           os: [ubuntu-latest]
 
     steps:
       - uses: actions/checkout@v4
 
-      # Install latest CMake.
+      # Instalar CMake mais recente.
       - uses: lukka/get-cmake@latest
 
-      - name: Create build directory
+      - name: Criar diretório de compilação
         run: mkdir cbuild
 
-      - name: Create Unix Makefiles
+      - name: Criar Unix Makefiles
         run: |
           cd cbuild
           cmake -G "Unix Makefiles" ..
 
-      - name: Command - make
+      - name: Comando - make
         run: |
           cd cbuild
           make
