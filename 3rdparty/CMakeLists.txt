@@ -1,9 +1,9 @@
-# macro para configurar o uso de versão local ou do sistema de um pacote
+# macro para configurar o uso da versão local ou do sistema de um pacote
 # Usa:
-#	HAVE_LOCAL_${name} - versão local está disponível?
+#	HAVE_LOCAL_${name} - a versão local está disponível?
 #	${name}_LOCAL_LIBRARIES - bibliotecas da versão local
 #	${name}_LOCAL_INCLUDE_DIRS - diretórios de include da versão local
-#	HAVE_SYSTEM_${name} - versão do sistema está disponível?
+#	HAVE_SYSTEM_${name} - a versão do sistema está disponível?
 #	${name}_SYSTEM_LIBRARIES - bibliotecas da versão do sistema
 #	${name}_SYSTEM_INCLUDE_DIRS - diretórios de include da versão do sistema
 # Gera:

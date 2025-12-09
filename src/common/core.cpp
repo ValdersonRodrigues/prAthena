@@ -298,16 +298,14 @@ static void display_title(void) {
 
 		ShowMessage("\n");
 	ShowMessage("" CL_PASS "     " CL_BOLD "                                                                 " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
-	ShowMessage("" CL_PASS "       " CL_BT_WHITE "                  VrodsRO Team apresenta                   " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
-	ShowMessage("" CL_PASS "     " CL_BOLD "     _    __               __     ____  ____                        " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
-	ShowMessage("" CL_PASS "     " CL_BOLD "    | |  / /________  ____/ /____/ __ \\/ __ \\                       " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
-	ShowMessage("" CL_PASS "     " CL_BOLD "    | | / / ___/ __ \\/ __  / ___/ /_/ / / / /                       " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
-	ShowMessage("" CL_PASS "     " CL_BOLD "    | |/ / /  / /_/ / /_/ (__  ) _, _/ /_/ /                        " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
-	ShowMessage("" CL_PASS "     " CL_BOLD "    |___/_/   \\____/\\__,_/____/_/ |_|\\____/                         " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
+	ShowMessage("" CL_PASS "       " CL_BT_WHITE "           Vrods Roganarok Online                   " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
+	ShowMessage("" CL_PASS "     " CL_BOLD "        _    __               __     ____  ____                        " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
+	ShowMessage("" CL_PASS "     " CL_BOLD "       | |  / /________  ____/ /____/ __ \\/ __ \\                       " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
+	ShowMessage("" CL_PASS "     " CL_BOLD "       | | / / ___/ __ \\/ __  / ___/ /_/ / / / /                       " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
+	ShowMessage("" CL_PASS "     " CL_BOLD "       | |/ / /  / /_/ / /_/ (__  ) _, _/ /_/ /                        " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
+	ShowMessage("" CL_PASS "     " CL_BOLD "       |___/_/   \\____/\\__,_/____/_/ |_|\\____/                         " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
 	ShowMessage("" CL_PASS "     " CL_BOLD "                                                                 " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
-	ShowMessage("" CL_PASS "       " CL_GREEN "                  VrodsRO.com                  " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
 	ShowMessage("" CL_PASS "     " CL_BOLD "                                                                 " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
-
 
 	if( svn[0] != UNKNOWN_VERSION )
 		ShowInfo("SVN Revision: '" CL_WHITE "%s" CL_RESET "'\n", svn);
