@@ -1,19 +1,7 @@
 <img src="doc/logo.png" align="right" height="90" />
 
-# rAthena
-![clang](https://img.shields.io/github/actions/workflow/status/rathena/rathena/build_servers_clang.yml?label=clang%20build&logo=llvm) 
-![cmake](https://img.shields.io/github/actions/workflow/status/rathena/rathena/build_servers_cmake.yml?label=cmake%20build&logo=cmake)
-![gcc](https://img.shields.io/github/actions/workflow/status/rathena/rathena/build_servers_gcc.yml?label=gcc%20build&logo=gnu) 
-![ms](https://img.shields.io/github/actions/workflow/status/rathena/rathena/build_servers_msbuild.yml?label=ms%20build&logo=visualstudio) 
-![GitHub](https://img.shields.io/github/license/rathena/rathena.svg) 
-![commit activity](https://img.shields.io/github/commit-activity/w/rathena/rathena) 
-![GitHub repo size](https://img.shields.io/github/repo-size/rathena/rathena.svg)
-[![Pergunte ao DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/rathena/rathena)
 
-
-> O rAthena é um projeto colaborativo de desenvolvimento de software que gira em torno da criação de um pacote de servidor robusto para jogos de interpretação de papéis online massivamente multiplayer (MMORPG). Escrito em C++, o programa é muito versátil e fornece NPCs, warps e modificações. O projeto é gerenciado conjuntamente por um grupo de voluntários localizados em todo o mundo, bem como uma tremenda comunidade fornecendo QA e suporte. rAthena é uma continuação do projeto eAthena.
-
-[Fórum](https://rathena.org/board)|[Discord](https://rathena.org/discord)|[Wiki](https://github.com/rathena/rathena/wiki)|[FluxCP](https://github.com/rathena/FluxCP)|[Financiamento Coletivo](https://rathena.org/board/crowdfunding/)|[Q&A sobre Fork e Pull Request](https://rathena.org/board/topic/86913-pull-request-qa/)
+> O prAthena é um projeto de tradução e colaborativo de desenvolvimento de software que gira em torno da criação de um pacote de servidor robusto para jogos de interpretação de papéis online massivamente multiplayer (MMORPG). Escrito em C++, o programa é muito versátil e fornece NPCs, warps e modificações. O projeto é gerenciado conjuntamente por um grupo de voluntários localizados em todo o mundo, bem como uma tremenda comunidade fornecendo QA e suporte. prAthena é uma continuação do projeto rAthena.
 --------|--------|--------|--------|--------|--------
 
 ### Índice
@@ -25,7 +13,7 @@
 6. [Licença](#6-licença)
 
 ## 1. Pré-requisitos
-Antes de instalar o rAthena, existem certas ferramentas e aplicativos que você precisará, os quais
+Antes de instalar o prAthena, existem certas ferramentas e aplicativos que você precisará, os quais
 diferem entre os diversos sistemas operacionais disponíveis.
 
 ### Hardware
@@ -62,20 +50,13 @@ Banco de Dados | [MySQL Workbench 5 ou mais recente](http://www.mysql.com/downlo
 
 ## 3. Solução de Problemas
 
-Se estiver tendo problemas ao iniciar seu servidor, a primeira coisa que deve
-fazer é verificar o que está acontecendo em seus consoles. Na maioria das vezes, todos os problemas de suporte
-podem ser resolvidos simplesmente observando as mensagens de erro fornecidas. Confira a [wiki](https://github.com/rathena/rathena/wiki)
-ou os [fóruns](https://rathena.org/forum) se precisar de mais suporte sobre solução de problemas.
 
 ## 4. Mais Documentação
-O rAthena possui uma grande coleção de arquivos de ajuda e scripts de NPC de exemplo localizados no diretório /doc/.
+O prAthena possui uma grande coleção de arquivos de ajuda e scripts de NPC de exemplo localizados no diretório /doc/.
 Estes incluem explicações detalhadas de comandos de script de NPC, atcommands (@),
 permissões de grupo, bônus de itens e estruturas de pacotes, entre muitos outros tópicos. Recomendamos
 que todos os usuários tirem um tempo para examinar este diretório antes de pedir
 assistência em outro lugar.
 
-## 5. Como Contribuir
-Detalhes sobre como contribuir para o rAthena podem ser encontrados em [CONTRIBUTING.md](https://github.com/rathena/rathena/blob/master/.github/CONTRIBUTING.md)!
-
-## 6. Licença
-Copyright (c) Equipe de Desenvolvimento rAthena - Licenciado sob [Licença Pública Geral GNU v3.0](https://github.com/rathena/rathena/blob/master/LICENSE)
+## 5. Licença
+Copyright (c) Equipe de Desenvolvimento rAthena - Licenciado sob [Licença Pública Geral GNU v3.0](https://github.com/ValdersonRodrigues/prAthena/blob/main/LICENSE)
