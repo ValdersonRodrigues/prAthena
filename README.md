@@ -2,6 +2,7 @@
 
 
 > O prAthena é um projeto de tradução e colaborativo de desenvolvimento de software que gira em torno da criação de um pacote de servidor robusto para jogos de interpretação de papéis online massivamente multiplayer (MMORPG). Escrito em C++, o programa é muito versátil e fornece NPCs, warps e modificações. O projeto é gerenciado conjuntamente por um grupo de voluntários localizados em todo o mundo, bem como uma tremenda comunidade fornecendo QA e suporte. prAthena é uma continuação do projeto rAthena.
+
 --------|--------|--------|--------|--------|--------
 
 ### Índice
