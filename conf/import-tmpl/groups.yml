@@ -1,39 +1,39 @@
-# This file is a part of rAthena.
-#   Copyright(C) 2022 rAthena Development Team
+# Este arquivo é parte do rAthena.
+#   Copyright(C) 2022 Equipe de Desenvolvimento rAthena
 #   https://rathena.org - https://github.com/rathena
 #
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+# Este programa é software livre: você pode redistribuí-lo e/ou modificá-lo
+# sob os termos da Licença Pública Geral GNU conforme publicada pela
+# Free Software Foundation, seja a versão 3 da Licença, ou
+# (a seu critério) qualquer versão posterior.
 #
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
+# Este programa é distribuído na esperança de que seja útil,
+# mas SEM QUALQUER GARANTIA; sem mesmo a garantia implícita de
+# COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM DETERMINADO PROPÓSITO. Consulte a
+# Licença Pública Geral GNU para mais detalhes.
 #
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
-#
-###########################################################################
-# Player Group Database
-###########################################################################
-#
-# Player Group Settings
+# Você deve ter recebido uma cópia da Licença Pública Geral GNU
+# junto com este programa. Caso contrário, consulte <http://www.gnu.org/licenses/>.
 #
 ###########################################################################
-# - Id                    Group ID.
-#   Name                  Group name.
-#   Level                 GM Level used for ranking groups. (Default: 0)
-#   LogCommands           Whether atcommands should be logged or not. (Default: false)
-#   Commands:             List of atcommands that can be used by this group. (Default: none)
-#     <atcommand name>    Whether the specified atcommand can be used by this group or not.
-#   CharCommands:         List of charcommands that can be used by this group. (Default: none)
-#     <charcommand name>  Whether the specified charcommand can be used by this group or not.
-#   Permissions:          List of permissions the group has. (Default: none)
-#     <permission name>   Whether the group has this permission or not.
-#   Inherit:              List of groups that will be inherited. (Default: none)
-#     <group name>        Whether this group will be inherited or not.
+# Banco de Dados de Grupos de Jogadores
+###########################################################################
+#
+# Configurações de Grupos de Jogadores
+#
+###########################################################################
+# - Id                    ID do Grupo.
+#   Nome                  Nome do grupo.
+#   Nível                 Nível GM usado para classificar grupos. (Padrão: 0)
+#   LogCommands           Se atcommands devem ser registrados ou não. (Padrão: false)
+#   Commands:             Lista de atcommands que podem ser usados por este grupo. (Padrão: nenhum)
+#     <nome do atcommand> Se o atcommand especificado pode ser usado por este grupo ou não.
+#   CharCommands:         Lista de charcommands que podem ser usados por este grupo. (Padrão: nenhum)
+#     <nome do charcommand> Se o charcommand especificado pode ser usado por este grupo ou não.
+#   Permissions:          Lista de permissões que o grupo possui. (Padrão: nenhum)
+#     <nome da permissão> Se o grupo tem esta permissão ou não.
+#   Inherit:              Lista de grupos que serão herdados. (Padrão: nenhum)
+#     <nome do grupo>     Se este grupo será herdado ou não.
 ###########################################################################
 
 Header:
