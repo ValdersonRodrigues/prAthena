@@ -1,55 +1,55 @@
-# This file is a part of rAthena.
-#   Copyright(C) 2023 rAthena Development Team
+# Este arquivo é parte do rAthena.
+#   Copyright(C) 2021 rAthena Development Team
 #   https://rathena.org - https://github.com/rathena
 #
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+# Este programa é um software livre: você pode redistribuí-lo e/ou modificá-lo
+# sob os termos da GNU General Public License conforme publicada por
+# a Free Software Foundation, seja a versão 3 da Licença, ou
+# (a seu critério) qualquer versão posterior.
 #
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
+# Este programa é distribuído na esperança de que seja útil,
+# mas SEM QUALQUER GARANTIA; sem mesmo a garantia implícita de
+# COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM PROPÓSITO ESPECÍFICO. Consulte a
+# GNU General Public License para mais detalhes.
 #
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
-#
-###########################################################################
-# Homunculus Database
-###########################################################################
-#
-# Homunculus Settings
+# Você deve ter recebido uma cópia da GNU General Public License
+# junto com este programa. Caso contrário, consulte <http://www.gnu.org/licenses/>.
 #
 ###########################################################################
-# - BaseClass               Base class.
-#   Name                    Name of homunculus.
-#   EvolutionClass          Evolution class.
-#   Food                    Homunculus food item. (Default: Pet_Food)
-#   HungryDelay             Time interval in milliseconds after which the hunger value is altered. (Default: 60000)
-#   Race                    Race. (Default: Demihuman)
-#   Element                 Element. (Default: Neutral)
-#   Size                    Size. (Default: Small)
-#   EvolutionSize           Evolution size. (Default: Medium)
-#   AttackDelay             Base ASPD. (Default: 700)
-#   Status:                 Homunculus stats.
-#     - Type                Type of status.
-#       Base                Base value of this status. (Default: 1)
-#       GrowthMinimum       Minimum growth of this status. (Default: 0)
-#       GrowthMaximum       Maximum growth of this status. (Default: 0)
-#       EvolutionMinimum    Minimum evolution growth of this status. Only applies for homunculus that can evolve. (Default: 0)
-#       EvolutionMaximum    Maximum evolution growth of this status. Only applies for homunculus that can evolve. (Default: 0)
-#   SkillTree:              Skill tree.
-#     - Skill               Skill name.
-#       Clear               True to remove the given skill name. (Optional)
-#       MaxLevel            Maximum level of skill.
-#       RequiredLevel       Required base level of homunculus to learn. (Default: 0)
-#       RequiredIntimacy    Required intimacy of homunculus to learn. (Default: 0)
-#       RequireEvolution    Require the homunculus to be evolved to be available. (Default: false)
-#       Required:           Prerequisite skills. (Default: null)
-#         - Skill           Prerequisite skill name.
-#           Level           Level of prerequisite skill.
-#           Clear           True to remove the given prerequisite skill name. (Optional)
+# Banco de Dados de Homúnculos
+###########################################################################
+#
+# Configurações de Homúnculos
+#
+###########################################################################
+# - ClasseBase               Classe base.
+#   Nome                    Nome do homúnculo.
+#   ClasseEvolucao          Classe de evolução.
+#   Comida                  Item de comida do homúnculo. (Padrão: Pet_Food)
+#   IntervaloFome           Intervalo de tempo em milissegundos após o qual o valor de fome é alterado. (Padrão: 60000)
+#   Raca                    Raça. (Padrão: Semihumano)
+#   Elemento                Elemento. (Padrão: Neutro)
+#   Tamanho                 Tamanho. (Padrão: Pequeno)
+#   TamanhoEvolucao         Tamanho da evolução. (Padrão: Médio)
+#   AtrasoAtaque            Velocidade de ataque base (ASPD). (Padrão: 700)
+#   Status:                 Atributos do homúnculo.
+#     - Tipo                Tipo de status.
+#       Base                Valor base deste status. (Padrão: 1)
+#       CrescimentoMinimo   Crescimento mínimo deste status. (Padrão: 0)
+#       CrescimentoMaximo   Crescimento máximo deste status. (Padrão: 0)
+#       EvolucaoMinimo      Crescimento mínimo da evolução deste status. Aplica-se apenas a homúnculos que podem evoluir. (Padrão: 0)
+#       EvolucaoMaximo      Crescimento máximo da evolução deste status. Aplica-se apenas a homúnculos que podem evoluir. (Padrão: 0)
+#   ArvoreHabilidades:      Árvore de habilidades.
+#     - Habilidade          Nome da habilidade.
+#       Remover             True para remover o nome da habilidade fornecido. (Opcional)
+#       NivelMaximo         Nível máximo da habilidade.
+#       NivelRequerido      Nível base necessário do homúnculo para aprender. (Padrão: 0)
+#       IntimidadeRequerida Intimidade necessária do homúnculo para aprender. (Padrão: 0)
+#       RequerEvolucao      Requer que o homúnculo esteja evoluído para estar disponível. (Padrão: false)
+#       Requeridos:         Habilidades pré-requisito. (Padrão: null)
+#         - Habilidade      Nome da habilidade pré-requisito.
+#           Nivel           Nível da habilidade pré-requisito.
+#           Remover         True para remover o nome da habilidade pré-requisito fornecido. (Opcional)
 ###########################################################################
 
 Header:

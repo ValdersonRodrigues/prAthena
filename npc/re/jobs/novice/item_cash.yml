@@ -16,16 +16,18 @@
 # junto com este programa. Caso contrário, consulte <http://www.gnu.org/licenses/>.
 #
 ###########################################################################
-# Banco de Dados de Experiência de Guild
+# Banco de Dados de Itens da Loja de Cash
 ###########################################################################
 #
-# Configurações de Experiência de Guild
+# Configurações de Itens de Cash
 #
 ###########################################################################
-# - Nivel                Nível necessário.
-#   Exp                  Experiência necessária para subir de nível.
+# - Aba                     Aba da loja de cash. Abas disponíveis: Novos, Populares, Limitados, Aluguel, Permanentes, Pergaminhos, Consumíveis, Outros, Promoção.
+#   Itens:                  Lista de itens possíveis.
+#     - Item                Nome do item.
+#       Preco               Custo do item em pontos de cash (#CASHPOINTS).
 ###########################################################################
 
 Header:
-  Type: GUILD_EXP_DB
+  Type: ITEM_CASH_DB
   Version: 1

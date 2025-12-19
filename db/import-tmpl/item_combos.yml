@@ -1,32 +1,32 @@
-# This file is a part of rAthena.
-#   Copyright(C) 2022 rAthena Development Team
+# Este arquivo é parte do rAthena.
+#   Copyright(C) 2021 rAthena Development Team
 #   https://rathena.org - https://github.com/rathena
 #
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+# Este programa é um software livre: você pode redistribuí-lo e/ou modificá-lo
+# sob os termos da GNU General Public License conforme publicada por
+# a Free Software Foundation, seja a versão 3 da Licença, ou
+# (a seu critério) qualquer versão posterior.
 #
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
+# Este programa é distribuído na esperança de que seja útil,
+# mas SEM QUALQUER GARANTIA; sem mesmo a garantia implícita de
+# COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM PROPÓSITO ESPECÍFICO. Consulte a
+# GNU General Public License para mais detalhes.
 #
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
-#
-###########################################################################
-# Item Combo Database
-###########################################################################
-#
-# Settings
+# Você deve ter recebido uma cópia da GNU General Public License
+# junto com este programa. Caso contrário, consulte <http://www.gnu.org/licenses/>.
 #
 ###########################################################################
-# - Combos:                 List of combo sets.
-#    - Combo:               Sequence of items to define a combo (minimum of 2 items).
-#       - <item name>       AEGIS name of the item
-#   Script                  Script to execute when one of the combos is equipped. (Default: null)
-#   Clear                   Remove the defined combos from database. (Default: false)
+# Banco de Dados de Combos de Itens
+###########################################################################
+#
+# Configurações
+#
+###########################################################################
+# - Combos:                 Lista de conjuntos de combo.
+#    - Combo:               Sequência de itens para definir um combo (mínimo de 2 itens).
+#       - <nome do item>    Nome AEGIS do item
+#   Script                  Script a executar quando um dos combos é equipado. (Padrão: null)
+#   Remover                 Remove os combos definidos do banco de dados. (Padrão: false)
 ###########################################################################
 
 Header:

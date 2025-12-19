@@ -1,40 +1,40 @@
-# This file is a part of rAthena.
+# Este arquivo é parte do rAthena.
 #   Copyright(C) 2021 rAthena Development Team
 #   https://rathena.org - https://github.com/rathena
 #
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+# Este programa é um software livre: você pode redistribuí-lo e/ou modificá-lo
+# sob os termos da GNU General Public License conforme publicada por
+# a Free Software Foundation, seja a versão 3 da Licença, ou
+# (a seu critério) qualquer versão posterior.
 #
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
+# Este programa é distribuído na esperança de que seja útil,
+# mas SEM QUALQUER GARANTIA; sem mesmo a garantia implícita de
+# COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM PROPÓSITO ESPECÍFICO. Consulte a
+# GNU General Public License para mais detalhes.
 #
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
-#
-###########################################################################
-# Instance Database
-###########################################################################
-#
-# Instance Settings
+# Você deve ter recebido uma cópia da GNU General Public License
+# junto com este programa. Caso contrário, consulte <http://www.gnu.org/licenses/>.
 #
 ###########################################################################
-# - Id                Instance ID.
-#   Name              Instance Name.
-#   TimeLimit         Total lifetime of instance in seconds. Use 0 to define infinite time. (Default: 3600)
-#   IdleTimeOut       Time before an idle instance is destroyed in seconds. Use 0 to define infinite idle time. (Default: 300)
-#   NoNpc             Prevent copying NPCs from the source map. (Default: false)
-#   NoMapFlag         Prevent copying Mapflags from the source map. (Default: false)
-#   Destroyable       Toggles the ability to destroy the instance using instance 'Destroy' button. (Default: true)
-#                     Note: the button is displayed based on parties. For any mode, it requires the party leader to be the instance owner to destroy it.
-#   Enter:            Instance entrance coordinates.
-#     Map             Map Name where players start.
-#     X               X Coordinate where players start.
-#     Y               Y Coordinate where players start.
-#   AdditionalMaps:   List of maps that are part of an instance. (Optional)
+# Banco de Dados de Instâncias
+###########################################################################
+#
+# Configurações de Instâncias
+#
+###########################################################################
+# - Id                ID da instância.
+#   Nome              Nome da Instância.
+#   TempoLimite       Tempo total de vida da instância em segundos. Use 0 para definir tempo infinito. (Padrão: 3600)
+#   TempoInatividade  Tempo antes que uma instância inativa seja destruída em segundos. Use 0 para definir tempo de inatividade infinito. (Padrão: 300)
+#   SemNpc            Impede a cópia de NPCs do mapa de origem. (Padrão: false)
+#   SemMapFlag        Impede a cópia de MapFlags do mapa de origem. (Padrão: false)
+#   Destrutivel       Alterna a capacidade de destruir a instância usando o botão 'Destruir' da instância. (Padrão: true)
+#                     Nota: o botão é exibido baseado em grupos. Para qualquer modo, requer que o líder do grupo seja o dono da instância para destruí-la.
+#   Entrada:          Coordenadas de entrada da instância.
+#     Mapa            Nome do Mapa onde os jogadores começam.
+#     X               Coordenada X onde os jogadores começam.
+#     Y               Coordenada Y onde os jogadores começam.
+#   MapasAdicionais:  Lista de mapas que fazem parte de uma instância. (Opcional)
 ###########################################################################
 
 Header:
