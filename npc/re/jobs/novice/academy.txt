@@ -2298,101 +2298,101 @@ izlude_b,141,251,0	duplicate(Planta Vermelha Cultivada#0)	Planta Vermelha Cultiv
 izlude_c,141,251,0	duplicate(Planta Vermelha Cultivada#0)	Planta Vermelha Cultivada#c	1078,3,3
 izlude_d,141,251,0	duplicate(Planta Vermelha Cultivada#0)	Planta Vermelha Cultivada#d	1078,3,3
 
-// - Academy Student (Red Herb Quest)
+// - Estudante da Academia (Missão da Erva Vermelha)
 // -----------------------------------------------------------------------------
-izlude,140,249,7	script	Academy Student#0	4_M_NOV_RUMIN,{
+izlude,140,249,7	script	Estudante da Academia#0	4_M_NOV_RUMIN,{
 	if (!checkweight(1304,3)) {
-		mes "Your inventory is too full so you can't continue this quest.";
-		mes "Please try it again after organizing the items.";
+		mes "Seu inventário está muito cheio, então você não pode continuar esta missão.";
+		mes "Por favor, tente novamente após organizar os itens.";
 		close;
 	}
 	if (isbegin_quest(7478) == 1 && !isbegin_quest(7479)) {
-		specialeffect EF_STEAL, AREA, "Cultivated Red Plant#"+strnpcinfo(2);
-		donpcevent "Cultivated Red Plant#"+strnpcinfo(2)+"::OnDisable";
+		specialeffect EF_STEAL, AREA, "Planta Vermelha Cultivada#"+strnpcinfo(2);
+		donpcevent "Planta Vermelha Cultivada#"+strnpcinfo(2)+"::OnDisable";
 		emotion ET_SURPRISE, playerattached();
 		emotion ET_SMILE;
 		mes "[Lumin]";
-		mes "Hey there Turtle";
-		mes "You are really slow.";
-		mes "This Red Plant is no longer useful for you.";
+		mes "Ei, Tartaruga";
+		mes "Você é realmente lento.";
+		mes "Esta Planta Vermelha não é mais útil para você.";
 		cutin "nov_lumin01.bmp", 2;
 		next;
-		if (select("What are you talking about?", "Who're you?") == 1) {
+		if (select("Do que você está falando?", "Quem é você?") == 1) {
 			mes "[Lumin]";
-			mes "You heard me.";
-			mes "Aren't you here to collect the Red Plant for the Academy Therapist.";
+			mes "Você me ouviu.";
+			mes "Você não está aqui para coletar a Planta Vermelha para o Terapeuta da Academia?";
 			next;
 			mes "[Lumin]";
-			mes "But, But something weird just happened.";
-			mes "It happened right before my eyes.";
+			mes "Mas, algo estranho acabou de acontecer.";
+			mes "Aconteceu bem diante dos meus olhos.";
 			next;
 		} else {
 			if (isbegin_quest(7472) > 0 || isbegin_quest(7474) > 1) {
 				mes "[Lumin]";
-				mes "Did you lose your memory?";
-				mes "If the captain hears about it, he'll cry.";
-				mes "It is still ok as long as I remember you.";
+				mes "Você perdeu a memória?";
+				mes "Se o capitão ouvir sobre isso, ele vai chorar.";
+				mes "Ainda está tudo bem enquanto eu me lembrar de você.";
 				cutin "nov_lumin02.bmp", 2;
 				next;
 			} else {
 				mes "[Lumin]";
 				mes "Lumin.";
 				mes ".......";
-				mes "How about being happy?";
+				mes "Que tal ficar feliz?";
 				cutin "nov_lumin04.bmp", 2;
 				next;
 			}
 		}
 		mes "[Lumin]";
-		mes "Anyway, let me explain it to you, I have just cut all the leaves of this Red Plant.";
-		mes "You can't collect the Red Plant anymore.";
+		mes "De qualquer forma, deixe-me explicar, acabei de cortar todas as folhas desta Planta Vermelha.";
+		mes "Você não pode mais coletar a Planta Vermelha.";
 		cutin "nov_lumin02.bmp", 2;
 		next;
-		select("Ok so give me a ^ff0000Red Herb^000000");
+		select("Ok então me dê uma ^ff0000Erva Vermelha^000000");
 		mes "[Lumin]";
-		mes "OK... then...";
-		mes "I don't even need it anyways. I already know all about basic medical botany.";
+		mes "OK... então...";
+		mes "Eu nem preciso disso mesmo. Já sei tudo sobre botânica médica básica.";
 		cutin "nov_lumin03.bmp", 2;
 		next;
-		select("Then, why did you do it?");
+		select("Então, por que você fez isso?");
 		mes "[Lumin]";
-		mes "I didn't do it!";
-		mes "I was just standing here.";
+		mes "Eu não fiz!";
+		mes "Eu estava apenas parado aqui.";
 		cutin "nov_lumin05.bmp", 2;
 		next;
 		mes "[Lumin]";
-		mes "Here take this Red Herb.";
+		mes "Aqui, leve esta Erva Vermelha.";
 		cutin "nov_lumin01.bmp", 2;
 		setquest 7479;
 		completequest 7479;
-		getitem 507,1;// Red_Herb
+		getitem 507,1;// Erva_Vermelha
 		next;
 		mes "[Lumin]";
-		mes "Ah... see it's growing back.";
-		enablenpc "Cultivated Red Plant#"+strnpcinfo(2);
+		mes "Ah... veja, está crescendo novamente.";
+		enablenpc "Planta Vermelha Cultivada#"+strnpcinfo(2);
 		close2;
 	} else {
 		if (Class == Job_Novice) {
 			if (isbegin_quest(7478) == 1) {
 				mes "[Lumin]";
-				mes "I guess you should go back to the Therapist.";
-				mes "He's probably waiting for you..";
+				mes "Acho que você deveria voltar ao Terapeuta.";
+				mes "Ele provavelmente está esperando por você..";
 				cutin "nov_lumin01.bmp", 2;
 				close2;
 			} else {
-				mes "He seems to think of something deeply.";
-				mes "Disregard it.";
+				mes "Ele parece estar pensando profundamente em algo.";
+				mes "Ignore.";
 				close;
 			}
 		} else {
 			if (isbegin_quest(7479) == 2) {
-				mes "[Criatura Student]";
+				mes "[Estudante Criatura]";
 				mes ".......";
 				next;
-				mes "This student looks familiar...";
+				mes "Este estudante parece familiar...";
 				close;
 			} else {
-				mes "[Criatura Student]";
+				mes "[Estudante Criatura]";
 				mes ".......";
 				close;
 			}
@@ -2406,167 +2406,167 @@ OnInit:
 	end;
 }
 
-izlude_a,140,249,7	duplicate(Academy Student#0)	Academy Student#a	4_M_NOV_RUMIN
-izlude_b,140,249,7	duplicate(Academy Student#0)	Academy Student#b	4_M_NOV_RUMIN
-izlude_c,140,249,7	duplicate(Academy Student#0)	Academy Student#c	4_M_NOV_RUMIN
-izlude_d,140,249,7	duplicate(Academy Student#0)	Academy Student#d	4_M_NOV_RUMIN
+izlude_a,140,249,7	duplicate(Estudante da Academia#0)	Estudante da Academia#a	4_M_NOV_RUMIN
+izlude_b,140,249,7	duplicate(Estudante da Academia#0)	Estudante da Academia#b	4_M_NOV_RUMIN
+izlude_c,140,249,7	duplicate(Estudante da Academia#0)	Estudante da Academia#c	4_M_NOV_RUMIN
+izlude_d,140,249,7	duplicate(Estudante da Academia#0)	Estudante da Academia#d	4_M_NOV_RUMIN
 
-// - Instructor Argos (Trick Dead Quest)
+// - Instrutor Argos (Missão de Fingir de Morto)
 // -----------------------------------------------------------------------------
-izlude,140,260,3	script	Instructor Argos#iz	4_M_LIEMAN,{
+izlude,140,260,3	script	Instrutor Argos#iz	4_M_LIEMAN,{
 	if (Class != Job_Novice || getskilllv("NV_TRICKDEAD") != 0) {
-		mes "[Instructor Argos]";
-		mes "snoring... snoring...";
+		mes "[Instrutor Argos]";
+		mes "roncando... roncando...";
 		close;
 	}
 	if (isbegin_quest(15001) == 2) {
-		mes "[Instructor Argos]";
-		mes "snoring... snoring...";
+		mes "[Instrutor Argos]";
+		mes "roncando... roncando...";
 		close;
 	}
 	if (checkquest(15001,PLAYTIME) == -1) {
 		mes "- ......";
 		next;
-		mes "- A man is lying here";
-		mes "- he's barely breathing.";
+		mes "- Um homem está deitado aqui";
+		mes "- ele está mal respirando.";
 		next;
-		mes "- Is this maybe...?!";
+		mes "- Isso é talvez...?!";
 		next;
-		mes "- an accident...";
-		mes "- yes, this is a murder!";
-		mes "- There's a murderer here!";
+		mes "- um acidente...";
+		mes "- sim, isso é um assassinato!";
+		mes "- Há um assassino aqui!";
 		next;
-		mes "- I swear on some old person's grave";
-		mes "- I will solve this case!";
+		mes "- Eu juro no túmulo de alguma pessoa velha";
+		mes "- Vou resolver este caso!";
 		next;
-		mes "[Instructor Argos]";
-		mes "Yawn. Who are you making so much noise next to me...";
+		mes "[Instrutor Argos]";
+		mes "Bocejo. Quem está fazendo tanto barulho ao meu lado...";
 		next;
-		select("You aren't dead?");
+		select("Você não está morto?");
 		emotion ET_HUK, playerattached();
-		mes "[Instructor Argos]";
-		mes "Dead?! Who....?";
-		mes "me? Pu ha ha ha!!";
+		mes "[Instrutor Argos]";
+		mes "Morto?! Quem....?";
+		mes "eu? Pu ha ha ha!!";
 		next;
 		emotion ET_SMILE;
-		mes "[Instructor Argos]";
-		mes "Sorry for laughing. Ha ha ha!";
-		mes "I was just taking a nap because the weather is good.";
+		mes "[Instrutor Argos]";
+		mes "Desculpe por rir. Ha ha ha!";
+		mes "Eu estava apenas tirando uma soneca porque o tempo está bom.";
 		next;
-		select("But you weren't breathing...");
-		mes "[Instructor Argos]";
-		mes "Ahh...... that?";
-		mes "Right it makes sense that you misunderstood.";
+		select("Mas você não estava respirando...");
+		mes "[Instrutor Argos]";
+		mes "Ahh...... aquilo?";
+		mes "Certo, faz sentido que você tenha entendido errado.";
 		next;
-		mes "[Instructor Argos]";
-		mes "I used the skill<^ff0000Play Dead^000000> because I didn't want to be disturbed by monsters or someone else.";
+		mes "[Instrutor Argos]";
+		mes "Eu usei a habilidade<^ff0000Fingir de Morto^000000> porque não queria ser perturbado por monstros ou outra pessoa.";
 		next;
-		mes "[Instructor Argos]";
-		mes "I never thought someone would think of me as an actual dead body.";
+		mes "[Instrutor Argos]";
+		mes "Nunca pensei que alguém pensaria em mim como um cadáver real.";
 		next;
-		mes "[Instructor Argos]";
-		mes "Oh, I see... you are a new novice who just has arrived here?";
+		mes "[Instrutor Argos]";
+		mes "Oh, eu vejo... você é um novato que acabou de chegar aqui?";
 		next;
-		mes "[Instructor Argos]";
-		mes "I guess it is unexpected and surprising but do you want to learn <^ff0000Play Dead^000000>?";
+		mes "[Instrutor Argos]";
+		mes "Acho que é inesperado e surpreendente, mas você quer aprender <^ff0000Fingir de Morto^000000>?";
 		next;
-		mes "[Instructor Argos]";
-		mes "I am sure that it will help you. How do you think about it?";
+		mes "[Instrutor Argos]";
+		mes "Tenho certeza de que isso o ajudará. O que você acha?";
 		next;
-		if (select("I am sorry but I am busy.", "I want to learn it!") == 1) {
-			mes "[Instructor Argos]";
-			mes "Really ? If you are busy then fine by me.";
-			mes "I should keep sleeping.";
-			mes "yawning...";
+		if (select("Sinto muito, mas estou ocupado.", "Eu quero aprender!") == 1) {
+			mes "[Instrutor Argos]";
+			mes "Realmente? Se você está ocupado, tudo bem para mim.";
+			mes "Eu deveria continuar dormindo.";
+			mes "bocejando...";
 			close;
 		}
-		mes "[Instructor Argos]";
-		mes "You made a right decision!";
-		mes "I want to teach you for good.";
+		mes "[Instrutor Argos]";
+		mes "Você tomou a decisão certa!";
+		mes "Quero ensinar você bem.";
 		emotion ET_BEST;
 		next;
-		mes "[Instructor Argos]";
-		mes "A novice does not know the potential power of himself nor how strong the enemy is.";
+		mes "[Instrutor Argos]";
+		mes "Um novato não conhece o poder potencial de si mesmo nem quão forte é o inimigo.";
 		next;
-		mes "[Instructor Argos]";
-		mes "There is a studious type of novice who studies well..but i guess we are not.";
+		mes "[Instrutor Argos]";
+		mes "Há um tipo estudioso de novato que estuda bem..mas acho que não somos.";
 		next;
-		mes "[Instructor Argos]";
-		mes "Just take prompt action.";
-		mes "And sometimes you'll be defeated by stong enemies...";
+		mes "[Instrutor Argos]";
+		mes "Apenas tome medidas rápidas.";
+		mes "E às vezes você será derrotado por inimigos fortes...";
 		next;
-		mes "[Instructor Argos]";
-		mes "Huh? You're right this is my story.";
-		mes "I was getting sick of being defeated.";
+		mes "[Instrutor Argos]";
+		mes "Huh? Você está certo, esta é minha história.";
+		mes "Eu estava ficando cansado de ser derrotado.";
 		next;
-		mes "[Instructor Argos]";
-		mes "One day, a good idea came to my mind. If I pretend to be dead when I find a strong enemy...";
+		mes "[Instrutor Argos]";
+		mes "Um dia, uma boa ideia veio à minha mente. Se eu fingir estar morto quando encontrar um inimigo forte...";
 		next;
-		mes "[Instructor Argos]";
-		mes "I was faced with the risk of death, because I was not good at pretending to be dead.";
-		mes "Even when I look back at that time. it is still thrilling...";
+		mes "[Instrutor Argos]";
+		mes "Eu enfrentei o risco de morte, porque não era bom em fingir estar morto.";
+		mes "Mesmo quando olho para aquela época. ainda é emocionante...";
 		emotion ET_KEK;
 		next;
-		mes "[Instructor Argos]";
-		mes "let's continue to talk";
-		mes "So ever since then, Playing Dead started working out for me!";
+		mes "[Instrutor Argos]";
+		mes "vamos continuar a conversar";
+		mes "Então, desde então, Fingir de Morto começou a funcionar para mim!";
 		next;
-		mes "[Instructor Argos]";
-		mes "And then...";
-		mes "I could not hold a breath for a long time.";
-		mes "That was a problem!";
-		mes "Clever monsters were checking out my breath!";
+		mes "[Instrutor Argos]";
+		mes "E então...";
+		mes "Eu não conseguia segurar a respiração por muito tempo.";
+		mes "Isso era um problema!";
+		mes "Monstros espertos estavam verificando minha respiração!";
 		next;
-		mes "[Instructor Argos]";
-		mes "So I had to train myself to hold my breath for a long time.";
+		mes "[Instrutor Argos]";
+		mes "Então eu tive que me treinar para segurar a respiração por um longo tempo.";
 		next;
-		mes "[Instructor Argos]";
-		mes "Sounds complicated.. but it is quite simple.";
+		mes "[Instrutor Argos]";
+		mes "Parece complicado.. mas é bem simples.";
 		next;
-		mes "[Instructor Argos]";
-		mes "If you feel like you can not beat the enemy, when a strong one appears, just fall down on the ground and pretend to be dead.";
+		mes "[Instrutor Argos]";
+		mes "Se você acha que não pode vencer o inimigo, quando um forte aparecer, apenas caia no chão e finja estar morto.";
 		next;
-		mes "[Instructor Argos]";
-		mes "I will put you on a brief test whether you hold you breathe or not.";
+		mes "[Instrutor Argos]";
+		mes "Vou colocá-lo em um breve teste para ver se você segura a respiração ou não.";
 		next;
-		mes "[Instructor Argos]";
-		mes "Hold a breath for 20 seconds, then talk to me later. I won't admit you if you talk to me before that time is over!";
+		mes "[Instrutor Argos]";
+		mes "Segure a respiração por 20 segundos, então fale comigo depois. Não vou admitir você se falar comigo antes que esse tempo acabe!";
 		next;
-		mes "[Instructor Argos]";
-		mes "Start!";
+		mes "[Instrutor Argos]";
+		mes "Comece!";
 		close2;
 		setquest 15001;
 		end;
 	} else if (checkquest(15001,PLAYTIME) == 0) {
-		mes "[Instructor Argos]";
-		mes "What? You aren't able to hold your breath for even 20 seconds?";
-		mes "You can't learn this skill until you are able to hold it!";
+		mes "[Instrutor Argos]";
+		mes "O quê? Você não é capaz de segurar a respiração por 20 segundos?";
+		mes "Você não pode aprender esta habilidade até ser capaz de segurá-la!";
 		next;
-		mes "[Instructor Argos]";
-		mes "Hold breath for 20 seconds again!";
-		mes "Then talk to me.";
+		mes "[Instrutor Argos]";
+		mes "Segure a respiração por 20 segundos novamente!";
+		mes "Então fale comigo.";
 		close2;
 		erasequest 15001;
 		setquest 15001;
 		end;
 	} else {
-		mes "- Learned the <^ff0000Play Dead^000000>skill.";
+		mes "- Aprendeu a habilidade <^ff0000Fingir de Morto^000000>.";
 		completequest 15001;
 		skill "NV_TRICKDEAD", 1, 0;
 		skill_nov = 6;
 		next;
-		mes "[Instructor Argos]";
-		mes "Okay, good job.";
-		mes "If you have strong patience like that, it will save you. There will be no monsters that can hurt you.";
+		mes "[Instrutor Argos]";
+		mes "Ok, bom trabalho.";
+		mes "Se você tiver paciência forte assim, isso o salvará. Não haverá monstros que possam machucá-lo.";
 		next;
-		mes "[Instructor Argos]";
-		mes "The <^ff0000Play Dead^000000> skill is in your skill list which you can open by pressing <Alt + S>, Please do not forget to use it, it will save you when you are in a danger.";
+		mes "[Instrutor Argos]";
+		mes "A habilidade <^ff0000Fingir de Morto^000000> está em sua lista de habilidades que você pode abrir pressionando <Alt + S>, por favor, não esqueça de usá-la, ela o salvará quando você estiver em perigo.";
 		next;
-		mes "[Instructor Argos]";
-		mes "If you grow up and get another job, then you do not need this skill so do not spare it! Wse it when you need to and don't hesitate.";
+		mes "[Instrutor Argos]";
+		mes "Se você crescer e conseguir outra classe, então você não precisa desta habilidade, então não a economize! Use quando precisar e não hesite.";
 		next;
-		mes "[Instructor Argos]";
-		mes "I need to get some sleep, do not wake me up. Yawn.";
+		mes "[Instrutor Argos]";
+		mes "Preciso dormir um pouco, não me acorde. Bocejo.";
 		close;
 	}
 
@@ -2575,15 +2575,15 @@ OnInit:
 	end;
 }
 
-izlude_a,140,260,3	duplicate(Instructor Argos#iz)	Instructor Argos#iz_a	4_M_LIEMAN
-izlude_b,140,260,3	duplicate(Instructor Argos#iz)	Instructor Argos#iz_b	4_M_LIEMAN
-izlude_c,140,260,3	duplicate(Instructor Argos#iz)	Instructor Argos#iz_c	4_M_LIEMAN
-izlude_d,140,260,3	duplicate(Instructor Argos#iz)	Instructor Argos#iz_d	4_M_LIEMAN
+izlude_a,140,260,3	duplicate(Instrutor Argos#iz)	Instrutor Argos#iz_a	4_M_LIEMAN
+izlude_b,140,260,3	duplicate(Instrutor Argos#iz)	Instrutor Argos#iz_b	4_M_LIEMAN
+izlude_c,140,260,3	duplicate(Instrutor Argos#iz)	Instrutor Argos#iz_c	4_M_LIEMAN
+izlude_d,140,260,3	duplicate(Instrutor Argos#iz)	Instrutor Argos#iz_d	4_M_LIEMAN
 
-// - Academy Receptionist
-// - Gives player some basic equipment and starts Academy quests.
+// - Recepcionista da Academia
+// - Dá ao jogador algum equipamento básico e inicia as missões da Academia.
 // -----------------------------------------------------------------------------
-iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
+iz_ac01,100,39,5	script	Recepcionista da Academia#1	4_F_01,{
 	if (isbegin_quest(7117) == 1) { erasequest 7117; }
 	if (isbegin_quest(7118) == 1) { erasequest 7118; }
 	if (isbegin_quest(7119) == 1) { erasequest 7119; }
@@ -2596,187 +2596,187 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 	if (isbegin_quest(7127) == 1) {	erasequest 7127; }
 
 	if (isbegin_quest(4269) == 2) {
-		mes "[Receptionist]";
-		mes "Hello, " + strcharinfo(0) +".";
-		mes "How are you today?";
-		mes "I am in charge guiding you here in the Academy.";
+		mes "[Recepcionista]";
+		mes "Olá, " + strcharinfo(0) +".";
+		mes "Como você está hoje?";
+		mes "Eu sou responsável por guiá-lo aqui na Academia.";
 	} else {
-		mes "[Receptionist]";
-		mes "Welcome to our Academy. I am in charge with the guide and registration for Novice education courses.";
+		mes "[Recepcionista]";
+		mes "Bem-vindo à nossa Academia. Eu sou responsável pelo guia e registro para os cursos de educação de Novatos.";
 	}
 	next;
 	while(1) {
-		mes "[Receptionist]";
-		mes "What can I do for you?";
+		mes "[Recepcionista]";
+		mes "O que posso fazer por você?";
 		next;
 		if (isbegin_quest(4269) == 2)
-			.@menu$ = ":What's inside and outside the Academy.:Trainer location guide.:End Coversation.";
+			.@menu$ = ":O que há dentro e fora da Academia.:Guia de localização de treinadores.:Encerrar conversa.";
 		else
-			.@menu$ = "Register for the Academy:Explanation about the Academy:Location for trainers:Coversation finished";
+			.@menu$ = "Registrar-se na Academia:Explicação sobre a Academia:Localização dos treinadores:Conversa encerrada";
 		switch(select(.@menu$)) {
 		case 1:
 			if (Class == Job_Novice) {
 				if (!checkweight(1301,10)) {
-					mes "- As you are overloaded with too many items, quest can't be continued.-";
+					mes "- Como você está sobrecarregado com muitos itens, a missão não pode continuar.-";
 					close;
 				}
-				mes "[Receptionist]";
-				mes "Let me see... Your name is... " + strcharinfo(0) + ".";
-				mes "I will make a new registration for you.";
-				mes "You can choose the course freely and each course has individual features.";
+				mes "[Recepcionista]";
+				mes "Deixe-me ver... Seu nome é... " + strcharinfo(0) + ".";
+				mes "Vou fazer um novo registro para você.";
+				mes "Você pode escolher o curso livremente e cada curso tem características individuais.";
 				next;
-				mes "[Receptionist]";
-				mes "And this is the basic equipment for the educational course.";
-				mes "Please make a good use of it.";
-				mes "Be careful with it as it won't be provided again.";
+				mes "[Recepcionista]";
+				mes "E este é o equipamento básico para o curso educacional.";
+				mes "Por favor, faça bom uso dele.";
+				mes "Tenha cuidado com ele, pois não será fornecido novamente.";
 				setquest 4269;
 				completequest 4269;
-				getitem 2352,1;// Novice_Plate
-				getitem 2510,1;// Novice_Hood
-				getitem 2414,1;// Novice_Boots
-				getitem 5055,1;// Novice_Egg_Cap
-				getitem 1243,1;// Novice_Knife
-				getitem 2112,1;// Novice_Guard
-				getitem 18730,1;// Criatura_Academy_Hat
-				getitem 6593,1;// Criatura_Hair_Coupon
-				getitem 569,300;// Novice_Potion
+				getitem 2352,1;// Couraça de Novato
+				getitem 2510,1;// Capuz de Novato
+				getitem 2414,1;// Botas de Novato
+				getitem 5055,1;// Capacete de Ovo de Novato
+				getitem 1243,1;// Faca de Novato
+				getitem 2112,1;// Guarda de Novato
+				getitem 18730,1;// Chapéu da Academia Criatura
+				getitem 6593,1;// Cupom de Cabelo Criatura
+				getitem 569,300;// Poção de Novato
 				next;
-				mes "[Receptionist]";
-				mes "It is your first step to be an adventurer that you have made a visit to us.";
+				mes "[Recepcionista]";
+				mes "É seu primeiro passo para ser um aventureiro que você fez uma visita a nós.";
 				getexp 100,100;
 				next;
-				mes "[Receptionist]";
-				mes "On our next meeting, I anticipate you will grow up a bit more.";
-				//ConsumeSpecialItem Inspector_Certificate_
+				mes "[Recepcionista]";
+				mes "Em nosso próximo encontro, espero que você tenha crescido um pouco mais.";
+				//ConsumirItemEspecial Certificado_de_Inspetor_
 				close;
 			} else {
-				mes "[Receptionist]";
-				mes "One who is not a Novice can't attend the educational course.";
+				mes "[Recepcionista]";
+				mes "Quem não é um Novato não pode frequentar o curso educacional.";
 				next;
-				mes "[Receptionist]";
-				mes "However, a part of the educational course except the character cultivation can be freely attended. So, you may look around the Academy and neighboring places.";
+				mes "[Recepcionista]";
+				mes "No entanto, uma parte do curso educacional, exceto o cultivo de personagem, pode ser frequentada livremente. Então, você pode dar uma olhada na Academia e nos lugares vizinhos.";
 				close;
 			}
 		case 2:
-			switch(select("What's on the 1st floor", "What's on the 2nd floor", "Explanation about towns", "End Conversation")) {
+			switch(select("O que há no 1º andar", "O que há no 2º andar", "Explicação sobre cidades", "Encerrar conversa")) {
 			case 1:
-				mes "[Receptionist]";
-				mes "The first floor is equipped with instructors that give you lessons on how the world works here in Midgard.";
+				mes "[Recepcionista]";
+				mes "O primeiro andar está equipado com instrutores que lhe dão lições sobre como o mundo funciona aqui em Midgard.";
 				next;
-				mes "[Receptionist]";
-				mes "First of all, at the dispensary, you can learn how to recover your physical strength and learn a skill to heal your HP";
+				mes "[Recepcionista]";
+				mes "Primeiro, na enfermaria, você pode aprender como recuperar sua força física e aprender uma habilidade para curar seu HP";
 				next;
-				mes "[Receptionist]";
-				mes "At the armory, you can get simple training about battling monsters in Midgard.";
+				mes "[Recepcionista]";
+				mes "Na armaria, você pode obter treinamento simples sobre como lutar contra monstros em Midgard.";
 				next;
-				mes "[Receptionist]";
-				mes "At the cafeteria, you can practice cooking and and will learn its many benefits.";
+				mes "[Recepcionista]";
+				mes "No refeitório, você pode praticar culinária e aprender seus muitos benefícios.";
 				next;
 				break;
 			case 2:
-				mes "[Receptionist]";
-				mes "At the 2nd floor, there are trainers that will teach you about the different job classes in the world.";
+				mes "[Recepcionista]";
+				mes "No 2º andar, há treinadores que lhe ensinarão sobre as diferentes classes de trabalho no mundo.";
 				next;
-				mes "[Receptionist]";
-				mes "Listen to the trainers and decide for yourself which job suits your personal style.";
+				mes "[Recepcionista]";
+				mes "Ouça os treinadores e decida por si mesmo qual classe se adequa ao seu estilo pessoal.";
 				next;
 				break;
 			case 3:
-				mes "[Receptionist]";
-				mes "This town is called 'Izlude' the satellite and port city of the Capital City of the Rune-Midgarts Kingdom Prontera.";
+				mes "[Recepcionista]";
+				mes "Esta cidade é chamada 'Izlude', a cidade satélite e portuária da Cidade Capital do Reino de Rune-Midgarts Prontera.";
 				next;
-				mes "[Receptionist]";
-				mes "This town was re-organized to suit the education of Novices.";
+				mes "[Recepcionista]";
+				mes "Esta cidade foi reorganizada para se adequar à educação de Novatos.";
 				next;
 				break;
 			case 4:
-				mes "[Receptionist]";
-				mes "Please find me, if you need anything else.";
+				mes "[Recepcionista]";
+				mes "Por favor, encontre-me, se precisar de mais alguma coisa.";
 				//if (Class == Job_Novice)
-					//ConsumeSpecialItem Inspector_Certificate_
+					//ConsumirItemEspecial Certificado_de_Inspetor_
 				close;
 			}
 			break;
 		case 3:
 			while(1) {
-				switch(select("Game Mechanic Tutorial Instructors", "1st job trainers", "Return to the previous menu", "End Conversation")) {
+				switch(select("Instrutores de Tutorial de Mecânica de Jogo", "Treinadores de 1ª classe", "Voltar ao menu anterior", "Encerrar conversa")) {
 				case 1:
-					mes "[Receptionist]";
-					mes "Left-Click your mouse on the name of the trainer you are looking for and I will give guide you to them.";
+					mes "[Recepcionista]";
+					mes "Clique com o botão esquerdo do mouse no nome do treinador que você está procurando e eu o guiarei até eles.";
 					next;
-					mes "<NAVI>[Therapist]<INFO>iz_ac01,59,43</INFO></NAVI>, status recovery trainer";
-					mes "<NAVI>[Subino]<INFO>iz_ac01,59,83</INFO></NAVI>, battle trainer";
-					mes "<NAVI>[Mainz]<INFO>iz_ac01,134,47</INFO></NAVI>, abnormal stats trainer";
-					mes "<NAVI>[Dakuwazu]<INFO>iz_ac01,147,47</INFO></NAVI>, Cooking Trainer.";
-					mes "<NAVI>[Han]<INFO>izlude,153,126</INFO></NAVI>, Refining Trainer.";
-					mes "<NAVI>[Mounds]<INFO>izlude,96,125</INFO></NAVI> Enchanting Trainer.";
-					mes "<NAVI>[Cream Puff]<INFO>iz_ac02,143,55</INFO></NAVI>, Class Aptitude Test.";
+					mes "<NAVI>[Terapeuta]<INFO>iz_ac01,59,43</INFO></NAVI>, treinador de recuperação de status";
+					mes "<NAVI>[Subino]<INFO>iz_ac01,59,83</INFO></NAVI>, treinador de batalha";
+					mes "<NAVI>[Mainz]<INFO>iz_ac01,134,47</INFO></NAVI>, treinador de status anormais";
+					mes "<NAVI>[Dakuwazu]<INFO>iz_ac01,147,47</INFO></NAVI>, Treinador de Culinária.";
+					mes "<NAVI>[Han]<INFO>izlude,153,126</INFO></NAVI>, Treinador de Refinamento.";
+					mes "<NAVI>[Mounds]<INFO>izlude,96,125</INFO></NAVI> Treinador de Encantamento.";
+					mes "<NAVI>[Cream Puff]<INFO>iz_ac02,143,55</INFO></NAVI>, Teste de Aptidão de Classe.";
 					next;
-					mes "[Receptionist]";
-					mes "Is that helpful?";
+					mes "[Recepcionista]";
+					mes "Isso é útil?";
 					next;
-					if (select("Just a moment.", "I have to leave.") == 1) {
+					if (select("Só um momento.", "Tenho que ir.") == 1) {
 						continue;
 					} else {
 						if (Class == Job_Novice) {
-							mes "[Receptionist]";
-							mes "I believe you'll become nicer on our next meeting. Try your best~~~";
-							//ConsumeSpecialItem Inspector_Certificate_
+							mes "[Recepcionista]";
+							mes "Acredito que você se tornará mais legal em nosso próximo encontro. Tente o seu melhor~~~";
+							//ConsumirItemEspecial Certificado_de_Inspetor_
 							close;
 						} else {
-							mes "[Receptionist]";
-							mes "Please find me, if you need anything else.";
+							mes "[Recepcionista]";
+							mes "Por favor, encontre-me, se precisar de mais alguma coisa.";
 							close;
 						}
 					}
 				case 2:
-					mes "[Receptionist]";
-					mes "Left-Click your mouse on the name of the trainer you are looking for and I will give guide you to them.";
+					mes "[Recepcionista]";
+					mes "Clique com o botão esquerdo do mouse no nome do treinador que você está procurando e eu o guiarei até eles.";
 					next;
-					mes "Swordman Instructor <NAVI>[Adric]<INFO>iz_ac02,62,51</INFO></NAVI>";
-					mes "Acolyte Instructor <NAVI>[Alice]<INFO>iz_ac02,156,169</INFO></NAVI>";
-					mes "Archer Instructor <NAVI>[Marlbron]<INFO>iz_ac02,65,109</INFO></NAVI>";
-					mes "Mage Instructor <NAVI>[Chuck]<INFO>iz_ac02,148,110</INFO></NAVI> ";
-					mes "Thief Instructor <NAVI>[Mayssel]<INFO>iz_ac02,52,136</INFO></NAVI>";
-					mes "Merchant Instructor <NAVI>[Salim]<INFO>iz_ac02,50,169</INFO></NAVI>";
-					mes "Ninja Instructor <NAVI>[Ninja Guide]<INFO>iz_ac02,140,139</INFO></NAVI>";
-					mes "Gunslinger Instructor<NAVI>[Lusa]<INFO>iz_ac02,142,85</INFO></NAVI>";
-					mes "Taekwon Instructor <NAVI>[Arang]<INFO>iz_ac02,70,85</INFO></NAVI>";
+					mes "Instrutor Espadachim <NAVI>[Adric]<INFO>iz_ac02,62,51</INFO></NAVI>";
+					mes "Instrutor Acolyte <NAVI>[Alice]<INFO>iz_ac02,156,169</INFO></NAVI>";
+					mes "Instrutor Arqueiro <NAVI>[Marlbron]<INFO>iz_ac02,65,109</INFO></NAVI>";
+					mes "Instrutor Mago <NAVI>[Chuck]<INFO>iz_ac02,148,110</INFO></NAVI> ";
+					mes "Instrutor Ladrão <NAVI>[Mayssel]<INFO>iz_ac02,52,136</INFO></NAVI>";
+					mes "Instrutor Mercador <NAVI>[Salim]<INFO>iz_ac02,50,169</INFO></NAVI>";
+					mes "Instrutor Ninja <NAVI>[Guia Ninja]<INFO>iz_ac02,140,139</INFO></NAVI>";
+					mes "Instrutor Gunslinger<NAVI>[Lusa]<INFO>iz_ac02,142,85</INFO></NAVI>";
+					mes "Instrutor Taekwon <NAVI>[Arang]<INFO>iz_ac02,70,85</INFO></NAVI>";
 					next;
-					mes "[Receptionist]";
-					mes "Is that helpful?";
+					mes "[Recepcionista]";
+					mes "Isso é útil?";
 					next;
-					if (select("Just a moment.", "I have to leave.") == 1) {
+					if (select("Só um momento.", "Tenho que ir.") == 1) {
 						continue;
 					} else {
 						if (Class == Job_Novice) {
-							mes "[Receptionist]";
-							mes "I believe you'll become nicer on our next meeting. Try your best~~~";
-							//ConsumeSpecialItem Inspector_Certificate_
+							mes "[Recepcionista]";
+							mes "Acredito que você se tornará mais legal em nosso próximo encontro. Tente o seu melhor~~~";
+							//ConsumirItemEspecial Certificado_de_Inspetor_
 							close;
 						} else {
-							mes "[Receptionist]";
-							mes "Please find me, if you need anything else.";
+							mes "[Recepcionista]";
+							mes "Por favor, encontre-me, se precisar de mais alguma coisa.";
 							close;
 						}
 					}
 				case 3:
 					break;
 				case 4:
-					mes "[Receptionist]";
-					mes "Please find me, if you need anything else.";
+					mes "[Recepcionista]";
+					mes "Por favor, encontre-me, se precisar de mais alguma coisa.";
 					// if (Class == Job_Novice)
-						//ConsumeSpecialItem Inspector_Certificate_
+						//ConsumirItemEspecial Certificado_de_Inspetor_
 					close;
 				}
 				break;
 			}
 			break;
 		case 4:
-			mes "[Receptionist]";
-			mes "Please find me, if you need anything else.";
+			mes "[Recepcionista]";
+			mes "Por favor, encontre-me, se precisar de mais alguma coisa.";
 			// if (Class == Job_Novice)
-				//ConsumeSpecialItem Inspector_Certificate_
+				//ConsumirItemEspecial Certificado_de_Inspetor_
 			close;
 		}
 	}
@@ -2786,459 +2786,459 @@ OnInit:
 	end;
 }
 
-iz_ac01_a,100,39,5	duplicate(Academy Receptionist#1)	Academy Receptionist#1_a	4_F_01
-iz_ac01_b,100,39,5	duplicate(Academy Receptionist#1)	Academy Receptionist#1_b	4_F_01
-iz_ac01_c,100,39,5	duplicate(Academy Receptionist#1)	Academy Receptionist#1_c	4_F_01
-iz_ac01_d,100,39,5	duplicate(Academy Receptionist#1)	Academy Receptionist#1_d	4_F_01
+iz_ac01_a,100,39,5	duplicate(Recepcionista da Academia#1)	Recepcionista da Academia#1_a	4_F_01
+iz_ac01_b,100,39,5	duplicate(Recepcionista da Academia#1)	Recepcionista da Academia#1_b	4_F_01
+iz_ac01_c,100,39,5	duplicate(Recepcionista da Academia#1)	Recepcionista da Academia#1_c	4_F_01
+iz_ac01_d,100,39,5	duplicate(Recepcionista da Academia#1)	Recepcionista da Academia#1_d	4_F_01
 
-// - Trainer Mainz
-// - Teaches the player about Status Effects (poison, stun, etc).
+// - Treinador Mainz
+// - Ensina o jogador sobre Efeitos de Status (veneno, atordoamento, etc).
 // -----------------------------------------------------------------------------
-iz_ac01,134,47,5	script	Trainer Mainz#ac	4_M_KY_KNT,4,4,{
+iz_ac01,134,47,5	script	Treinador Mainz#ac	4_M_KY_KNT,4,4,{
 	if (!isbegin_quest(4269)) {
 		mes "[Mainz]";
 		mes "Ha ah....";
-		mes "What should I do with this lunchbox?";
+		mes "O que devo fazer com esta marmita?";
 		close;
 	}
 	if (isbegin_quest(15000) == 1) {
 		if (!checkweight(1201,1) || (MaxWeight - Weight) < 40) {
-			mes "- Here, just moment!! -";
-			mes "- As you are overloaded with too many items in your inventory -";
-			mes "- You can't receive the items anymore -";
-			mes "- Let yourself enlightened -";
-			mes "- and please try again -";
+			mes "- Aqui, só um momento!! -";
+			mes "- Como você está sobrecarregado com muitos itens no seu inventário -";
+			mes "- Você não pode receber mais itens -";
+			mes "- Deixe-se iluminado -";
+			mes "- e por favor tente novamente -";
 			close;
 		}
 		mes "[Mainz]";
-		mes "Are you ready to learn about abnormal statuses? I promise that I won't trick you anymore. I am a ''trainer'' after all right?";
+		mes "Você está pronto para aprender sobre status anormais? Prometo que não vou enganar você novamente. Afinal, sou um ''treinador'', certo?";
 		next;
 		mes "[Mainz]";
-		mes "First of all, I'll tell you about <^FF0000Poison^000000>.";
+		mes "Primeiro, vou falar sobre <^FF0000Veneno^000000>.";
 		next;
 		mes "[Mainz]";
-		mes "As you already experienced, when you are poisoned, your body turns purple and you lose a little HP every second.";
+		mes "Como você já experimentou, quando está envenenado, seu corpo fica roxo e você perde um pouco de HP a cada segundo.";
 		next;
 		mes "[Mainz]";
-		mes "You can't lose HP forever so you won't die from poison.";
+		mes "Você não pode perder HP para sempre, então não vai morrer de veneno.";
 		next;
 		mes "[Mainz]";
-		mes "Experiencing is believing! I will put you in a poisoned status.";
+		mes "Experimentar é acreditar! Vou colocá-lo em status de veneno.";
 		next;
 		mes "[Mainz]";
-		mes "See what happens to you in the poisoned status.";
+		mes "Veja o que acontece com você no status de veneno.";
 		next;
 		sc_start SC_POISON, 30000, 0;
-		mes "You are- <^FF0000Poisoned^000000>.";
+		mes "Você está- <^FF0000Envenenado^000000>.";
 		next;
 		mes "[Mainz]";
 		mes "......";
 		next;
 		sc_end SC_POISON;
 		mes "[Mainz]";
-		mes "Did you see what is the poisoned status? After a certain period of time, you could be detoxicated, but if you're being attached, it is dangerous to expect being detoxicated naturally.";
+		mes "Você viu qual é o status de veneno? Após um certo período de tempo, você poderia ser desintoxicado, mas se estiver sendo atacado, é perigoso esperar ser desintoxicado naturalmente.";
 		next;
 		mes "[Mainz]";
-		mes "Refer to the detoxicants such as <^0022FFGreen Herb^000000>, <^0022FFGreen Potion^000000>, <^0022FFPanacea^000000> and <^0022FFRoyal Jelly^000000>.";
+		mes "Consulte os desintoxicantes como <^0022FFErva Verde^000000>, <^0022FFPoção Verde^000000>, <^0022FFPanaceia^000000> e <^0022FFGeléia Real^000000>.";
 		next;
 		mes "[Mainz]";
-		mes "Next, I'll tell you about<^FF0000 Stun^000000.";
+		mes "Em seguida, vou falar sobre<^FF0000 Atordoamento^000000>.";
 		next;
 		mes "[Mainz]";
-		mes "While in the Stun status, stars will circle around your head and you can't move basically you'll be ''defenseless''.";
+		mes "Enquanto no status de Atordoamento, estrelas circularão ao redor de sua cabeça e você não poderá se mover, basicamente ficará ''indefeso''.";
 		next;
 		mes "[Mainz]";
-		mes "As you are defenseless, you can't move, use skills, and use items.";
-		mes "So, it is impossible to recover from it by yourself.";
+		mes "Como você está indefeso, não pode se mover, usar habilidades e usar itens.";
+		mes "Então, é impossível se recuperar sozinho.";
 		next;
 		mes "[Mainz]";
-		mes "The exceptional case is you can recover from it by the skill called <^0022FFGentle Touch-Cure^000000> if you are a Sura.";
+		mes "A exceção é que você pode se recuperar com a habilidade chamada <^0022FFToque Gentil-Cura^000000> se for um Sura.";
 		next;
 		mes "[Mainz]";
-		mes "You can recover with skills such as the Priest's <^0022FFRecovery ^000000> or the Arch Bishop's <^0022FFLauda Ramus^000000>.";
+		mes "Você pode se recuperar com habilidades como a do Sacerdote <^0022FFRecuperação ^000000> ou do Arcebispo <^0022FFLauda Ramus^000000>.";
 		next;
 		mes "[Mainz]";
-		mes "Let me show you what will happen in the Stun status!";
+		mes "Deixe-me mostrar o que acontecerá no status de Atordoamento!";
 		next;
 		sc_start SC_STUN, 30000, 0;
-		mes "<^FF0000 Stun ^000000>.";
+		mes "<^FF0000 Atordoamento ^000000>.";
 		next;
 		mes "[Mainz]";
 		mes "......";
 		next;
 		sc_end SC_STUN;
 		mes "[Mainz]";
-		mes "How was it?";
-		mes "Didn't you feel oppressed since you couldn't move?";
+		mes "Como foi?";
+		mes "Você não se sentiu oprimido por não poder se mover?";
 		next;
 		mes "[Mainz]";
-		mes "Imagine that you are in that status and monsters are rushing to you...";
-		mes "Believe me it'll happen.";
+		mes "Imagine que você está nesse status e monstros estão correndo em sua direção...";
+		mes "Acredite em mim, isso acontecerá.";
 		emotion ET_KEK;
 		next;
 		mes "[Mainz]";
-		mes "This time, I will teach you about <^FF0000Sleep^000000>.";
+		mes "Desta vez, vou ensiná-lo sobre <^FF0000Sono^000000>.";
 		next;
 		mes "[Mainz]";
-		mes "In Sleep status, you fall asleep with a <Zzz> popped up over your head.";
+		mes "No status de Sono, você adormece com um <Zzz> aparecendo sobre sua cabeça.";
 		next;
 		mes "[Mainz]";
-		mes "Same as the Stun status, you are defenseless, but the difference is you can recover from the enemy's attack.";
+		mes "Igual ao status de Atordoamento, você está indefeso, mas a diferença é que pode se recuperar do ataque do inimigo.";
 		next;
 		mes "[Mainz]";
-		mes "But in Sleep status, the possibility to be hit by ''Critical'' attacks from enemy's attack is increased, you are in danger and exposed a severe damage.";
+		mes "Mas no status de Sono, a possibilidade de ser atingido por ataques ''Críticos'' do ataque do inimigo é aumentada, você está em perigo e exposto a um dano severo.";
 		next;
 		mes "[Mainz]";
-		mes "For your reference, recovery by yourself is impossible and is only possible with the <^0022FF Recovery ^000000>skill of a Priest.";
+		mes "Para sua referência, a recuperação por si mesmo é impossível e só é possível com a habilidade <^0022FF Recuperação ^000000> de um Sacerdote.";
 		next;
 		mes "[Mainz]";
-		mes "Let me show you what will happen in the Sleep status.";
+		mes "Deixe-me mostrar o que acontecerá no status de Sono.";
 		next;
 		sc_start SC_SLEEP, 30000, 0;
-		mes "<^FF0000 Sleep ^000000>.";
+		mes "<^FF0000 Sono ^000000>.";
 		next;
 		mes "[Mainz]";
 		mes "......";
 		next;
 		sc_end SC_SLEEP;
 		mes "[Mainz]";
-		mes "How was it? It isn't fun to imagine being asleep in front of a dangerous enemy is it?";
+		mes "Como foi? Não é divertido imaginar estar adormecido na frente de um inimigo perigoso, é?";
 		next;
 		mes "[Mainz]";
-		mes "Sleep is good for recovery but not necessarily good while you're in the middle of a battle.";
+		mes "O sono é bom para a recuperação, mas não necessariamente bom enquanto você está no meio de uma batalha.";
 		emotion ET_SPARK;
 		next;
 		mes "[Mainz]";
-		mes "Lastly, I will teach you about  <^FF0000 Silence ^000000>.";
+		mes "Por último, vou ensiná-lo sobre <^FF0000 Silêncio ^000000>.";
 		next;
 		mes "[Mainz]";
-		mes "In Silence status,  you can't use any magic skills and a <...> will appear above your head.";
+		mes "No status de Silêncio, você não pode usar nenhuma habilidade mágica e um <...> aparecerá acima de sua cabeça.";
 		next;
 		mes "[Mainz]";
-		mes "But all attacks are not impossible. Normal attacks can still be done while silenced.";
+		mes "Mas todos os ataques não são impossíveis. Ataques normais ainda podem ser feitos enquanto em silêncio.";
 		next;
 		mes "[Mainz]";
-		mes "In the silence status, you can merely still physically attack or recover by using potions.";
+		mes "No status de silêncio, você pode meramente ainda atacar fisicamente ou se recuperar usando poções.";
 		next;
 		mes "[Mainz]";
-		mes "It's possible to recover with the items such as<^0022FF Green Herb^000000>, <^0022FFGreen Potion^000000>, <^0022FFPanacea^000000> and <^0022FFRoyal Jelly^000000>.";
+		mes "É possível se recuperar com itens como<^0022FF Erva Verde^000000>, <^0022FFPoção Verde^000000>, <^0022FFPanaceia^000000> e <^0022FFGeléia Real^000000>.";
 		next;
 		mes "[Mainz]";
-		mes "Let me show you what will happen in Sleep status.";
+		mes "Deixe-me mostrar o que acontecerá no status de Sono.";
 		next;
 		sc_start SC_SILENCE, 30000, 0;
-		mes "<^FF0000Silence^000000>";
+		mes "<^FF0000Silêncio^000000>";
 		next;
 		mes "[Mainz]";
 		mes "......";
 		next;
 		sc_end SC_SILENCE;
 		mes "[Mainz]";
-		mes "It's frustrating to not be able to use your skills right?";
+		mes "É frustrante não poder usar suas habilidades, certo?";
 		next;
 		mes "[Mainz]";
-		mes "Especially, when you are a high class depending upon the skills rather than physical attacks or in Sleep status during the battle, you will be damaged severely.";
+		mes "Especialmente, quando você é uma classe alta dependendo mais das habilidades do que de ataques físicos ou em status de Sono durante a batalha, você será severamente danificado.";
 		next;
 		mes "[Mainz]";
-		mes "In addtion, there are other statuses like Darkness, Frozen, Curse, Stone, Confusion etc, but I can let you experience all of them.";
+		mes "Além disso, há outros status como Escuridão, Congelado, Maldição, Pedra, Confusão, etc, mas não posso deixar você experimentar todos.";
 		next;
 		mes "[Mainz]";
-		mes "I hope this was helpful for you to experience some of the things that you will see out in the world.";
+		mes "Espero que isso tenha sido útil para você experimentar algumas das coisas que verá no mundo.";
 		next;
 		mes "[Mainz]";
-		mes "Whenever you want to experience an abnormal status, please come to me.";
+		mes "Sempre que quiser experimentar um status anormal, por favor, venha até mim.";
 		next;
 		mes "[Mainz]";
-		mes "As an apology for the lunchbox matter, I will give you a small gift.";
+		mes "Como desculpa pelo assunto da marmita, vou dar um pequeno presente.";
 		next;
 		mes "[Mainz]";
-		mes "Wish you have good luck in your adventures!";
+		mes "Desejo que tenha boa sorte em suas aventuras!";
 		completequest 15000;
-		getitem 512,10;// Apple
+		getitem 512,10;// Maçã
 		getexp 180,100;
 		close;
 	} else if (isbegin_quest(4269) && !isbegin_quest(15000)) {
 		mes "[Mainz]";
-		mes "Hey, you there!";
-		mes "By any chance, are you a training beginner?";
+		mes "Ei, você aí!";
+		mes "Por acaso, você é um iniciante em treinamento?";
 		emotion ET_SPARK;
 		next;
 		mes "[Mainz]";
-		mes "I'm Trainer Mainz; and I'm in charge of education at this Academy.";
+		mes "Eu sou o Treinador Mainz; e sou responsável pela educação nesta Academia.";
 		next;
 		mes "[Mainz]";
-		mes "Which course?";
-		mes "It is not important so I will let you know later.";
+		mes "Qual curso?";
+		mes "Não é importante, então vou deixar você saber depois.";
 		next;
 		mes "[Mainz]";
-		mes "You must be very exhausted after having to read and learn so much right?";
+		mes "Você deve estar muito exausto depois de ter que ler e aprender tanto, certo?";
 		next;
 		mes "[Mainz]";
-		mes "Of course, you are... Oh, you poor thing.";
+		mes "Claro, você está... Oh, você coitado.";
 		next;
 		mes "[Mainz]";
-		mes "There's a person who can help you when you need it.";
-		mes "Do you know who is it?";
+		mes "Há uma pessoa que pode ajudá-lo quando você precisar.";
+		mes "Você sabe quem é?";
 		next;
 		mes "[Mainz]";
-		mes "That's me!";
+		mes "Sou eu!";
 		next;
 		mes "[Mainz]";
-		mes "What does that mean?";
-		mes "It means I have prepared a special gift just for your exhausted self!";
+		mes "O que isso significa?";
+		mes "Significa que preparei um presente especial apenas para você, exausto!";
 		next;
 		mes "[Mainz]";
-		mes "A lunchbox for you!!! Hahahaha!";
+		mes "Uma marmita para você!!! Hahahaha!";
 		next;
 		mes "[Mainz]";
-		mes "Since I'm not the one who made it don't worry.";
-		mes "My beloved wife prepared it. So, just be my guest and enjoy!";
+		mes "Como não fui eu quem fez, não se preocupe.";
+		mes "Minha amada esposa preparou. Então, seja meu convidado e aproveite!";
 		next;
-		if (select("Don't take it.", "Take it.") == 1) {
+		if (select("Não aceitar.", "Aceitar.") == 1) {
 			mes "[Mainz]";
-			mes "You don't want to have this lunchbox? I guess it's your loss then.";
+			mes "Você não quer esta marmita? Acho que é sua perda então.";
 			next;
 			mes "[Mainz]";
-			mes "Should I just take it for myself then?";
+			mes "Devo apenas pegar para mim então?";
 			close2;
 			emotion ET_OHNO;
 			end;
 		}
 		mes "[Mainz]";
-		mes "Yes... You made a right decision.";
-		mes "Please keep in mind that I really wanted to have it but since you look exhausted I offered it to you first!";
+		mes "Sim... Você tomou a decisão certa.";
+		mes "Por favor, lembre-se que eu realmente queria tê-la, mas como você parece exausto, ofereci a você primeiro!";
 		emotion ET_BEST;
 		next;
-		mes "- You open the lunchbox and there is some type of food inside -";
+		mes "- Você abre a marmita e há algum tipo de comida dentro -";
 		next;
 		mes "[Mainz]";
-		mes "Wahahahat! Don't hesitate and just take it!";
-		mes "It will refresh you from your fatigue!";
-		mes "Eat it~~ Eat it~~";
+		mes "Wahahahat! Não hesite e apenas pegue!";
+		mes "Isso vai refrescá-lo de sua fadiga!";
+		mes "Coma~~ Coma~~";
 		next;
-		mes "- Since you're tired and starved you're obliged to take the box -";
+		mes "- Como você está cansado e faminto, é obrigado a pegar a caixa -";
 		next;
 		mes ".........";
 		next;
 		sc_start SC_POISON, 60000, 0;
-		mes "- You eat the food and suddenly feel a sharp pain in your stomach. Your vision seems to be blurry too -";
+		mes "- Você come a comida e de repente sente uma dor aguda no estômago. Sua visão parece estar embaçada também -";
 		next;
 		mes "[Mainz]";
-		mes "Oh... what happened to you?";
-		mes "You don't look too good!";
+		mes "Oh... o que aconteceu com você?";
+		mes "Você não parece muito bem!";
 		emotion ET_QUESTION;
 		next;
 		mes "[Mainz]";
-		mes "Oh, man...";
-		mes "I think you've been poisoned.";
+		mes "Oh, cara...";
+		mes "Acho que você foi envenenado.";
 		next;
 		mes "[Mainz]";
-		mes "I will give you an antidote. You might get better if you take it.";
+		mes "Vou dar um antídoto. Você pode melhorar se tomar.";
 		next;
-		mes "- You reluctantly take the antidote -";
+		mes "- Você relutantemente toma o antídoto -";
 		sc_end SC_POISON;
 		percentheal 100,0;
 		next;
 		mes "[Mainz]";
-		mes "Well, how the heck were you poisoned?";
+		mes "Bem, como diabos você foi envenenado?";
 		next;
 		mes "[Mainz]";
-		mes "By the way, I heard that there's a ghost wandering around the Royal Criatura Academy.";
+		mes "A propósito, ouvi dizer que há um fantasma vagando pela Real Academia Criatura.";
 		next;
 		mes "[Mainz]";
-		mes "I think the ghost must have poisoned you.";
+		mes "Acho que o fantasma deve ter envenenado você.";
 		next;
-		mes "- You roll your eyes at Mainz -";
-		mes "- Mainz turns his head as if he doesn't notice -";
+		mes "- Você revira os olhos para Mainz -";
+		mes "- Mainz vira a cabeça como se não percebesse -";
 		emotion ET_STARE;
 		next;
 		mes "[Mainz]";
-		mes "Ehem! Anyway, I am sorry.";
-		mes "Please understand there is no malice.";
+		mes "Ehem! De qualquer forma, sinto muito.";
+		mes "Por favor, entenda que não há malícia.";
 		next;
 		mes "[Mainz]";
-		mes "All of these are for you...";
-		mes "Want to know what I mean?";
+		mes "Tudo isso é para você...";
+		mes "Quer saber o que quero dizer?";
 		next;
 		mes "[Mainz]";
-		mes "There are various kinds of monsters on the Midgard continent. And some of them can poison you or put you in abnormal conditions.";
+		mes "Existem vários tipos de monstros no continente de Midgard. E alguns deles podem envenená-lo ou colocá-lo em condições anormais.";
 		next;
 		mes "[Mainz]";
-		mes "Usually, anybody is too embarrassed to admit being poisoned without knowing.  I just did it on purpose to let you have the experience in case it happens out in the real world.";
+		mes "Geralmente, qualquer um fica muito envergonhado por admitir estar envenenado sem saber. Eu apenas fiz de propósito para deixar você ter a experiência caso aconteça no mundo real.";
 		next;
 		mes "[Mainz]";
-		mes "Understand that I didn't intend to pass my wife's lunchbox as if it was a present. It was just another lesson from the Criatura Academy.";
+		mes "Entenda que não pretendia passar a marmita da minha esposa como se fosse um presente. Foi apenas outra lição da Academia Criatura.";
 		emotion ET_OTL;
 		next;
 		mes "[Mainz]";
-		mes "As an apology, I would like to inform you of several abnormal statuses you might experience in the Midgard Continent.";
+		mes "Como desculpa, gostaria de informá-lo sobre vários status anormais que você pode experimentar no Continente Midgard.";
 		next;
 		mes "[Mainz]";
-		mes "Don't decline it! Being ready to learn so speak to me again.";
+		mes "Não recuse! Estar pronto para aprender, então fale comigo novamente.";
 		setquest 15000;
 		close2;
 		emotion ET_SORRY;
 		end;
 	} else {
 		mes "[Mainz]";
-		mes "Are you here for an explanation about the abnormal statuses? What makes you anxious?";
+		mes "Você está aqui para uma explicação sobre os status anormais? O que o deixa ansioso?";
 		next;
 		while(1) {
-			switch(select("<^FF0000Poison^000000>", "<^FF0000Stun^000000>", "<^FF0000Sleep^000000>", "<^FF0000Silence ^000000>", "I have no questions.")) {
+			switch(select("<^FF0000Veneno^000000>", "<^FF0000Atordoamento^000000>", "<^FF0000Sono^000000>", "<^FF0000Silêncio ^000000>", "Não tenho perguntas.")) {
 			case 1:
 				mes "[Mainz]";
-				mes "I'll tell you about <^FF0000Poison^000000>.";
+				mes "Vou falar sobre <^FF0000Veneno^000000>.";
 				next;
 				mes "[Mainz]";
-				mes "As you already experienced, when you are poisoned, your body turns purple and you lose a little HP every second.";
+				mes "Como você já experimentou, quando está envenenado, seu corpo fica roxo e você perde um pouco de HP a cada segundo.";
 				next;
 				mes "[Mainz]";
-				mes "You can't lose HP forever so you won't die from poison.";
+				mes "Você não pode perder HP para sempre, então não vai morrer de veneno.";
 				next;
 				mes "[Mainz]";
-				mes "Experiencing is believing! I will put you in a poisoned status.";
+				mes "Experimentar é acreditar! Vou colocá-lo em status de veneno.";
 				next;
 				mes "[Mainz]";
-				mes "See what happens to you in the poisoned status.";
+				mes "Veja o que acontece com você no status de veneno.";
 				next;
 				sc_start SC_POISON, 30000, 0;
-				mes "You are- <^FF0000Poisoned^000000>.";
+				mes "Você está- <^FF0000Envenenado^000000>.";
 				next;
 				mes "[Mainz]";
 				mes "......";
 				next;
 				sc_end SC_POISON;
 				mes "[Mainz]";
-				mes "Did you see what is the poisoned status? After a certain period of time, you could be detoxicated, but if you're being attached, it is dangerous to expect being detoxicated naturally.";
+				mes "Você viu qual é o status de veneno? Após um certo período de tempo, você poderia ser desintoxicado, mas se estiver sendo atacado, é perigoso esperar ser desintoxicado naturalmente.";
 				next;
 				mes "[Mainz]";
-				mes "Refer to the detoxicants such as <^0022FFGreen Herb^000000>, <^0022FFGreen Potion^000000>, <^0022FFPanacea^000000> and <^0022FFRoyal Jelly^000000>.";
+				mes "Consulte os desintoxicantes como <^0022FFErva Verde^000000>, <^0022FFPoção Verde^000000>, <^0022FFPanaceia^000000> e <^0022FFGeléia Real^000000>.";
 				next;
 				mes "[Mainz]";
-				mes "What else are you anxious about?";
+				mes "Mais alguma coisa com que você está ansioso?";
 				next;
 				break;
 			case 2:
 				mes "[Mainz]";
-				mes "I'll tell you about <^FF0000Stun^000000>.";
+				mes "Vou falar sobre <^FF0000Atordoamento^000000>.";
 				next;
 				mes "[Mainz]";
-				mes "While in the Stun status, stars will circle around your head and you can't move basically you'll be ''defenseless''.";
+				mes "Enquanto no status de Atordoamento, estrelas circularão ao redor de sua cabeça e você não poderá se mover, basicamente ficará ''indefeso''.";
 				next;
 				mes "[Mainz]";
-				mes "As you are defenseless, you can't move, use skills, and use items.";
-				mes "So, it is impossible to recover from it by yourself.";
+				mes "Como você está indefeso, não pode se mover, usar habilidades e usar itens.";
+				mes "Então, é impossível se recuperar sozinho.";
 				next;
 				mes "[Mainz]";
-				mes "The exceptional case is you can recover from it by the skill called <^0022FFGentle Touch-Cure^000000> if you are a Sura.";
+				mes "A exceção é que você pode se recuperar com a habilidade chamada <^0022FFToque Gentil-Cura^000000> se for um Sura.";
 				next;
 				mes "[Mainz]";
-				mes "You can recover with skills such as the Priest's <^0022FFRecovery ^000000> or the Arch Bishop's <^0022FFLauda Ramus^000000>.";
+				mes "Você pode se recuperar com habilidades como a do Sacerdote <^0022FFRecuperação ^000000> ou do Arcebispo <^0022FFLauda Ramus^000000>.";
 				next;
 				mes "[Mainz]";
-				mes "Let me show you what will happen in the Stun status!";
+				mes "Deixe-me mostrar o que acontecerá no status de Atordoamento!";
 				next;
 				sc_start SC_STUN, 30000, 0;
-				mes "<^FF0000 Stun ^000000>.";
+				mes "<^FF0000 Atordoamento ^000000>.";
 				next;
 				mes "[Mainz]";
 				mes "......";
 				next;
 				sc_end SC_STUN;
 				mes "[Mainz]";
-				mes "How was it?";
-				mes "Didn't you feel oppressed since you couldn't move?";
+				mes "Como foi?";
+				mes "Você não se sentiu oprimido por não poder se mover?";
 				next;
 				mes "[Mainz]";
-				mes "Imagine that you are in that status and monsters are rushing to you...";
-				mes "Believe me it'll happen.";
+				mes "Imagine que você está nesse status e monstros estão correndo em sua direção...";
+				mes "Acredite em mim, isso acontecerá.";
 				emotion ET_KEK;
 				next;
 				mes "[Mainz]";
-				mes "What else are you anxious about?";
+				mes "Mais alguma coisa com que você está ansioso?";
 				next;
 				break;
 			case 3:
 				mes "[Mainz]";
-				mes "I will teach you about <^FF0000Sleep^000000>.";
+				mes "Vou ensiná-lo sobre <^FF0000Sono^000000>.";
 				next;
 				mes "[Mainz]";
-				mes "In Sleep status, you fall asleep with a <Zzz> popped up over your head.";
+				mes "No status de Sono, você adormece com um <Zzz> aparecendo sobre sua cabeça.";
 				next;
 				mes "[Mainz]";
-				mes "Same as the Stun status, you are defenseless, but the difference is you can recover from the enemy's attack.";
+				mes "Igual ao status de Atordoamento, você está indefeso, mas a diferença é que pode se recuperar do ataque do inimigo.";
 				next;
 				mes "[Mainz]";
-				mes "But in Sleep status, the possibility to be hit by ''Critical'' attacks from enemy's attack is increased, you are in danger and exposed a severe damage.";
+				mes "Mas no status de Sono, a possibilidade de ser atingido por ataques ''Críticos'' do ataque do inimigo é aumentada, você está em perigo e exposto a um dano severo.";
 				next;
 				mes "[Mainz]";
-				mes "For your reference, recovery by yourself is impossible and is only possible with the <^0022FF Recovery ^000000>skill of a Priest.";
+				mes "Para sua referência, a recuperação por si mesmo é impossível e só é possível com a habilidade <^0022FF Recuperação ^000000> de um Sacerdote.";
 				next;
 				mes "[Mainz]";
-				mes "Let me show you what will happen in the Sleep status.";
+				mes "Deixe-me mostrar o que acontecerá no status de Sono.";
 				next;
 				sc_start SC_SLEEP, 30000, 0;
-				mes "<^FF0000 Sleep ^000000>.";
+				mes "<^FF0000 Sono ^000000>.";
 				next;
 				mes "[Mainz]";
 				mes "......";
 				next;
 				sc_end SC_SLEEP;
 				mes "[Mainz]";
-				mes "How was it? It isn't fun to imagine being asleep in front of a dangerous enemy is it?";
+				mes "Como foi? Não é divertido imaginar estar adormecido na frente de um inimigo perigoso, é?";
 				next;
 				mes "[Mainz]";
-				mes "Sleep is good for recovery but not necessarily good while you're in the middle of a battle.";
+				mes "O sono é bom para a recuperação, mas não necessariamente bom enquanto você está no meio de uma batalha.";
 				emotion ET_SPARK;
 				next;
 				mes "[Mainz]";
-				mes "What else are you anxious about?";
+				mes "Mais alguma coisa com que você está ansioso?";
 				next;
 				break;
 			case 4:
 				mes "[Mainz]";
-				mes "I will teach you about  <^FF0000 Silence ^000000>.";
+				mes "Vou ensiná-lo sobre <^FF0000 Silêncio ^000000>.";
 				next;
 				mes "[Mainz]";
-				mes "In Silence status,  you can't use any magic skills and a <...> will appear above your head.";
+				mes "No status de Silêncio, você não pode usar nenhuma habilidade mágica e um <...> aparecerá acima de sua cabeça.";
 				next;
 				mes "[Mainz]";
-				mes "But all attacks are not impossible. Normal attacks can still be done while silenced.";
+				mes "Mas todos os ataques não são impossíveis. Ataques normais ainda podem ser feitos enquanto em silêncio.";
 				next;
 				mes "[Mainz]";
-				mes "In the silence status, you can merely still physically attack or recover by using potions.";
+				mes "No status de silêncio, você pode meramente ainda atacar fisicamente ou se recuperar usando poções.";
 				next;
 				mes "[Mainz]";
-				mes "It's possible to recover with the items such as<^0022FF Green Herb^000000>, <^0022FFGreen Potion^000000>, <^0022FFPanacea^000000> and <^0022FFRoyal Jelly^000000>.";
+				mes "É possível se recuperar com itens como<^0022FF Erva Verde^000000>, <^0022FFPoção Verde^000000>, <^0022FFPanaceia^000000> e <^0022FFGeléia Real^000000>.";
 				next;
 				mes "[Mainz]";
-				mes "Let me show you what will happen in Sleep status.";
+				mes "Deixe-me mostrar o que acontecerá no status de Sono.";
 				next;
 				sc_start SC_SILENCE, 30000, 0;
-				mes "<^FF0000Silence^000000>";
+				mes "<^FF0000Silêncio^000000>";
 				next;
 				mes "[Mainz]";
 				mes "......";
 				next;
 				sc_end SC_SILENCE;
 				mes "[Mainz]";
-				mes "It's frustrating to not be able to use your skills right?";
+				mes "É frustrante não poder usar suas habilidades, certo?";
 				next;
 				mes "[Mainz]";
-				mes "Especially, when you are a high class depending upon the skills rather than physical attacks or in Sleep status during the battle, you will be damaged severely.";
+				mes "Especialmente, quando você é uma classe alta dependendo mais das habilidades do que de ataques físicos ou em status de Sono durante a batalha, você será severamente danificado.";
 				next;
 				mes "[Mainz]";
-				mes "Do you have any more questions?";
+				mes "Você tem mais alguma pergunta?";
 				next;
 				break;
 			case 5:
 				mes "[Mainz]";
-				mes "If you don't have any more questions, would you please have my lunchbox on behalf of me?";
-				mes "No?";
+				mes "Se você não tem mais perguntas, por favor, teria minha marmita em meu nome?";
+				mes "Não?";
 				next;
 				mes "[Mainz]";
 				mes "Haaaaa...";
-				mes "What should I do with this lunchbox?";
+				mes "O que devo fazer com esta marmita?";
 				close2;
 				emotion ET_OHNO;
 				end;
@@ -3251,389 +3251,389 @@ OnTouch_:
 	end;
 }
 
-iz_ac01_a,134,47,5	duplicate(Trainer Mainz#ac)	Trainer Mainz#ac_a	4_M_KY_KNT,4,4
-iz_ac01_b,134,47,5	duplicate(Trainer Mainz#ac)	Trainer Mainz#ac_b	4_M_KY_KNT,4,4
-iz_ac01_c,134,47,5	duplicate(Trainer Mainz#ac)	Trainer Mainz#ac_c	4_M_KY_KNT,4,4
-iz_ac01_d,134,47,5	duplicate(Trainer Mainz#ac)	Trainer Mainz#ac_d	4_M_KY_KNT,4,4
+iz_ac01_a,134,47,5	duplicate(Treinador Mainz#ac)	Treinador Mainz#ac_a	4_M_KY_KNT,4,4
+iz_ac01_b,134,47,5	duplicate(Treinador Mainz#ac)	Treinador Mainz#ac_b	4_M_KY_KNT,4,4
+iz_ac01_c,134,47,5	duplicate(Treinador Mainz#ac)	Treinador Mainz#ac_c	4_M_KY_KNT,4,4
+iz_ac01_d,134,47,5	duplicate(Treinador Mainz#ac)	Treinador Mainz#ac_d	4_M_KY_KNT,4,4
 
-// - Odd Novice
-// - Introduces the player to the concept of Super Novices.
+// - Novato Estranho
+// - Introduz o jogador ao conceito de Super Novatos.
 // -----------------------------------------------------------------------------
-iz_ac01,36,52,3	script	Odd Novice#ac	4_M_SIT_NOVICE,{
-	mes "[Odd Novice]";
-	mes "Ahaaa~~ sticking at the dispensary.";
-	mes "Playing hooky is cool and awesome.";
+iz_ac01,36,52,3	script	Novato Estranho#ac	4_M_SIT_NOVICE,{
+	mes "[Novato Estranho]";
+	mes "Ahaaa~~ ficando na enfermaria.";
+	mes "Cabular aula é legal e incrível.";
 	if (Class == Job_Novice) {
-		mes "while XXXXXX, but what are you?";
-		mes "Are you the same kind of XXXXX?";
+		mes "enquanto XXXXXX, mas o que você é?";
+		mes "Você é o mesmo tipo de XXXXX?";
 		next;
 		.@choice = rand(1,10);
 		if (.@choice < 3) {
-			mes "[Odd Novice]";
-			mes "Hmmm... you look like you have some talent.";
-			mes "Being in a good mood, shall I show you something newfangled?";
+			mes "[Novato Estranho]";
+			mes "Hmmm... você parece ter algum talento.";
+			mes "Estando de bom humor, devo lhe mostrar algo modernoso?";
 			next;
-			.@message = select("Newfangled?", "Who are you..?", "Why are you here?", "End Conversation");
+			.@message = select("Modernoso?", "Quem é você..?", "Por que você está aqui?", "Encerrar conversa");
 		} else {
-			.@message = select("Who are you..?", "Why are you here?", "End Conversation") +1;
+			.@message = select("Quem é você..?", "Por que você está aqui?", "Encerrar conversa") +1;
 		}
 		switch(.@message)
 		{
 		case 1:
-			mes "[Odd Novice]";
-			mes "I may look ordinary to you but I have a newfangled talent.";
-			mes "Not my fault, if you are shocked at seeing it.";
+			mes "[Novato Estranho]";
+			mes "Posso parecer comum para você, mas tenho um talento modernoso.";
+			mes "Não é minha culpa, se você ficar chocado ao vê-lo.";
 			next;
-			mes "[Odd Novice]";
-			mes "OK. Where should I start?";
-			mes "First, Bash!";
+			mes "[Novato Estranho]";
+			mes "OK. Por onde devo começar?";
+			mes "Primeiro, Pancada!";
 			specialeffect2 EF_BASH;
 			next;
-			mes "[Odd Novice]";
-			mes "Hehehe.. Surprised?";
-			mes "I'm just pretending...";
-			mes "It's not a real punch.";
+			mes "[Novato Estranho]";
+			mes "Hehehe.. Surpreso?";
+			mes "Estou apenas fingindo...";
+			mes "Não é um soco real.";
 			next;
-			mes "[Odd Novice]";
-			mes "Looks like you were surprised!";
+			mes "[Novato Estranho]";
+			mes "Parece que você ficou surpreso!";
 			specialeffect2 EF_BLESSING;
 			next;
-			mes "[Odd Novice]";
-			mes "Just keep calm";
-			mes "and have a potion";
-			mes "But that's not the last of it.";
+			mes "[Novato Estranho]";
+			mes "Apenas mantenha a calma";
+			mes "e tome uma poção";
+			mes "Mas isso não é o fim.";
 			specialeffect2 EF_STEAL;
 			next;
-			mes "[Odd Novice]";
-			mes "I have stolen one thread of your hair.";
-			mes "I don't believe in Voodooism.";
-			mes "Regard it as your luck.";
+			mes "[Novato Estranho]";
+			mes "Roubei um fio do seu cabelo.";
+			mes "Não acredito em Vodu.";
+			mes "Considere como sua sorte.";
 			next;
-			mes "[Odd Novice]";
-			mes "The last one is a flame, to say the least!";
-			mes "How about it? Newfangled.";
-			mes "Idling away too long,";
-			mes "All the skills learnt over your shoulder could be used.";
-			specialeffect EF_SIGHT, AREA, "Odd Novice#nk1";
+			mes "[Novato Estranho]";
+			mes "O último é uma chama, para dizer o mínimo!";
+			mes "Que tal? Modernoso.";
+			mes "Ociosidade por muito tempo,";
+			mes "Todas as habilidades aprendidas sobre seu ombro poderiam ser usadas.";
+			specialeffect EF_SIGHT, AREA, "Novato Estranho#nk1";
 			next;
-			mes "[Odd Novice]";
-			mes "Ugh, all my SP is gone...";
-			mes "and wasted... I am tired.";
-			mes "I am going back to rest.";
-			mes "So long, Bye-bye~~ Don't bother me anymore.";
+			mes "[Novato Estranho]";
+			mes "Ugh, todo meu SP se foi...";
+			mes "e desperdiçado... Estou cansado.";
+			mes "Vou voltar a descansar.";
+			mes "Até mais, Tchau~~ Não me incomode mais.";
 			close;
 		case 2:
 			if (.@choice == 10) {
-				mes "[Odd Novice]";
-				mes "What? You, disturbing me.";
-				mes "Get away from me kid you're botherin' me.";
+				mes "[Novato Estranho]";
+				mes "O quê? Você, me perturbando.";
+				mes "Saia de perto de mim, garoto, você está me incomodando.";
 				close;
 			} else {
 				switch(rand(1,3)) {
 					case 1:
-						mes "[Odd Novice]";
-						mes "Me? I'm Novice.";
-						mes "What? Strange? You seein' me for the first time?";
+						mes "[Novato Estranho]";
+						mes "Eu? Sou um Novato.";
+						mes "O quê? Estranho? Me vendo pela primeira vez?";
 						next;
-						mes "[Odd Novice]";
-						mes "If I look shabby, you should go find a mirror.";
-						mes "You and I are wearing the same thing pal.";
+						mes "[Novato Estranho]";
+						mes "Se pareço desleixado, você deveria procurar um espelho.";
+						mes "Você e eu estamos vestindo a mesma coisa, amigo.";
 						close;
 					case 2:
-						mes "[Odd Novice]";
-						mes "I'm what you call a Novice of all Novices.";
-						mes "A Jack of all trades but a master of none.";
+						mes "[Novato Estranho]";
+						mes "Sou o que você chama de Novato de todos os Novatos.";
+						mes "Um faz-tudo, mas mestre de nenhum.";
 						next;
-						mes "[Odd Novice]";
-						mes "If you don't graduate from school and hang around and only mimic other's lifesstyles you'll end up like me.";
+						mes "[Novato Estranho]";
+						mes "Se você não se formar na escola e ficar por aí apenas imitando os estilos de vida dos outros, você acabará como eu.";
 						next;
-						mes "[Odd Novice]";
-						mes "Genius and idiot has a paper thin difference.";
-						mes "Those of versatility but of no special capability, that is the Super Novice.";
-						mes "That's what everyone calls us.";
+						mes "[Novato Estranho]";
+						mes "Gênio e idiota têm uma diferença de papel fino.";
+						mes "Aqueles de versatilidade, mas sem capacidade especial, esse é o Super Novato.";
+						mes "É assim que todos nos chamam.";
 						close;
 					case 3:
-						mes "[Odd Novice]";
-						mes "A rose by any other name...";
-						mes "I am what I am. A Super Novice!";
+						mes "[Novato Estranho]";
+						mes "Uma rosa com qualquer outro nome...";
+						mes "Eu sou o que sou. Um Super Novato!";
 						close;
 				}
 			}
 		case 3:
 			if (.@choice == 10) {
-				mes "[Odd Novice]";
-				mes "What? You, disturbing me.";
-				mes "Get away from me kid you're botherin' me.";
+				mes "[Novato Estranho]";
+				mes "O quê? Você, me perturbando.";
+				mes "Saia de perto de mim, garoto, você está me incomodando.";
 				close;
 			} else {
 				if (!callfunc("F_CanChangeJob")) {
-					mes "[Odd Novice]";
-					mes "You, talking like this, why don't you go and change your job already instead of hanging around here?";
-					mes "Hmm, did you want to be like me maybe?";
+					mes "[Novato Estranho]";
+					mes "Você, falando assim, por que não vai e muda de classe já em vez de ficar por aqui?";
+					mes "Hmm, você queria ser como eu, talvez?";
 					next;
-					mes "[Odd Novice]";
-					mes "Aha~ If you want all the different skills...";
+					mes "[Novato Estranho]";
+					mes "Aha~ Se você quer todas as habilidades diferentes...";
 					next;
-					mes "[Odd Novice]";
-					mes "If you do like I do, then you will be a great Super Novice.";
+					mes "[Novato Estranho]";
+					mes "Se fizer como eu, então você será um grande Super Novato.";
 					close;
 				} else {
 					switch(rand(1,3)) {
 					case 1:
-						mes "[Odd Novice]";
-						mes "Hmmm. Dirty mouth!";
-						mes "When I was at your age,";
-						mes "If I recklessly spoke like you, I was dragged to the backside mountain, and then...";
+						mes "[Novato Estranho]";
+						mes "Hmmm. Boca suja!";
+						mes "Quando eu estava na sua idade,";
+						mes "Se falasse imprudentemente como você, era arrastado para o lado de trás da montanha, e então...";
 						next;
-						mes "[Odd Novice]";
-						mes "OK... that's enough..";
-						mes "Now I am in a good mood?";
-						mes "When I am using good words,";
-						mes "go away silently, yes?";
+						mes "[Novato Estranho]";
+						mes "OK... isso é o suficiente..";
+						mes "Agora estou de bom humor?";
+						mes "Quando estou usando palavras boas,";
+						mes "vá embora em silêncio, sim?";
 						close;
 					case 2:
-						mes "[Odd Novice]";
-						mes "Are you idling around at school?";
-						mes "I don't need to tell you about it.";
-						mes "If you are loafing around here,";
-						mes "Once grown up, you will be a man like me.";
-						mes "Scary, isn't it?";
+						mes "[Novato Estranho]";
+						mes "Você está vagando pela escola?";
+						mes "Não preciso te contar sobre isso.";
+						mes "Se você está vagando por aqui,";
+						mes "Uma vez crescido, será um homem como eu.";
+						mes "Assustador, não é?";
 						next;
-						mes "[Odd Novice]";
-						mes "I know, I know, before we are found by a teacher or even worse the principal.";
-						mes "Go away, gooooooawaaaaaayyyyyyyyy~";
+						mes "[Novato Estranho]";
+						mes "Eu sei, eu sei, antes que sejamos encontrados por um professor ou pior, o diretor.";
+						mes "Vá embora, vaaaaaaaaiiiiiiii embora~";
 						close;
 					case 3:
-						mes "[Odd Novice]";
-						mes "Well,";
-						mes "What am I doing?";
-						mes "I became like this, in the blink of an eye.";
+						mes "[Novato Estranho]";
+						mes "Bem,";
+						mes "O que estou fazendo?";
+						mes "Fiquei assim, num piscar de olhos.";
 						next;
-						mes "[Odd Novice]";
-						mes "By nature, I had a great dream...";
-						mes "Haaaa~~ Because I dreamt of too many things to do?";
+						mes "[Novato Estranho]";
+						mes "Por natureza, eu tinha um grande sonho...";
+						mes "Haaaa~~ Porque sonhei com muitas coisas para fazer?";
 						close;
 					}
 				}
 			}
 		case 4:
-			mes "[Odd Novice]";
-			mes "Yes, yes, take your way...";
-			mes "I am the Novice of pride and loneliness.";
-			mes "I can enjoy myself.";
+			mes "[Novato Estranho]";
+			mes "Sim, sim, siga seu caminho...";
+			mes "Sou o Novato do orgulho e da solidão.";
+			mes "Posso me divertir sozinho.";
 			close;
 		}
 	}
 	close;
 }
 
-iz_ac01_a,36,52,3	duplicate(Odd Novice#ac)	Odd Novice#ac_a	4_M_SIT_NOVICE
-iz_ac01_b,36,52,3	duplicate(Odd Novice#ac)	Odd Novice#ac_b	4_M_SIT_NOVICE
-iz_ac01_c,36,52,3	duplicate(Odd Novice#ac)	Odd Novice#ac_c	4_M_SIT_NOVICE
-iz_ac01_d,36,52,3	duplicate(Odd Novice#ac)	Odd Novice#ac_d	4_M_SIT_NOVICE
+iz_ac01_a,36,52,3	duplicate(Novato Estranho#ac)	Novato Estranho#ac_a	4_M_SIT_NOVICE
+iz_ac01_b,36,52,3	duplicate(Novato Estranho#ac)	Novato Estranho#ac_b	4_M_SIT_NOVICE
+iz_ac01_c,36,52,3	duplicate(Novato Estranho#ac)	Novato Estranho#ac_c	4_M_SIT_NOVICE
+iz_ac01_d,36,52,3	duplicate(Novato Estranho#ac)	Novato Estranho#ac_d	4_M_SIT_NOVICE
 
-// - Shop Helper
-// - Teaches the player about Shops and Currency.
+// - Ajudante da Loja
+// - Ensina o jogador sobre Lojas e Moeda.
 // -----------------------------------------------------------------------------
-izlude,115,181,5	script	Shop Helper#iz	4_F_KHELLISIA,{
+izlude,115,181,5	script	Ajudante da Loja#iz	4_F_KHELLISIA,{
 	if (!checkweight(1301,3)) {
-		mes "- Quest cannot be continued due to your overfilled inventory. -";
+		mes "- A missão não pode continuar devido ao seu inventário sobrecarregado. -";
 		close;
 	}
 
 	if (Class == Job_Novice) {
 		if (!isbegin_quest(1237)) {
-			mes "[Shop Helper Leonie]";
-			mes "How are you doing with your basic studies?";
-			mes "You need to learn about the shop information.";
+			mes "[Ajudante da Loja Leonie]";
+			mes "Como você está indo com seus estudos básicos?";
+			mes "Você precisa aprender sobre as informações da loja.";
 			next;
-			if (select("I'm doing fine myself!", "Ok I'll listen!") == 1) {
-				mes "[Shop Helper Leonie]";
-				mes "If you listen carefully, I will give you a souvenir.";
+			if (select("Estou indo bem sozinho!", "Ok, vou ouvir!") == 1) {
+				mes "[Ajudante da Loja Leonie]";
+				mes "Se você ouvir com atenção, vou te dar uma lembrança.";
 				close;
 			}
-			mes "[Shop Helper Leonie]";
-			mes "Wise choise.";
-			mes "Midgard has many shops and many variety of currencies.";
-			mes "So you need to listen to me well to use them accordingly.";
+			mes "[Ajudante da Loja Leonie]";
+			mes "Escolha sábia.";
+			mes "Midgard tem muitas lojas e muitos tipos de moedas.";
+			mes "Então você precisa me ouvir bem para usá-las adequadamente.";
 			setquest 1237;
 			close;
 		}
 		if (!isbegin_quest(1238)) {
-			mes "[Shop Helper Leonie]";
-			mes "Let's start.";
+			mes "[Ajudante da Loja Leonie]";
+			mes "Vamos começar.";
 		} else if (isbegin_quest(1238) == 1) {
 			if (countitem(501) > 0) {
-				mes "[Shop Helper Leonie]";
-				mes "Ok 1 ^0000ffRed Potion^000000.";
-				mes "For now on you can use them at a field in a dungeon.";
-				mes "As a reward I'll give you a couple of ^ff0000Fly Wing^000000s.";
+				mes "[Ajudante da Loja Leonie]";
+				mes "Ok, 1 ^0000ffPoção Vermelha^000000.";
+				mes "Por enquanto você pode usá-las em um campo ou masmorra.";
+				mes "Como recompensa, vou te dar algumas ^ff0000Asas de Mosca^000000.";
 				completequest 1238;
 				setquest 1239;
-				getitem 12323,50;// N_Fly_Wing
+				getitem 12323,50;// Asas_de_Mosca_de_Novato
 				getexp 1300,100;
 				close;
 			}
-			mes "[Shop Helper Leonie]";
-			mes "Go to the shop and buy one ^0000ffRed Potion^000000 and bring it back.";
-			mes "You have that much money, right?";
+			mes "[Ajudante da Loja Leonie]";
+			mes "Vá à loja e compre uma ^0000ffPoção Vermelha^000000 e traga de volta.";
+			mes "Você tem esse dinheiro, certo?";
 			next;
-			mes "[Shop Helper Leonie]";
-			mes "If not, go hunt monsters in the vicnity and then when you sell their loot you should make enough money.";
+			mes "[Ajudante da Loja Leonie]";
+			mes "Se não, vá caçar monstros nas proximidades e, quando vender seus saques, você deverá ganhar dinheiro suficiente.";
 			next;
-			if (select("I will do it.", "Question about the shop.") == 1) {
-				mes "[Shop Helper Leonie]";
-				mes "Let's go into the next lesson.";
-				mes "Hurry back.";
+			if (select("Vou fazer isso.", "Pergunta sobre a loja.") == 1) {
+				mes "[Ajudante da Loja Leonie]";
+				mes "Vamos para a próxima lição.";
+				mes "Volte rápido.";
 				close;
 			}
-			mes "[Shop Helper Leonie]";
+			mes "[Ajudante da Loja Leonie]";
 		} else {
 			if (!isbegin_quest(1240)) {
-				mes "[Shop Helper Leonie]";
-				mes "We'll do the next lesson.";
-				mes "In your future travels.";
-				mes "You will acquire many items in your inventory.";
+				mes "[Ajudante da Loja Leonie]";
+				mes "Faremos a próxima lição.";
+				mes "Em suas futuras viagens.";
+				mes "Você adquirirá muitos itens em seu inventário.";
 				next;
-				mes "[Shop Helper Leonie]";
-				mes "Among those items, there will be ones that you can't drop or trade, these are for quests. These are important items but often times you will also find them to be a burden.";
+				mes "[Ajudante da Loja Leonie]";
+				mes "Entre esses itens, haverá aqueles que você não pode dropar ou trocar, estes são para missões. São itens importantes, mas muitas vezes você também os achará um fardo.";
 				next;
-				mes "[Shop Helper Leonie]";
-				mes "In those times, sell what you can to shops in order to decrease your inventory.";
-				mes "I'll give you an example.";
-				mes "Go to a shop to unload it.";
+				mes "[Ajudante da Loja Leonie]";
+				mes "Nessas vezes, venda o que puder para lojas para diminuir seu inventário.";
+				mes "Vou dar um exemplo.";
+				mes "Vá a uma loja para descarregá-lo.";
 				next;
-				switch(select("I don't want to do it.", "I will do it.", "Question about the shop.")) {
+				switch(select("Não quero fazer isso.", "Vou fazer isso.", "Pergunta sobre a loja.")) {
 					case 1:
-						mes "[Shop Helper Leonie]";
-						mes "Stingy person!";
+						mes "[Ajudante da Loja Leonie]";
+						mes "Pessoa mesquinha!";
 						close;
 					case 2:
-						mes "[Shop Helper Leonie]";
-						mes "About shop variety.";
-						mes "You can buy these items everywhere in the world.";
-						mes "Go sell one ^ff0000Poor Can^000000 that I gave you to the shop.";
+						mes "[Ajudante da Loja Leonie]";
+						mes "Sobre a variedade de lojas.";
+						mes "Você pode comprar esses itens em qualquer lugar do mundo.";
+						mes "Vá vender uma ^ff0000Lata Pobre^000000 que eu te dei para a loja.";
 						completequest 1239;
 						setquest 1240;
-						getitem 6426,1;// Bad_Can
+						getitem 6426,1;// Lata_Pobre
 						close;
 					case 3:
-						mes "[Shop Helper Leonie]";
+						mes "[Ajudante da Loja Leonie]";
 						break;
 				}
 			} else if (isbegin_quest(1240) == 1) {
 				if (!countitem(6426)) {
-					mes "[Shop Helper Leonie]";
-					mes "You went and sold the ^ff0000Poor Can^000000.";
-					mes "Good work, here's the reward for it.";
-					mes "The things I haven't told you, you will learn throughout your travels.";
+					mes "[Ajudante da Loja Leonie]";
+					mes "Você foi e vendeu a ^ff0000Lata Pobre^000000.";
+					mes "Bom trabalho, aqui está a recompensa por isso.";
+					mes "As coisas que não contei, você aprenderá durante suas viagens.";
 					completequest 1240;
-					getitem 12324,10;// N_Butterfly_Wing
+					getitem 12324,10;// Asas_de_Borboleta_de_Novato
 					getexp 1000,50;
 					close;
 				}
-				mes "[Shop Helper Leonie]";
-				mes "You are now in trial period.";
-				mes "Go sell the Poor Can and come back after selling it.";
+				mes "[Ajudante da Loja Leonie]";
+				mes "Você está agora em período de teste.";
+				mes "Vá vender a Lata Pobre e volte depois de vendê-la.";
 				next;
-				if (select("I will do it.", "Question about the shop.") == 1) {
-					mes "[Shop Helper Leonie]";
-					mes "About shop variety.";
-					mes "You can buy these items everywhere in the world.";
-					mes "Go sell one ^ff0000Poor Can^000000 that I gave you to the shop.";
+				if (select("Vou fazer isso.", "Pergunta sobre a loja.") == 1) {
+					mes "[Ajudante da Loja Leonie]";
+					mes "Sobre a variedade de lojas.";
+					mes "Você pode comprar esses itens em qualquer lugar do mundo.";
+					mes "Vá vender uma ^ff0000Lata Pobre^000000 que eu te dei para a loja.";
 					close;
 				}
-				mes "[Shop Helper Leonie]";
+				mes "[Ajudante da Loja Leonie]";
 			}
 		}
 	}
 	if (Class != Job_Novice || isbegin_quest(1240) == 2) {
-		mes "[Shop Helper Leonie]";
-		mes "Anything else?";
+		mes "[Ajudante da Loja Leonie]";
+		mes "Mais alguma coisa?";
 		next;
-		if (select("No", "Yes, there are lot.") == 1) {
-			mes "[Shop Helper Leonie]";
-			mes "Goodbye.";
-			mes "The things I haven't told you, you will learn throughout your travels.";
+		if (select("Não", "Sim, há muitas.") == 1) {
+			mes "[Ajudante da Loja Leonie]";
+			mes "Adeus.";
+			mes "As coisas que não contei, você aprenderá durante suas viagens.";
 			close;
 		}
-		mes "[Shop Helper Leonie]";
+		mes "[Ajudante da Loja Leonie]";
 	}
 	while(1) {
-		mes "What would you like to know?";
+		mes "O que você gostaria de saber?";
 		next;
-		set .@menu$,"Shop types:Currency types:Cash Shop:"+(Class == Job_Novice && !isbegin_quest(1238)?"Experience training.":"No, I know enough.");
+		set .@menu$,"Tipos de lojas:Tipos de moeda:Cash Shop:"+(Class == Job_Novice && !isbegin_quest(1238)?"Treino de experiência.":"Não, sei o suficiente.");
 		switch(select(.@menu$)) {
 			case 1:
-				mes "[Shop Helper Leonie]";
-				mes "You can buy weapons and armor at various armory merchants in each town.";
+				mes "[Ajudante da Loja Leonie]";
+				mes "Você pode comprar armas e armaduras em vários comerciantes de armaria em cada cidade.";
 				next;
-				mes "[Shop Helper Leonie]";
-				mes "Healing potions and movement consummables can be found at Tool Shops.";
+				mes "[Ajudante da Loja Leonie]";
+				mes "Poções de cura e consumíveis de movimento podem ser encontrados em Lojas de Ferramentas.";
 				next;
-				mes "[Shop Helper Leonie]";
-				mes "You'll also find merchants selling items for refining.";
+				mes "[Ajudante da Loja Leonie]";
+				mes "Você também encontrará comerciantes vendendo itens para refino.";
 				next;
-				mes "[Shop Helper Leonie]";
-				mes "So when you go into a town, try figuring out what shops there are for your benefit.";
+				mes "[Ajudante da Loja Leonie]";
+				mes "Então, quando você entrar em uma cidade, tente descobrir quais lojas existem para seu benefício.";
 				if (isbegin_quest(1237) == 1)
 					completequest 1237;
 				next;
-				mes "[Shop Helper Leonie]";
+				mes "[Ajudante da Loja Leonie]";
 				break;
 			case 2:
-				mes "[Shop Helper Leonie]";
-				mes "Kafras and most NPC merchants use ^ff0000Zeny^000000 but Malangdo and some of the Ash Vacuum worlds use different types of currency.";
+				mes "[Ajudante da Loja Leonie]";
+				mes "Kafras e a maioria dos comerciantes NPC usam ^ff0000Zeny^000000, mas Malangdo e alguns dos mundos de Ash Vacuum usam tipos diferentes de moeda.";
 				next;
-				mes "[Shop Helper Leonie]";
-				mes "They are ^ff0000Silvervine Fruit^000000, ^ff0000Splendide Coins^000000, they can be bought at Cash Shop or acquired through quests. The fruits and coins that are collected this way.";
+				mes "[Ajudante da Loja Leonie]";
+				mes "São ^ff0000Fruta de Silvervine^000000, ^ff0000Moedas Splendide^000000, elas podem ser compradas na Cash Shop ou adquiridas através de missões. As frutas e moedas que são coletadas dessa forma.";
 				next;
-				mes "[Shop Helper Leonie]";
-				mes "They can be exchanged with unique equipments or gears.";
-				mes "So, if you have plans to venture out to these areas, be sure to collect them.";
+				mes "[Ajudante da Loja Leonie]";
+				mes "Elas podem ser trocadas por equipamentos ou itens únicos.";
+				mes "Então, se você tem planos de se aventurar nessas áreas, certifique-se de coletá-las.";
 				if (isbegin_quest(1237) == 1)
 					completequest 1237;
 				next;
-				mes "[Shop Helper Leonie]";
+				mes "[Ajudante da Loja Leonie]";
 				break;
 			case 3:
-				mes "[Shop Helper Leonie]";
-				mes "The icon on the right side called Cash Shop, if you click on it, whether you're in a town, dungeon, or field, you can still buy items anywhere you want.";
+				mes "[Ajudante da Loja Leonie]";
+				mes "O ícone no lado direito chamado Cash Shop, se você clicar nele, esteja você em uma cidade, masmorra ou campo, ainda pode comprar itens onde quiser.";
 				next;
-				mes "[Shop Helper Leonie]";
-				mes "The cash you need to buy the items can be charged on the website.";
+				mes "[Ajudante da Loja Leonie]";
+				mes "O dinheiro que você precisa para comprar os itens pode ser carregado no site.";
 				if (isbegin_quest(1237) == 1)
 					completequest 1237;
 				next;
-				mes "[Shop Helper Leonie]";
+				mes "[Ajudante da Loja Leonie]";
 				break;
 			case 4:
 				if (Class == Job_Novice && !isbegin_quest(1238)) {
-					mes "[Shop Helper Leonie]";
-					mes "Let's do a simple tutorial.";
-					mes "Go to the shop and buy one ^0000ffRed Potion^000000 and bring it back.";
-					mes "You have that much money, right?";
+					mes "[Ajudante da Loja Leonie]";
+					mes "Vamos fazer um tutorial simples.";
+					mes "Vá à loja e compre uma ^0000ffPoção Vermelha^000000 e traga de volta.";
+					mes "Você tem esse dinheiro, certo?";
 					next;
-					mes "[Shop Helper Leonie]";
-					mes "If not, go hunt monsters in the vicnity and then when you sell their loot you should make enough money.";
+					mes "[Ajudante da Loja Leonie]";
+					mes "Se não, vá caçar monstros nas proximidades e, quando vender seus saques, você deverá ganhar dinheiro suficiente.";
 					next;
-					if (select("That's too tedious.", "I will do it.") == 1) {
-						mes "[Shop Helper Leonie]";
-						mes "Are you that lazy?";
-						mes "I am watching!";
+					if (select("Isso é muito tedioso.", "Vou fazer isso.") == 1) {
+						mes "[Ajudante da Loja Leonie]";
+						mes "Você é tão preguiçoso?";
+						mes "Estou de olho!";
 						close;
 					}
-					mes "[Shop Helper Leonie]";
-					mes "Let's go into the next lesson.";
-					mes "Hurry back.";
+					mes "[Ajudante da Loja Leonie]";
+					mes "Vamos para a próxima lição.";
+					mes "Volte rápido.";
 					if (isbegin_quest(1237) == 1)
 						completequest 1237;
 					setquest 1238;
 					close;
 				}
-				mes "[Shop Helper Leonie]";
-				mes "That's a relief that you know enough.";
-				mes "If you have more questions, please ask me again.";
+				mes "[Ajudante da Loja Leonie]";
+				mes "É um alívio que você saiba o suficiente.";
+				mes "Se tiver mais perguntas, por favor, me pergunte novamente.";
 				close;
 		}
 	}
@@ -3643,104 +3643,104 @@ OnInit:
 	end;
 }
 
-izlude_a,115,181,5	duplicate(Shop Helper#iz)	Shop Helper#iz_a	4_F_KHELLISIA
-izlude_b,115,181,5	duplicate(Shop Helper#iz)	Shop Helper#iz_b	4_F_KHELLISIA
-izlude_c,115,181,5	duplicate(Shop Helper#iz)	Shop Helper#iz_c	4_F_KHELLISIA
-izlude_d,115,181,5	duplicate(Shop Helper#iz)	Shop Helper#iz_d	4_F_KHELLISIA
+izlude_a,115,181,5	duplicate(Ajudante da Loja#iz)	Ajudante da Loja#iz_a	4_F_KHELLISIA
+izlude_b,115,181,5	duplicate(Ajudante da Loja#iz)	Ajudante da Loja#iz_b	4_F_KHELLISIA
+izlude_c,115,181,5	duplicate(Ajudante da Loja#iz)	Ajudante da Loja#iz_c	4_F_KHELLISIA
+izlude_d,115,181,5	duplicate(Ajudante da Loja#iz)	Ajudante da Loja#iz_d	4_F_KHELLISIA
 
-// - Attribute Expert
-// - Teaches the player about Attributes.
+// - Especialista em Atributos
+// - Ensina o jogador sobre Atributos.
 // -----------------------------------------------------------------------------
-iz_ac01,53,74,3	script	Attribute Expert#ac	1_M_WIZARD,{
-	mes "[Attribute Expert]";
-	mes "Are you a new student? Ask me anything if you have questions about atttribute. I am an attribute expert.";
+iz_ac01,53,74,3	script	Especialista em Atributos#ac	1_M_WIZARD,{
+	mes "[Especialista em Atributos]";
+	mes "Você é um novo aluno? Pergunte-me qualquer coisa se tiver dúvidas sobre atributos. Sou um especialista em atributos.";
 	next;
 	while(1) {
-		switch(select("What are attributes?", "Harmony of attributes", "Experience of attribute", "End Conversation")) {
+		switch(select("O que são atributos?", "Harmonia dos atributos", "Experiência de atributo", "Encerrar conversa")) {
 		case 1:
-			mes "[Attribute Expert]";
-			mes "All materials in the world have their own attributes.";
+			mes "[Especialista em Atributos]";
+			mes "Todos os materiais no mundo têm seus próprios atributos.";
 			next;
-			mes "[Attribute Expert]";
-			mes "There are many types of attributes. There are 4 elemental attributes ^0D6EF2Water^000000, ^006600Wind^000000, ^FF0000Fire^000000, ^B97246Earth^000000.";
+			mes "[Especialista em Atributos]";
+			mes "Há muitos tipos de atributos. Existem 4 atributos elementais ^0D6EF2Água^000000, ^006600Vento^000000, ^FF0000Fogo^000000, ^B97246Terra^000000.";
 			next;
-			mes "[Attribute Expert]";
-			mes "There are more uncommon ones like... Neutral, Poison, Holy, Dark, Angel, Undead.";
-			mes "There are more types than you think right?";
+			mes "[Especialista em Atributos]";
+			mes "Há os mais incomuns como... Neutro, Veneno, Sagrado, Sombrio, Anjo, Morto-Vivo.";
+			mes "Há mais tipos do que você pensa, certo?";
 			next;
-			mes "[Attribute Expert]";
-			mes "All right, here's the question which attribute do we belong to?";
+			mes "[Especialista em Atributos]";
+			mes "Certo, aqui está a pergunta: a qual atributo pertencemos?";
 			next;
-			if (select("Water", "Wind", "Fire", "Earth", "Neutral", "Poison", "Holy", "Dark", "Angel", "Undead") == 5) {
-				mes "[Attribute Expert]";
-				mes "Correct! You are good. Yes we belong to the Neutral attribute.";
+			if (select("Água", "Vento", "Fogo", "Terra", "Neutro", "Veneno", "Sagrado", "Sombrio", "Anjo", "Morto-Vivo") == 5) {
+				mes "[Especialista em Atributos]";
+				mes "Correto! Você é bom. Sim, pertencemos ao atributo Neutro.";
 				next;
 				break;
 			} else {
-				mes "[Attribute Expert]";
-				mes "Do you think so?";
-				mes "We belong to the Neutral.";
+				mes "[Especialista em Atributos]";
+				mes "Você acha?";
+				mes "Pertencemos ao Neutro.";
 				next;
 				break;
 			}
 			next;
-			mes "[Attribute Expert]";
-			mes "Then, why do we need attributes? Maybe you know the answer... right?";
+			mes "[Especialista em Atributos]";
+			mes "Então, por que precisamos de atributos? Talvez você saiba a resposta... certo?";
 			next;
 			break;
 		case 2:
-			mes "[Attribute Expert]";
-			mes "Everything needs to balance with something srong and something weak. So ^3131FFbalance and harmony^000000 comes along all the time.";
+			mes "[Especialista em Atributos]";
+			mes "Tudo precisa equilibrar com algo forte e algo fraco. Então ^3131FFequilíbrio e harmonia^000000 vêm junto o tempo todo.";
 			next;
-			mes "[Attribute Expert]";
-			mes "Balance and harmony is strongly related to your power as well. So remember well.";
+			mes "[Especialista em Atributos]";
+			mes "Equilíbrio e harmonia estão fortemente relacionados ao seu poder também. Então lembre-se bem.";
 			next;
 			while(1) {
-				switch(select("Water", "Fire", "Earth", "Wind", "Etc...", "I already know")) {
+				switch(select("Água", "Fogo", "Terra", "Vento", "Etc...", "Já sei")) {
 				case 1:
-					mes "[Attribute Expert]";
-					mes "^0D6EF2Water^000000 is stronger than ^FF0000Fire^000000, so they give bonus damage to anything with Fire attribute!";
-					mes "But it is weak to ^006600Wind^000000.";
+					mes "[Especialista em Atributos]";
+					mes "^0D6EF2Água^000000 é mais forte que ^FF0000Fogo^000000, então dá dano bônus a qualquer coisa com atributo Fogo!";
+					mes "Mas é fraca contra ^006600Vento^000000.";
 					next;
-					mes "[Attribute Expert]";
-					mes "Examples of monsters with the Water Attribute are Poring and Roda Frog... have you heard of those monsters?";
+					mes "[Especialista em Atributos]";
+					mes "Exemplos de monstros com atributo Água são Poring e Roda Frog... já ouviu falar desses monstros?";
 					next;
 					continue;
 				case 2:
-					mes "[Attribute Expert]";
-					mes "^FF0000Fire^000000 is stronger than ^B97246Earth^000000, so they give bonus damage to anything with Earth attribute!";
-					mes "Examples of monsters with the Fire Attribute are Drops and Picky.";
+					mes "[Especialista em Atributos]";
+					mes "^FF0000Fogo^000000 é mais forte que ^B97246Terra^000000, então dá dano bônus a qualquer coisa com atributo Terra!";
+					mes "Exemplos de monstros com atributo Fogo são Drops e Picky.";
 					next;
-					mes "[Attribute Expert]";
-					mes "Examples of monsters with the Fire Attribute are Drops and Picky.";
+					mes "[Especialista em Atributos]";
+					mes "Exemplos de monstros com atributo Fogo são Drops e Picky.";
 					next;
 					continue;
 				case 3:
-					mes "[Attribute Expert]";
-					mes "^B97246Earth^000000 is stronger than  ^006600Wind^000000, so they give bonus damage to anything with Wind attribute!";
-					mes "But it is weak to ^FF0000Fire^000000.";
+					mes "[Especialista em Atributos]";
+					mes "^B97246Terra^000000 é mais forte que  ^006600Vento^000000, então dá dano bônus a qualquer coisa com atributo Vento!";
+					mes "Mas é fraca contra ^FF0000Fogo^000000.";
 					next;
-					mes "[Attribute Expert]";
-					mes "Examples of monsters with the Earth Attribute are Pupa and Fabre.";
+					mes "[Especialista em Atributos]";
+					mes "Exemplos de monstros com atributo Terra são Pupa e Fabre.";
 					next;
 					continue;
 				case 4:
-					mes "[Attribute Expert]";
-					mes "^006600Wind^000000 is stronger than ^0D6EF2Water^000000, so they give bonus damage to anything with Water attribute!";
-					mes "But it is weak to ^B97246Earth^000000.";
+					mes "[Especialista em Atributos]";
+					mes "^006600Vento^000000 é mais forte que ^0D6EF2Água^000000, então dá dano bônus a qualquer coisa com atributo Água!";
+					mes "Mas é fraca contra ^B97246Terra^000000.";
 					next;
-					mes "[Attribute Expert]";
-					mes "Examples of monsters with the Wind Attribute are ChonChon and Hornet.";
+					mes "[Especialista em Atributos]";
+					mes "Exemplos de monstros com atributo Vento são ChonChon e Hornet.";
 					next;
 					continue;
 				case 5:
-					mes "[Attribute Expert]";
-					mes "^3131FFPoison^000000 is stronger than Fire, Wind, and Earth, but weak at Undead attribute.";
+					mes "[Especialista em Atributos]";
+					mes "^3131FFVeneno^000000 é mais forte que Fogo, Vento e Terra, mas fraco contra atributo Morto-Vivo.";
 					next;
 					continue;
 				case 6:
-					mes "[Attribute Expert]";
-					mes "It is important.. Isn't it?";
+					mes "[Especialista em Atributos]";
+					mes "É importante.. Não é?";
 					next;
 					break;
 				}
@@ -3749,77 +3749,77 @@ iz_ac01,53,74,3	script	Attribute Expert#ac	1_M_WIZARD,{
 			break;
 		case 3:
 			if (!isbegin_quest(2299)) {
-				mes "[Attribute Expert]";
-				mes "Do you want to experience an attribute?";
+				mes "[Especialista em Atributos]";
+				mes "Você quer experimentar um atributo?";
 				next;
-				mes "[Attribute Expert]";
-				mes "All right, do you see those ^3131FFFire Eggs^000000 over there?";
-				mes "Go over there and smack one of them.";
-				mes "Don't worry about destroying it either.";
+				mes "[Especialista em Atributos]";
+				mes "Certo, você vê aqueles ^3131FFOvos de Fogo^000000 ali?";
+				mes "Vá até lá e esmague um deles.";
+				mes "Não se preocupe em destruí-lo.";
 				setquest 2299;
 				close;
 			} else if (isbegin_quest(2299) == 1) {
-				mes "[Attribute Expert]";
-				mes "How is it? Have you ever attacked to Fire Eggs?";
+				mes "[Especialista em Atributos]";
+				mes "Como está? Já atacou os Ovos de Fogo?";
 				next;
-				switch(select("Yes", "No", "I want to quit.")) {
+				switch(select("Sim", "Não", "Quero desistir.")) {
 				case 1:
-					mes "[Attribute Expert]";
-					mes "How much damage did you give?";
+					mes "[Especialista em Atributos]";
+					mes "Quanto dano você deu?";
 					next;
 					input .@input, 1, 100000;
 					if (.@input < 10) {
-						mes "[Attribute Expert]";
-						mes "Oh man, "+.@input+"! Are you even trying?";
-						mes "You're barely hitting it.";
+						mes "[Especialista em Atributos]";
+						mes "Oh cara, "+.@input+"! Você está mesmo tentando?";
+						mes "Você mal está acertando.";
 						next;
 					} else if (.@input > 9 && .@input < 100001) {
-						mes "[Attribute Expert]";
-						mes "You are good I guess...";
+						mes "[Especialista em Atributos]";
+						mes "Você é bom, eu acho...";
 						next;
 					} else {
-						mes "[Attribute Expert]";
-						mes "But wait that's impossible.";
+						mes "[Especialista em Atributos]";
+						mes "Mas espere, isso é impossível.";
 						close;
 					}
-					mes "[Attribute Expert]";
-					mes "All right. Class is over.";
+					mes "[Especialista em Atributos]";
+					mes "Certo. Aula encerrada.";
 					next;
-					mes "[Attribute Expert]";
-					mes "I am not sure if you remember monsters with ^FF0000Fire^000000 are weak against ^0D6EF2Water^000000.";
+					mes "[Especialista em Atributos]";
+					mes "Não tenho certeza se você lembra que monstros com ^FF0000Fogo^000000 são fracos contra ^0D6EF2Água^000000.";
 					next;
-					mes "[Attribute Expert]";
-					mes "I will give the ^0D6EF2Water^000000 attribute to you as a present.";
-					mes "If you attack the Fire Eggs again you should do more damage now.";
+					mes "[Especialista em Atributos]";
+					mes "Vou dar o atributo ^0D6EF2Água^000000 para você como presente.";
+					mes "Se você atacar os Ovos de Fogo novamente, deve causar mais dano agora.";
 					next;
-					mes "[Attribute Expert]";
-					mes "There is only one more chance!";
-					mes "Hurry up, the attribute magic will be gone if you take more time thanks for joining to my class.";
+					mes "[Especialista em Atributos]";
+					mes "Há apenas mais uma chance!";
+					mes "Depressa, a magia do atributo desaparecerá se você demorar mais, obrigado por participar da minha aula.";
 					completequest 2299;
-					// ConsumeSpecialItem 12115
+					// ConsumirItemEspecial 12115
 					if (Class == Job_Novice)
 						getexp 100,20;
 					close;
 				case 2:
-					mes "[Attribute Expert]";
-					mes "Go and smack those eggs over there.";
-					mes "The egg of an ant is strong so don't worry about destroying them too much.";
+					mes "[Especialista em Atributos]";
+					mes "Vá e esmague aqueles ovos ali.";
+					mes "O ovo de uma formiga é forte, então não se preocupe em destruí-los muito.";
 					close;
 				case 3:
-					mes "[Attribute Expert]";
-					mes "There is nothing I can do. But I will help you anytime if you need.";
+					mes "[Especialista em Atributos]";
+					mes "Não há nada que eu possa fazer. Mas ajudarei você a qualquer momento, se precisar.";
 					erasequest 2299;
 					close;
 				}
 			} else {
-				mes "[Attribute Expert]";
-				mes "Magic basically consists of different attribute attacks. There is another way of giving the attribute to your weapon by using skill or item. You will learn more the longer you play. Good luck!";
+				mes "[Especialista em Atributos]";
+				mes "A magia basicamente consiste em diferentes ataques de atributos. Há outra maneira de dar o atributo à sua arma usando habilidade ou item. Você aprenderá mais quanto mais jogar. Boa sorte!";
 				close;
 			}
 			break;
 		case 4:
-			mes "[Attribute Expert]";
-			mes "Are you getting interested in the depth of the different attributes?";
+			mes "[Especialista em Atributos]";
+			mes "Você está se interessando pela profundidade dos diferentes atributos?";
 			close;
 		}
 	}
@@ -3829,652 +3829,653 @@ OnInit:
 	end;
 }
 
-iz_ac01_a,53,74,3	duplicate(Attribute Expert#ac)	Attribute Expert#ac_a	1_M_WIZARD
-iz_ac01_b,53,74,3	duplicate(Attribute Expert#ac)	Attribute Expert#ac_b	1_M_WIZARD
-iz_ac01_c,53,74,3	duplicate(Attribute Expert#ac)	Attribute Expert#ac_c	1_M_WIZARD
-iz_ac01_d,53,74,3	duplicate(Attribute Expert#ac)	Attribute Expert#ac_d	1_M_WIZARD
+iz_ac01_a,53,74,3	duplicate(Especialista em Atributos#ac)	Especialista em Atributos#ac_a	1_M_WIZARD
+iz_ac01_b,53,74,3	duplicate(Especialista em Atributos#ac)	Especialista em Atributos#ac_b	1_M_WIZARD
+iz_ac01_c,53,74,3	duplicate(Especialista em Atributos#ac)	Especialista em Atributos#ac_c	1_M_WIZARD
+iz_ac01_d,53,74,3	duplicate(Especialista em Atributos#ac)	Especialista em Atributos#ac_d	1_M_WIZARD
 
-iz_ac01,47,68	monster	Lv 10 (Fire)	2413,1,5000,0,0
-iz_ac01,50,68	monster	Lv 10 (Fire)	2413,1,5000,0,0
-iz_ac01,53,68	monster	Lv 10	2408,1,5000
-iz_ac01,56,68	monster	Lv 10	2408,1,5000
+iz_ac01,47,68	monster	Nv 10 (Fogo)	2413,1,5000,0,0
+iz_ac01,50,68	monster	Nv 10 (Fogo)	2413,1,5000,0,0
+iz_ac01,53,68	monster	Nv 10	2408,1,5000
+iz_ac01,56,68	monster	Nv 10	2408,1,5000
 
-iz_ac01_a,47,68	monster	Lv 10 (Fire)	2413,1,5000,0,0
-iz_ac01_a,50,68	monster	Lv 10 (Fire)	2413,1,5000,0,0
-iz_ac01_a,53,68	monster	Lv 10	2408,1,5000
-iz_ac01_a,56,68	monster	Lv 10	2408,1,5000
+iz_ac01_a,47,68	monster	Nv 10 (Fogo)	2413,1,5000,0,0
+iz_ac01_a,50,68	monster	Nv 10 (Fogo)	2413,1,5000,0,0
+iz_ac01_a,53,68	monster	Nv 10	2408,1,5000
+iz_ac01_a,56,68	monster	Nv 10	2408,1,5000
 
-iz_ac01_b,47,68	monster	Lv 10 (Fire)	2413,1,5000,0,0
-iz_ac01_b,50,68	monster	Lv 10 (Fire)	2413,1,5000,0,0
-iz_ac01_b,53,68	monster	Lv 10	2408,1,5000
-iz_ac01_b,56,68	monster	Lv 10	2408,1,5000
+iz_ac01_b,47,68	monster	Nv 10 (Fogo)	2413,1,5000,0,0
+iz_ac01_b,50,68	monster	Nv 10 (Fogo)	2413,1,5000,0,0
+iz_ac01_b,53,68	monster	Nv 10	2408,1,5000
+iz_ac01_b,56,68	monster	Nv 10	2408,1,5000
 
-iz_ac01_c,47,68	monster	Lv 10 (Fire)	2413,1,5000,0,0
-iz_ac01_c,50,68	monster	Lv 10 (Fire)	2413,1,5000,0,0
-iz_ac01_c,53,68	monster	Lv 10	2408,1,5000
-iz_ac01_c,56,68	monster	Lv 10	2408,1,5000
+iz_ac01_c,47,68	monster	Nv 10 (Fogo)	2413,1,5000,0,0
+iz_ac01_c,50,68	monster	Nv 10 (Fogo)	2413,1,5000,0,0
+iz_ac01_c,53,68	monster	Nv 10	2408,1,5000
+iz_ac01_c,56,68	monster	Nv 10	2408,1,5000
 
-iz_ac01_d,47,68	monster	Lv 10 (Fire)	2413,1,5000,0,0
-iz_ac01_d,50,68	monster	Lv 10 (Fire)	2413,1,5000,0,0
-iz_ac01_d,53,68	monster	Lv 10	2408,1,5000
-iz_ac01_d,56,68	monster	Lv 10	2408,1,5000
+iz_ac01_d,47,68	monster	Nv 10 (Fogo)	2413,1,5000,0,0
+iz_ac01_d,50,68	monster	Nv 10 (Fogo)	2413,1,5000,0,0
+iz_ac01_d,53,68	monster	Nv 10	2408,1,5000
+iz_ac01_d,56,68	monster	Nv 10	2408,1,5000
 
 // - Dacquoise
-// - Teaches the player about Cooking.
+// - Ensina o jogador sobre Culinária.
 // -----------------------------------------------------------------------------
 iz_ac01,147,50,3	script	Dacquoise#ac	4_COOK,{
 	if (!checkweight(1304,3)) {
-		mes "Why are you carrying so much stuff?";
-		mes "Put them down and come back.";
+		mes "Por que você está carregando tanta coisa?";
+		mes "Coloque-as no chão e volte.";
 		close;
 	}
 	if (Class == Job_Novice || (isbegin_quest(14154) == 1 || isbegin_quest(14155) == 1 || isbegin_quest(14156) == 1 || isbegin_quest(14157) == 1)) {
 		if (!new_cook) {
 			mes "[Dacquoise]";
-			mes "What an alluring smell!";
+			mes "Que cheiro sedutor!";
 			next;
 			mes "[Eclaire]";
-			mes "Various dishes to stimulate the five senses. Oh, its heaven!";
+			mes "Vários pratos para estimular os cinco sentidos. Oh, é o céu!";
 			next;
 			mes "[Mille Feuille]";
-			mes "It's not an accident that you came here!";
+			mes "Não é por acaso que você veio aqui!";
 			next;
 			mes "[Dacquoise]";
-			mes "What's your name stranger?";
+			mes "Qual é o seu nome, estranho?";
 			next;
 			mes "["+strcharinfo(0)+"]";
-			mes ""+strcharinfo(0)+", hello.";
+			mes ""+strcharinfo(0)+", olá.";
 			next;
 			emotion ET_BEST;
 			mes "[Dacquoise]";
-			mes "I am Dacquoise, the pupil of the legendary chef of Rune-Midgarts, ^0000cdCharles Orleans^000000.";
+			mes "Sou Dacquoise, o aluno do lendário chef de Rune-Midgarts, ^0000cdCharles Orleans^000000.";
 			next;
 			emotion ET_BEST, getnpcid(0, "Eclaire#"+strnpcinfo(2));
 			mes "[Eclaire]";
-			mes "And we are also club members of Sir Orleans' ^0000cdfan club- Loverleans^000000.";
+			mes "E também somos membros do ^0000cdclube de fãs do Sr. Orleans- Loverleans^000000.";
 			next;
 			emotion ET_THROB, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
 			mes "[Mille Feuille]";
-			mes "Orlean belongs to all of us!";
+			mes "Orleans pertence a todos nós!";
 			next;
 			emotion ET_CRY;
 			mes "[Dacquoise]";
-			mes "Ah, what do all the fools of the land eat?";
+			mes "Ah, o que todos os tolos da terra comem?";
 			next;
 			mes "[Dacquoise]";
-			mes "Fruits? Of course you can eat it raw, but isn't it art when you see the red strawberries laying on top of a creampie?";
+			mes "Frutas? Claro que você pode comê-las cruas, mas não é arte quando você vê os morangos vermelhos deitados em cima de uma torta de creme?";
 			next;
 			mes "[Eclaire]";
-			mes "Bread? Of course you can eat it plain, but can you resist the fantastic harmony of meat and cheese and vegetables in a perfect sandwich?";
+			mes "Pão? Claro que você pode comê-lo puro, mas você pode resistir à harmonia fantástica de carne, queijo e vegetais em um sanduíche perfeito?";
 			next;
 			mes "[Mille Feuille]";
-			mes "I like the steamed horse feet of Minourus!";
+			mes "Eu gosto dos pés de cavalo cozidos no vapor de Minourus!";
 			next;
 			mes "[Dacquoise]";
-			mes "If you eat a dedicated meal, you can ^0000cdraise a specific stats^000000 and additionally, ^0000cdrecover your health^000000, so what's the reason not to cook?";
+			mes "Se você comer uma refeição dedicada, pode ^0000cdaumentar status específicos^000000 e adicionalmente, ^0000cdrecuperar sua saúde^000000, então qual é a razão para não cozinhar?";
 			next;
 			mes "[Eclaire]";
-			mes "You, do you want to know more about cooking?";
+			mes "Você, quer saber mais sobre culinária?";
 			next;
 			emotion ET_THROB, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
 			mes "[Mille Feuille]";
-			mes "Will you exeprience the various spectrums of cooking?";
+			mes "Você experimentará os vários espectros da culinária?";
 			next;
-			if (select("I'm not interested, excuse me...", "Wow! I want to know more!") == 1) {
+			if (select("Não estou interessado, com licença...", "Uau! Quero saber mais!") == 1) {
 				mes "[Dacquoise]";
-				mes "Really? Okay then... come back whenever you change your mind.";
+				mes "Sério? Ok então... volte sempre que mudar de ideia.";
 				next;
 				mes "[Eclaire]";
-				mes "I have a hunch that you will come back again!";
+				mes "Tenho um pressentimento de que você voltará novamente!";
 				next;
 				mes "[Mille Feuille]";
-				mes "Don't forget to pound your chest if you choke on sweet potato!";
+				mes "Não esqueça de bater no peito se engasgar com batata-doce!";
 				close;
 			}
 			emotion ET_BEST;
 			mes "[Dacquoise]";
-			mes "Ok, we will be kind guides to the journey of cooking!!";
+			mes "Ok, seremos guias gentis para a jornada da culinária!!";
 			next;
 			emotion ET_BEST, getnpcid(0, "Eclaire#"+strnpcinfo(2));
 			mes "[Eclaire]";
-			mes "It's ok with me, asking me everthing you want to know.";
+			mes "Está tudo bem comigo, pergunte-me tudo o que quiser saber.";
 			next;
 			emotion ET_THROB, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
 			mes "[Mille Feuille]";
-			mes "Kindness is our spice~";
+			mes "Gentileza é nosso tempero~";
 			next;
-			switch(select("Cooking Benefits", "Cooking Methods", "Actually, I have to go...")) {
+			switch(select("Benefícios da Culinária", "Métodos de Culinária", "Na verdade, tenho que ir...")) {
 			case 1:
 				mes "[Dacquoise]";
-				mes "Aha! You want to know about the benefits of cooking? Cooked meals have two benefits!";
+				mes "Aha! Você quer saber sobre os benefícios da culinária? Refeições cozinhadas têm dois benefícios!";
 				next;
 				emotion ET_SURPRISE;
 				mes "[Dacquoise]";
-				mes "First, ^0000cdincreased stats!^000000 Baaam!!";
+				mes "Primeiro, ^0000cdaumento de status!^000000 Baaam!!";
 				next;
 				mes "[Eclaire]";
-				mes "Cooking is divided into 6 catagories. Each will raise up ^0000cdStr, Agi, Vit, Int, Dex, Luk^000000.";
+				mes "A culinária é dividida em 6 categorias. Cada uma aumentará ^0000cdFor, Agi, Vit, Int, Dex, Sorte^000000.";
 				next;
 				mes "[Mille Feuille]";
-				mes "The amount of the stat increase changes depending on the level of cooking.";
+				mes "A quantidade do aumento de status muda dependendo do nível de culinária.";
 				next;
 				emotion ET_SURPRISE;
 				mes "[Dacquoise]";
-				mes "And the next benefit? Babam!";
+				mes "E o próximo benefício? Babam!";
 				next;
 				mes "[Eclaire]";
-				mes "^0000cdHP and SP recovery^000000 effect!";
+				mes "Efeito de ^0000cdrecuperação de HP e SP^000000!";
 				next;
 				mes "[Mille Feuille]";
-				mes "This also differs with cooking levels, and some only recover HP.";
+				mes "Isso também difere com os níveis de culinária, e alguns só recuperam HP.";
 				next;
 				mes "[Dacquoise]";
-				mes "How is it? Sounds yummy right?";
+				mes "Como está? Soa delicioso, certo?";
 				next;
 				mes "[Eclaire]";
-				mes "Your level is too low to experience the effects right now. If you level up more you will experience and cry for the effect of cooking.";
+				mes "Seu nível é muito baixo para experimentar os efeitos agora. Se você subir mais de nível, experimentará e chorará pelo efeito da culinária.";
 				next;
 				mes "[Mille Feuille]";
-				mes "Prepare lace handkerchief.";
+				mes "Prepare lenços de renda.";
 				next;
-				select("How can I cook?");
+				select("Como posso cozinhar?");
 				mes "[Dacquoise]";
-				mes "There you go! Now you seem interested!";
+				mes "Lá vai você! Agora você parece interessado!";
 				next;
 				mes "[Dacquoise]";
-				mes "But haste is waste in cooking! Proper cooking requires preparation.";
+				mes "Mas a pressa é inimiga da perfeição na culinária! Uma culinária adequada requer preparação.";
 				next;
 				mes "[Eclaire]";
-				mes "Only the one who is well prepared can enter the world of cooking!";
+				mes "Apenas aquele que está bem preparado pode entrar no mundo da culinária!";
 				next;
 				mes "[Mille Feuille]";
-				mes "Preparation, it's not hard!";
+				mes "Preparação, não é difícil!";
 				next;
 				mes "[Dacquoise]";
-				mes "Preparation can also be split into two stages.";
+				mes "A preparação também pode ser dividida em duas etapas.";
 				next;
 				emotion ET_SURPRISE;
 				break;
 			case 2:
 				mes "[Dacquoise]";
-				mes "Right, cooking needs some preparation. This can also be divided into two catagories.";
+				mes "Certo, cozinhar precisa de alguma preparação. Isso também pode ser dividido em duas categorias.";
 				next;
 				emotion ET_SURPRISE, getnpcid(0, "Dacquoise#"+strnpcinfo(2));
 				break;
 			case 3:
 				emotion ET_FRET;
 				mes "[Dacquoise]";
-				mes "What is this? What a waste of time!";
+				mes "O que é isso? Que perda de tempo!";
 				next;
 				emotion ET_ANGER, getnpcid(0, "Eclaire#"+strnpcinfo(2));
 				mes "[Eclaire]";
-				mes "I thought we were going to get more members!";
+				mes "Achei que íamos conseguir mais membros!";
 				next;
 				emotion ET_THROB, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
 				mes "[Mille Feuille]";
-				mes "Never show up again!!";
+				mes "Nunca mais apareça!!";
 				close;
 			}
 			mes "[Dacquoise]";
-			mes "First, you need a ^0000cdCookbook.^000000";
+			mes "Primeiro, você precisa de um ^0000cdLivro de Receitas.^000000";
 			next;
 			mes "[Eclaire]";
-			mes "Let's say you have a mountain of ingredients, but you don't know what to do with them?";
+			mes "Digamos que você tenha uma montanha de ingredientes, mas não sabe o que fazer com eles?";
 			next;
 			mes "[Mille Feuille]";
-			mes "That's when you open the Cookbook.";
+			mes "É quando você abre o Livro de Receitas.";
 			next;
 			mes "[Dacquoise]";
-			mes "You need a Cookbook to know how to prepare the ingredients for cooking.";
+			mes "Você precisa de um Livro de Receitas para saber como preparar os ingredientes para cozinhar.";
 			next;
 			mes "[Eclaire]";
-			mes "So how can I get these Cookbooks?";
+			mes "Então, como posso conseguir esses Livros de Receitas?";
 			next;
 			mes "[Mille Feuille]";
-			mes "Cookbook can be earned ^0000cdthrough Quest^000000s or can be found by hunting ^0000cdmonster^000000s.";
-			next;
-			emotion ET_SURPRISE;
-			mes "[Dacquoise]";
-			mes "After getting the Cookbook, next preperation is!";
-			mes "The ^0000cdingredients!^000000.";
-			next;
-			mes "[Eclaire]";
-			mes "You can't cook without ingredients! Even a novice knows that!";
-			next;
-			mes "[Mille Feuille]";
-			mes "You can get ingredients by beating or smashing ^0000cdmonster^000000 or you can buy them from a ^0000cdCooking Ingredient Merchant^000000.";
-			next;
-			mes "[Dacquoise]";
-			mes "Cooking requires some preparation but the benefits are well worth it.";
-			next;
-			mes "[Dacquoise]";
-			mes "And one thing to remember, there is ^0000cda potential to fail in cooking^000000.  Be careful as it depends on your cookwares and cooking level.";
-			next;
-			if (new_cook == 1) {
-				select("I want to cook!");
-				mes "[Dacquoise]";
-				mes "That's the spirit! Let's cook for real!";
-				mes "Get prepared and come back!";
-				emotion ET_BEST;
-			} else {
-				mes "[Eclaire]";
-				mes "We are not responsible even if it fails!";
-			}
-			new_cook = 1;
-			close;
-		} else if (new_cook >= 1) {
-			if (isbegin_quest(14154) == 1 || isbegin_quest(14155) == 1 || isbegin_quest(14156) == 1 || isbegin_quest(14157) == 1) {
-				mes "[Dacquoise]";
-				mes "Did you bring them all?";
+				mes "O Livro de Receitas pode ser obtido ^0000cdatravés de Missões^000000 ou pode ser encontrado caçando ^0000cdmonstros^000000.";
 				next;
-				if (select("Yes! I did!", "No, I gave up.") == 2) {
+				emotion ET_SURPRISE;
+				mes "[Dacquoise]";
+				mes "Depois de conseguir o Livro de Receitas, a próxima preparação é!";
+				mes "Os ^0000cdingredientes!^000000.";
+				next;
+				mes "[Eclaire]";
+				mes "Você não pode cozinhar sem ingredientes! Até um novato sabe disso!";
+				next;
+				mes "[Mille Feuille]";
+				mes "Você pode obter ingredientes batendo ou esmagando ^0000cdmonstros^000000 ou pode comprá-los de um ^0000cdComerciante de Ingredientes de Culinária^000000.";
+				next;
+				mes "[Dacquoise]";
+				mes "Cozinhar requer alguma preparação, mas os benefícios valem bem a pena.";
+				next;
+				mes "[Dacquoise]";
+				mes "E uma coisa para lembrar, há ^0000cduma possibilidade de falha na culinária^000000. Tenha cuidado, pois depende de seus utensílios de cozinha e nível de culinária.";
+				next;
+				if (new_cook == 1) {
+					select("Quero cozinhar!");
 					mes "[Dacquoise]";
-					mes "I used my valuable time to introduce the cooking world to you.";
-					mes "Then you just give up?";
-					emotion ET_FRET;
-					next;
+					mes "Esse é o espírito! Vamos cozinhar de verdade!";
+					mes "Prepare-se e volte!";
+					emotion ET_BEST;
+				} else {
 					mes "[Eclaire]";
-					mes "You have insulted us!";
-					emotion ET_ANGER, getnpcid(0, "Eclaire#"+strnpcinfo(2));
+					mes "Não somos responsáveis, mesmo que falhe!";
+				}
+				new_cook = 1;
+				close;
+			} else if (new_cook >= 1) {
+				if (isbegin_quest(14154) == 1 || isbegin_quest(14155) == 1 || isbegin_quest(14156) == 1 || isbegin_quest(14157) == 1) {
+					mes "[Dacquoise]";
+					mes "Você trouxe todos?";
 					next;
-					mes "[Mille Feuille]";
-					mes "Come back again, if you want to learn later~ I guess...";
-					emotion ET_THINK, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
-					close2;
-					if (isbegin_quest(14154) == 1)
+					if (select("Sim! Trouxe!", "Não, desisti.") == 2) {
+						mes "[Dacquoise]";
+						mes "Usei meu tempo valioso para apresentar o mundo da culinária a você.";
+						mes "Então você simplesmente desiste?";
+						emotion ET_FRET;
+						next;
+						mes "[Eclaire]";
+						mes "Você nos insultou!";
+						emotion ET_ANGER, getnpcid(0, "Eclaire#"+strnpcinfo(2));
+						next;
+						mes "[Mille Feuille]";
+						mes "Volte novamente, se quiser aprender mais tarde~ Eu acho...";
+						emotion ET_THINK, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
+						close2;
+						if (isbegin_quest(14154) == 1)
+							erasequest 14154;
+						if (isbegin_quest(14155) == 1)
+							erasequest 14155;
+						if (isbegin_quest(14156) == 1)
+							erasequest 14156;
+						if (isbegin_quest(14157) == 1)
+							erasequest 14157;
+						end;
+					}
+					mes "[Dacquoise]";
+					mes "Posso dar uma olhada?";
+					next;
+					if (isbegin_quest(14154) == 1 && countitem(705) > 0 && countitem(511) > 0 && countitem(507) > 0) {
+						mes "[Dacquoise]";
+						mes "Você trouxe o que eu preciso! Ok, então vou cozinhar para você como prometi.";
+						mes "Hora de se mover como um raio!!!!";
+						emotion ET_SPARK;
+						next;
+						mes "[Eclaire]";
+						mes "Vá caçar depois de comer isso. Você sentirá seu poder aumentado.";
+						emotion ET_BEST, getnpcid(0, "Eclaire#"+strnpcinfo(2));
+						next;
+						mes "[Mille Feuille]";
+						mes "Se você realmente quer cozinhar, vá ver ^0000ffSr. Charles Orleans no porão do castelo de Prontera^000000!!";
+						mes "Kya... Sr. Orleans!!";
+						emotion ET_THROB, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
+						close2;
+						delitem 705,1;// Trevo
+						delitem 511,1;// Erva_Verde
+						delitem 507,1;// Erva_Vermelha
+						getitem 11551,1;// Salada_de_Ervas_Salgada
 						erasequest 14154;
-					if (isbegin_quest(14155) == 1)
+						end;
+					}
+					if (isbegin_quest(14155) == 1 && countitem(512) > 0 && countitem(515) > 1) {
+						mes "[Dacquoise]";
+						mes "Você trouxe o que eu preciso! Ok, então vou cozinhar para você como prometi.";
+						mes "Hora de se mover como um raio!!!!";
+						emotion ET_SPARK;
+						next;
+						mes "[Eclaire]";
+						mes "Experimente isso. Vai fazer você correr como se fosse uma abelha voando.";
+						emotion ET_BEST, getnpcid(0, "Eclaire#"+strnpcinfo(2));
+						next;
+						mes "[Mille Feuille]";
+						mes "Se você realmente quer cozinhar, vá ver ^0000ffSr. Charles Orleans no porão do castelo de Prontera^000000!! Você deve ser atraído por ele!!";
+						emotion ET_THROB, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
+						close2;
+						delitem 512,1;// Maçã
+						delitem 515,2;// Cenoura
+						getitem 11552,1;// Salada_de_Maçã_e_Cenoura
 						erasequest 14155;
-					if (isbegin_quest(14156) == 1)
+						end;
+					}
+					if (isbegin_quest(14156) == 1 && countitem(909) > 0 && countitem(914) > 0 && countitem(949) > 0) {
+						mes "[Dacquoise]";
+						mes "Você trouxe o que eu precisa! Ok, então vou cozinhar para você como prometi.";
+						mes "Hora de se mover como um raio!!!!";
+						emotion ET_SPARK;
+						next;
+						mes "[Eclaire]";
+						mes "Você pode sentir poder desconhecido percorrendo suas veias? Você está comendo!";
+						emotion ET_BEST, getnpcid(0, "Eclaire#"+strnpcinfo(2));
+						next;
+						mes "[Mille Feuille]";
+						mes "Se você está realmente curioso sobre a culinária, procure o Sr. Charles Orleans no porão do Castelo de Prontera.";
+						emotion ET_THROB, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
+						close2;
+						delitem 909,1;// Gelatina
+						delitem 914,1;// Fluff
+						delitem 949,1;// Pena
+						getitem 11553,1;// Ensopado_Casual
 						erasequest 14156;
-					if (isbegin_quest(14157) == 1)
+						end;
+					}
+					if (isbegin_quest(14157) == 1 && countitem(512) > 0 && countitem(705) > 0) {
+						mes "[Dacquoise]";
+						mes "Você trouxe o que eu preciso! Ok, então vou cozinhar para você como prometi.";
+						mes "Hora de se mover como um raio!!!!";
+						emotion ET_SPARK;
+						next;
+						mes "[Eclaire]";
+						mes "Se você comer isso. Você nunca errará seu alvo!";
+						mes "Na verdade, nunca erre o alvo para o nível 1!";
+						emotion ET_BEST, getnpcid(0, "Eclaire#"+strnpcinfo(2));
+						next;
+						mes "[Mille Feuille]";
+						mes "Vá ver o Sr. Charles Orleans no porão do castelo de Prontera!!";
+						mes "Você pode aprender culinária de verdade com ele!";
+						emotion ET_THROB, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
+						close2;
+						delitem 512,1;// Maçã
+						delitem 705,1;// Trevo
+						getitem 11554,1;// Maçã_Assada_Dourada
 						erasequest 14157;
-					end;
-				}
-				mes "[Dacquoise]";
-				mes "Can I have a look?";
-				next;
-				if (isbegin_quest(14154) == 1 && countitem(705) > 0 && countitem(511) > 0 && countitem(507) > 0) {
+						end;
+					}
 					mes "[Dacquoise]";
-					mes "You brough what I need! Okay, then I will cook for you as I promised.";
-					mes "Time to move like greased lightning!!!!";
-					emotion ET_SPARK;
+					mes "O que você quer que eu faça sem ingredientes? Vá e pegue eu mesmo?";
+					close;
+				}
+				if (new_cook == 2) {
+					mes "[Dacquoise]";
+					mes "Você voltou para mim novamente porque quer cozinhar, certo?";
 					next;
 					mes "[Eclaire]";
-					mes "Go hunting after eating this. You will feel your power enhanced.";
-					emotion ET_BEST, getnpcid(0, "Eclaire#"+strnpcinfo(2));
+					mes "Então, o que você quer cozinhar?";
 					next;
 					mes "[Mille Feuille]";
-					mes "If you really want to cook, go and see ^0000ffSir. Charles Orleans at the basement of Prontera castle^000000!!";
-					mes "Kya... Sir Orleans!!";
-					emotion ET_THROB, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
-					close2;
-					delitem 705,1;// Clover
-					delitem 511,1;// Green_Herb
-					delitem 507,1;// Red_Herb
-					getitem 11551,1;// Savory_Herb_Salad
-					erasequest 14154;
-					end;
-				}
-				if (isbegin_quest(14155) == 1 && countitem(512) > 0 && countitem(515) > 1) {
+					mes "Oh? Aquele garoto está de volta. "+strcharinfo(0)+" certo? Então, o que você quer?";
+					next;
+				} else {
 					mes "[Dacquoise]";
-					mes "You brough what I need! Okay, then I will cook for you as I promised.";
-					mes "Time to move like greased lightning!!!!";
-					emotion ET_SPARK;
+					mes "Você está pronto? Então fazer é acreditar! Vamos cozinhar!";
 					next;
 					mes "[Eclaire]";
-					mes "Try this. It will make you run like you are a flying bee.";
-					emotion ET_BEST, getnpcid(0, "Eclaire#"+strnpcinfo(2));
+					mes "Para esta demonstração, a duração da culinária será encurtada.";
 					next;
 					mes "[Mille Feuille]";
-					mes "If you really want to cook, go and see ^0000ffSir. Charles Orleans at the basement of Prontera castle^000000!! You must be attracted by him!!";
-					emotion ET_THROB, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
-					close2;
-					delitem 512,1;// Apple
-					delitem 515,2;// Carrot
-					getitem 11552,1;// Apple_Carrot_Salad
-					erasequest 14155;
-					end;
-				}
-				if (isbegin_quest(14156) == 1 && countitem(909) > 0 && countitem(914) > 0 && countitem(949) > 0) {
+					mes "A culinária que estamos prestes a mostrar requer uma receita e equipamento de cozinha, mas é difícil para novatos, então eu cozinharei para você.";
+					next;
+					emotion ET_STARE;
 					mes "[Dacquoise]";
-					mes "You brough what I need! Okay, then I will cook for you as I promised.";
-					mes "Time to move like greased lightning!!!!";
-					emotion ET_SPARK;
+					mes "Por que você está dizendo que vai fazê-los?";
+					next;
+					emotion ET_SCRATCH, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
+					mes "[Mille Feuille]";
+					mes "Ah, por que não?";
+					next;
+					mes "[Dacquoise]";
+					mes "Eu sou a líder deste trio de chefs de culinária flamejante!";
+					next;
+					emotion ET_HUK, getnpcid(0, "Eclaire#"+strnpcinfo(2));
+					mes "[Eclaire]";
+					mes "O quê?!! Quando foi decidido isso?";
+					next;
+					emotion ET_STARE_ABOUT;
+					mes "[Dacquoise]";
+					mes "Há alguém mais velho do que eu?";
+					next;
+					emotion ET_HUK, getnpcid(0, "Eclaire#"+strnpcinfo(2));
+					mes "[Eclaire]";
+					mes "Idade! Não há nada que eu possa fazer sobre isso.";
+					next;
+					emotion ET_OK, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
+					mes "[Mille Feuille]";
+					mes "Só porque você é um ano mais velha, quer ser automaticamente rejeitada. Alguém tem objeção?";
+					next;
+					emotion ET_FRET;
+					mes "[Dacquoise]";
+					mes "Quieto!";
+					next;
+					mes "[Dacquoise]";
+					mes "Então, o que você quer fazer? Refeições de Int e Sorte não teriam benefício para você, então preparei as outras 4 comidas.";
+					next;
+				}
+				switch(select("Mistura de Ervas Aromáticas", "Salada Crocante", "Shabu Shabu Misto", "Assado Dourado de Maçã")) {
+				case 1:
+					// Mistura de Ervas Aromáticas
+					mes "[Dacquoise]";
+					mes "^0000cdMistura de Ervas Aromáticas^000000. Aumenta ^0000cdFor^000000.";
 					next;
 					mes "[Eclaire]";
-					mes "Can you feel unknown power coursing through your veins? You're eating it!";
-					emotion ET_BEST, getnpcid(0, "Eclaire#"+strnpcinfo(2));
+					mes "É geralmente comida por pessoas de força.";
 					next;
 					mes "[Mille Feuille]";
-					mes "If you are really curious about the cooking, go seek Sir. Charles Orleans at the basement of Prontera Castle.";
-					emotion ET_THROB, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
-					close2;
-					delitem 909,1;// Jellopy
-					delitem 914,1;// Fluff
-					delitem 949,1;// Feather
-					getitem 11553,1;// Casual_Stew
-					erasequest 14156;
-					end;
-				}
-				if (isbegin_quest(14157) == 1 && countitem(512) > 0 && countitem(705) > 0) {
+					mes "Ingredientes- ^0000cd1 Trevo, 1 Erva Verde, 1 Erva Vermelha^000000.";
+					next;
+					cutin "·??iµ?mp", 3;
 					mes "[Dacquoise]";
-					mes "You brough what I need! Okay, then I will cook for you as I promised.";
-					mes "Time to move like greased lightning!!!!";
-					emotion ET_SPARK;
+					mes "O Trevo e a Erva Vermelha são dropados por Lunáticos ou Fabres vagando por todo o campo fora de Izlude.";
+					next;
+					cutin "?º?iµ?mp", 3;
+					mes "[Eclaire]";
+					mes "Ervas Verdes são dropadas por Fabres.";
+					next;
+					cutin "", 255;
+					mes "[Mille Feuille]";
+					mes "Podemos cozinhar assim que você trouxer todos os ingredientes.";
+					close2;
+					new_cook = 2;
+					setquest 14154;
+					end;
+				case 2:
+					// Salada Crocante
+					mes "[Dacquoise]";
+					mes "Salada Crocante. Esta eu realmente gosto. Você conhece sua culinária.";
 					next;
 					mes "[Eclaire]";
-					mes "If you eat this. You will never miss your target!";
-					mes "In fact, never miss the target for level 1!";
-					emotion ET_BEST, getnpcid(0, "Eclaire#"+strnpcinfo(2));
+					mes "A Salada Crocante aumenta ^0000cdAgi^000000. Boa para ataques rápidos e evitar danos de monstros.";
 					next;
 					mes "[Mille Feuille]";
-					mes "Go and see Sir. Charles Orleans at the basement of Prontera castle!!";
-					mes "You can learn real cooking from him!";
-					emotion ET_THROB, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
+					mes "Os ingredientes são ^0000cd1 Maçã & 2 Cenouras^000000.";
+					next;
+					cutin "?¸µiµ?mp", 3;
+					mes "[Dacquoise]";
+					mes "Maçãs são dropadas por Porings saltando pelo campo fora de Izlude.";
+					next;
+					cutin "·??iµ?mp", 3;
+					mes "[Eclaire]";
+					mes "Cenouras são dadas por Lunáticos.";
+					next;
+					cutin "", 255;
+					mes "[Mille Feuille]";
+					mes "Se você trouxer todos os ingredientes, podemos cozinhar.";
 					close2;
-					delitem 512,1;// Apple
-					delitem 705,1;// Clover
-					getitem 11554,1;// Golden_Roasted_Apple
-					erasequest 14157;
+					new_cook = 2;
+					setquest 14155;
+					end;
+				case 3:
+					// Shabu Shabu Misto
+					mes "[Dacquoise]";
+					mes "Assustador ^0000cdQualquer Coisa ShabuShabu!^000000 Isso aumenta ^0000cdVit^000000. Até uma pequena porção o deixa cheio.";
+					next;
+					mes "[Eclaire]";
+					mes "Se você comer isso, pode sentir menos dor de monstros.";
+					next;
+					mes "[Mille Feuille]";
+					mes "Ingredientes são ^0000cd1 Gelatina, 1 Fluff, 1 Pena^000000.";
+					next;
+					cutin "?¸µiµ?mp", 3;
+					mes "[Dacquoise]";
+					mes "Gelatina é dropada por Porings saltando pelo campo de Izlude.";
+					next;
+					cutin "?º?iµ?mp", 3;
+					mes "[Eclaire]";
+					mes "Fluff pode ser recebido de Fabre ou Lunático.";
+					next;
+					cutin "·??iµ?mp", 3;
+					mes "[Mille Feuille]";
+					mes "Penas são dropadas por Lunáticos ou Fabres.";
+					next;
+					cutin "", 255;
+					mes "[Dacquoise]";
+					mes "Quando você trouxer todos os ingredientes, farei para você.";
+					close2;
+					new_cook = 2;
+					setquest 14156;
+					end;
+				case 4:
+					// Assado Dourado de Maçã
+					mes "[Dacquoise]";
+					mes "^0000cdTorrada Dourada de Maçã~^000000 glacê dourado brilhante... Tem um gosto tão bom quanto parece.";
+					next;
+					mes "[Eclaire]";
+					mes "Isso aumenta ^0000cdDex^000000. É principalmente apreciado por Arqueiros que querem aumentar seu poder de ataque ou por pessoas para aumentar sua taxa de acerto.";
+					next;
+					mes "[Mille Feuille]";
+					mes "Os ingredientes são-^0000cd 1 Maçã & 1 Trevo^000000.";
+					next;
+					cutin "?¸µiµ?mp", 3;
+					mes "[Dacquoise]";
+					mes "Maçã pode ser encontrada em Porings no campo fora de Izlude.";
+					next;
+					cutin "·??iµ?mp", 3;
+					mes "[Eclaire]";
+					mes "Trevo é dropado por Lunáticos ou Fabre no campo fora de Izlude.";
+					next;
+					cutin "", 255;
+					mes "[Mille Feuille]";
+					mes "Quando você trouxer todos os ingredientes, farei para você.";
+					close2;
+					new_cook = 2;
+					setquest 14157;
 					end;
 				}
-				mes "[Dacquoise]";
-				mes "What do you want me to do without ingredients? Go and get them myself?";
-				close;
-			}
-			if (new_cook == 2) {
-				mes "[Dacquoise]";
-				mes "You came back to me again because you want to cook, right?";
-				next;
-				mes "[Eclaire]";
-				mes "So what do you want to cook?";
-				next;
-				mes "[Mille Feuille]";
-				mes "Oh? That kid is back again. "+strcharinfo(0)+" right? So what do you want?";
-				next;
 			} else {
+				emotion ET_BEST;
 				mes "[Dacquoise]";
-				mes "Are you ready? Then making is believing! Let's cook!";
+				mes "Sou Dacquoise, o aluno do lendário chef de Rune-Midgarts, ^0000cdCharles Orleans^000000.";
 				next;
+				emotion ET_BEST, getnpcid(0, "Eclaire#"+strnpcinfo(2));
 				mes "[Eclaire]";
-				mes "For this demonstration the duration of the cooking will be shortened.";
+				mes "Bifes não só aumentam status, mas também recuperam seu HP e SP.";
 				next;
+				emotion ET_THROB, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
 				mes "[Mille Feuille]";
-				mes "The cooking we are about to show you requires a recipe and cooking equipment but it is difficult for novices so I will cook for you.";
-				next;
-				emotion ET_STARE;
-				mes "[Dacquoise]";
-				mes "Why are you saying you will make them?";
-				next;
-				emotion ET_SCRATCH, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
-				mes "[Mille Feuille]";
-				mes "Ah, Why not?";
-				next;
-				mes "[Dacquoise]";
-				mes "I am the leader of this flame cooking trio chefs!";
-				next;
-				emotion ET_HUK, getnpcid(0, "Eclaire#"+strnpcinfo(2));
-				mes "[Eclaire]";
-				mes "What?!! When was that decided?";
-				next;
-				emotion ET_STARE_ABOUT;
-				mes "[Dacquoise]";
-				mes "Is there anyone who is older than me?";
-				next;
-				emotion ET_HUK, getnpcid(0, "Eclaire#"+strnpcinfo(2));
-				mes "[Eclaire]";
-				mes "Age! There is nothing I can do with it.";
-				next;
-				emotion ET_OK, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
-				mes "[Mille Feuille]";
-				mes "Just because you're one year older, you want to automatically be rejected. Anyone have an objection?";
-				next;
-				emotion ET_FRET;
-				mes "[Dacquoise]";
-				mes "Quiet!";
-				next;
-				mes "[Dacquoise]";
-				mes "So what do you want to make? Int and Luk meals would have no benefit to you, so I prepared the other 4 foods.";
-				next;
-			}
-			switch(select("Fragrant Herb Mix", "Crunchy Salad", "Mixed Shabu Shabu", "Golden Apple Roast")) {
-			case 1:
-				// Fragrant Herb Mix
-				mes "[Dacquoise]";
-				mes "^0000cdFragrant Herb Mix^000000. It increases ^0000cdStr^000000.";
-				next;
-				mes "[Equazu]";
-				mes "It's usually eaten by people of strength.";
-				next;
-				mes "[Mille Feuille]";
-				mes "Ingredients- ^0000cd1 Clover, 1 Green Herb, 1 Red Herb^000000.";
-				next;
-				cutin "·??iµ?mp", 3;
-				mes "[Dacquoise]";
-				mes "Clover and the Red Herb are dropped by Lunatic or Fabre monsters wandering everywhere on the field outside Izlude.";
-				next;
-				cutin "?º?iµ?mp", 3;
-				mes "[Eclaire]";
-				mes "Green Herbs are dropped by Fabres.";
-				next;
-				cutin "", 255;
-				mes "[Mille Feuille]";
-				mes "We can cook once you bring all the ingredients.";
-				close2;
-				new_cook = 2;
-				setquest 14154;
-				end;
-			case 2:
-				// Crunchy Salad
-				mes "[Dacquoise]";
-				mes "Crunchy Salad. This I really like. You know your cooking.";
-				next;
-				mes "[Eclaire]";
-				mes "Crunchy Salad increases ^0000cdAgi^000000. Good for fast attacks and avoiding damage from monsters.";
-				next;
-				mes "[Mille Feuille]";
-				mes "Ingredients are ^0000cd1 Apple & 2 Carrots^000000.";
-				next;
-				cutin "?¸µiµ?mp", 3;
-				mes "[Dacquoise]";
-				mes "Apples are dropped by Porings bouncing around the field outside of Izlude.";
-				next;
-				cutin "·??iµ?mp", 3;
-				mes "[Eclaire]";
-				mes "Carrots are given by Lunatics.";
-				next;
-				cutin "", 255;
-				mes "[Mille Feuille]";
-				mes "If you bring all the ingredients we can cook.";
-				close2;
-				new_cook = 2;
-				setquest 14155;
-				end;
-			case 3:
-				// Mixed Shabu Shabu
-				mes "[Dacquoise]";
-				mes "Scary ^0000cdAnything ShabuShabu!^000000 This raises ^0000cdVit^000000. Even a small portion makes you full.";
-				next;
-				mes "[Eclaire]";
-				mes "If you eat this, you can feel less pain from monsters.";
-				next;
-				mes "[Mille Feuille]";
-				mes "Ingredients are ^0000cd1 Jellopy, 1 Fluff, 1 Feather^000000.";
-				next;
-				cutin "?¸µiµ?mp", 3;
-				mes "[Dacquoise]";
-				mes "Jellopy are dropped by Porings bouncing around the field of Izlude.";
-				next;
-				cutin "?º?iµ?mp", 3;
-				mes "[Eclaire]";
-				mes "Fluff can be received from Fabre or Lunatic.";
-				next;
-				cutin "·??iµ?mp", 3;
-				mes "[Mille Feuille]";
-				mes "Feathers are dropped by Lunatics or Fabres.";
-				next;
-				cutin "", 255;
-				mes "[Dacquoise]";
-				mes "When you bring all the ingredients I'll make them for you.";
-				close2;
-				new_cook = 2;
-				setquest 14156;
-				end;
-			case 4:
-				// Golden Apple Roast
-				mes "[Dacquoise]";
-				mes "^0000cdGolden Apple Toast~^000000 shiny golden glaze...  It tastes as good as it looks.";
-				next;
-				mes "[Eclaire]";
-				mes "This raises ^0000cdDex^000000. It is mainly enjoyed by Archers who want to increase his attacking power or by people to increase their hit rate.";
-				next;
-				mes "[Mille Feuille]";
-				mes "Ingredients are-^0000cd 1 Apple & 1 Clover^000000.";
-				next;
-				cutin "?¸µiµ?mp", 3;
-				mes "[Dacquoise]";
-				mes "Apple can be found in Porings in the field outside of Izlude.";
-				next;
-				cutin "·??iµ?mp", 3;
-				mes "[Eclaire]";
-				mes "Clovers are dropped by Lunatics or Fabre in the field outside Izlude.";
-				next;
-				cutin "", 255;
-				mes "[Mille Feuille]";
-				mes "When you bring all the ingredients I'll make them for you.";
-				close2;
-				new_cook = 2;
-				setquest 14157;
-				end;
+				mes "Se você realmente quer cozinhar, vá ver ^0000cdSr. Charles Orleans no porão do castelo de Prontera^000000!! Você deve ser atraído por ele!!";
+				close;
 			}
 		} else {
-			emotion ET_BEST;
 			mes "[Dacquoise]";
-			mes "I am Dacquoise, the pupil of the legendary chef of Rune-Midgarts, ^0000cdCharles Orleans^000000.";
+			mes "Parece que você não é mais um iniciante. Está cozinhando esses dias?";
 			next;
-			emotion ET_BEST, getnpcid(0, "Eclaire#"+strnpcinfo(2));
 			mes "[Eclaire]";
-			mes "Steaks not only increase stats but also recover both your HP and SP.";
+			mes "Se não, por que não começamos?";
 			next;
-			emotion ET_THROB, getnpcid(0, "Mille Feuille#"+strnpcinfo(2));
 			mes "[Mille Feuille]";
-			mes "If you really want to cook, go and see^0000cd Sir. Charles Orleans at the basement of Prontera castle^000000!! You must be attracted by him!!";
+			mes "Bifes não só aumentam status, mas também recuperam seu HP e SP.";
+			next;
+			mes "[Trio de Chefs da Culinária Flamejante]";
+			mes "Se você realmente quer cozinhar, vá conhecer ^0000cdSr. Charles Orleans no porão do castelo de Prontera^000000! Você deve ser atraído por ele.";
 			close;
 		}
-	} else {
-		mes "[Dacquoise]";
-		mes "Looks like you're no longer a beginner. Are you cooking these days?";
-		next;
-		mes "[Eclaire]";
-		mes "If not why don't we start?";
-		next;
-		mes "[Mille Feuille]";
-		mes "Steaks not only increase stats but also recover both your HP and SP.";
-		next;
-		mes "[Flame Cook Trio Chefs]";
-		mes "If you really want to cook, go and meet ^0000cdSir. Charles Olreans at the basement of the Prontera castle^000000! You must be attracted by him.";
-		close;
+
+	OnInit:
+		questinfo( QTYPE_QUEST, QMARK_YELLOW, "Class == Job_Novice && (!isbegin_quest(14154) || !isbegin_quest(14155) || !isbegin_quest(14156) || !isbegin_quest(14157))" );
+		end;
 	}
 
-OnInit:
-	questinfo( QTYPE_QUEST, QMARK_YELLOW, "Class == Job_Novice && (!isbegin_quest(14154) || !isbegin_quest(14155) || !isbegin_quest(14156) || !isbegin_quest(14157))" );
-	end;
-}
+	iz_ac01_a,147,50,3	duplicate(Dacquoise#ac)	Dacquoise#ac_a	4_COOK
+	iz_ac01_b,147,50,3	duplicate(Dacquoise#ac)	Dacquoise#ac_b	4_COOK
+	iz_ac01_c,147,50,3	duplicate(Dacquoise#ac)	Dacquoise#ac_c	4_COOK
+	iz_ac01_d,147,50,3	duplicate(Dacquoise#ac)	Dacquoise#ac_d	4_COOK
 
-iz_ac01_a,147,50,3	duplicate(Dacquoise#ac)	Dacquoise#ac_a	4_COOK
-iz_ac01_b,147,50,3	duplicate(Dacquoise#ac)	Dacquoise#ac_b	4_COOK
-iz_ac01_c,147,50,3	duplicate(Dacquoise#ac)	Dacquoise#ac_c	4_COOK
-iz_ac01_d,147,50,3	duplicate(Dacquoise#ac)	Dacquoise#ac_d	4_COOK
-
-// - General Store Owner
-// - Sells the player the Novice Combination Book and Kit.
 // -----------------------------------------------------------------------------
-iz_ac01,68,49,3	script	General Store Owner#ac	4_F_03,{
+// - Proprietária da Loja Geral
+// - Vende para o jogador o Livro de Combinação e Kit para Noviços.
+// -----------------------------------------------------------------------------
+iz_ac01,68,49,3	script	Proprietária da Loja Geral#ac	4_F_03,{
 	if (!checkweight(1304,3)) {
-		mes "Quest cannot be continued due to the overfilled inventory.";
-		mes "Please try it again after organizing the items.";
+		mes "A missão não pode continuar devido ao inventário sobrecarregado.";
+		mes "Por favor, tente novamente após organizar seus itens.";
 		close;
 	}
 	mes "[Querrie]";
-	mes "Are you interested in the beginner's guild?";
-	mes "I am selling Combination books and kits.";
+	mes "Você está interessado na guilda de iniciantes?";
+	mes "Estou vendendo Livros e Kits de Combinação.";
 	next;
 	mes "[Querrie]";
-	mes "To the Criatura students below level 20, a special sale is going on. Hope you to buy a lot!!!";
+	mes "Para os alunos da Criatura abaixo do nível 20, há uma promoção especial. Espero que compre bastante!!!";
 	next;
-	switch(select("Novice Combination Book", "Combination Kit", "Cancel.")) {
+	switch(select("Livro de Combinação para Noviços", "Kit de Combinação", "Cancelar.")) {
 	case 1:
 		if (isbegin_quest(4269) && isbegin_quest(7478)) {
 			mes "[Querrie]";
-			mes "Have you been treated by the Therapist?";
-			mes "At the medical botany class, you may receive a guild book.";
+			mes "Você já foi atendido pelo Terapeuta?";
+			mes "Na aula de botânica médica, você pode receber um livro da guilda.";
 			next;
-			if (select("Ah... is that so?", "I lost it.") == 1) {
+			if (select("Ah... é mesmo?", "Eu o perdi.") == 1) {
 				mes "[Querrie]";
-				mes "Later, buy a lot of the guild combination kits~~~";
-				mes "I am selling them at a jaw dropping price to students below base level 20.";
+				mes "Depois, compre muitos kits de combinação da guilda~~~";
+				mes "Estou vendendo por um preço incrível para alunos abaixo do nível base 20.";
 				close;
 			}
 			mes "[Querrie]";
-			mes "Say what?";
+			mes "O quê?";
 		} else {
 			mes "[Querrie]";
-			mes "You mean the combination book.";
+			mes "Você quer o livro de combinação.";
 		}
-		mes "A book costs you 1000z.";
+		mes "Um livro custa 1000z.";
 		next;
-		if (select("Buy", "Don't buy.") == 2) {
+		if (select("Comprar", "Não comprar.") == 2) {
 			mes "[Querrie]";
-			mes "Use it next time.";
+			mes "Use na próxima vez.";
 		} else {
 			if (Zeny >= 1000) {
 				mes "[Querrie]";
-				mes "Here you are.";
-				mes "This book is for the beginners. But it will allow you combine the useful tools together, if you use it correctly.";
+				mes "Aqui está.";
+				mes "Este livro é para iniciantes. Mas permitirá que você combine ferramentas úteis, se usá-lo corretamente.";
 				Zeny -= 1000;
 				getitem 11058,1;// Novice_Combi_Book
 			} else {
 				mes "[Querrie]";
-				mes "The book price is 1000 zeny.";
-				mes "You seem to be short of zeny.";
+				mes "O preço do livro é 1000 zenys.";
+				mes "Parece que você está com falta de zeny.";
 			}
 		}
 		close;
 	case 2:
 		if (BaseLevel <= 20) {
 			mes "[Querrie]";
-			mes "Breaking news! Special sale for you only!";
-			mes "One combination kit only for 30z!";
-			mes "How many do you need?";
+			mes "Notícia urgente! Promoção especial só para você!";
+			mes "Um kit de combinação por apenas 30z!";
+			mes "Quantos você precisa?";
 		} else {
 			mes "[Querrie]";
-			mes "No sales today.";
-			mes "One combination kit costs you 500z.";
-			mes "Tell me how many pieces you need?";
+			mes "Sem promoções hoje.";
+			mes "Um kit de combinação custa 500z.";
+			mes "Diga-me quantas unidades você precisa?";
 		}
 		next;
 		input .@input;
 		if (!.@input) {
 			mes "[Querrie]";
-			mes "Well, you don't need to buy it now.";
-			mes "Use it next time.";
+			mes "Bem, você não precisa comprar agora.";
+			mes "Use na próxima vez.";
 			close;
 		}
 		if (.@input > 99) {
 			mes "[Querrie]";
-			mes "How many pieces do you need?";
-			mes "You can buy up to 99 at once.";
+			mes "Quantas unidades você precisa?";
+			mes "Você pode comprar até 99 de uma vez.";
 			close;
 		}
 		set .@cost, .@input * (BaseLevel <= 20 ? 30 : 500);
 		mes "[Querrie]";
-		mes .@input+" combination kits will cost you "+.@cost+".... zeny.";
+		mes .@input+" kits de combinação custarão "+.@cost+".... zenys.";
 		if (Zeny < .@cost) {
-			mes "You look short of money for that amount.";
+			mes "Parece que você não tem dinheiro suficiente para essa quantidade.";
 			close;
 		}
-		mes "Thank you. Come back again.";
+		mes "Obrigada. Volte sempre.";
 		Zeny -= .@cost;
 		getitem 12849,.@input;// Combination_Kit
 		close;
@@ -4483,29 +4484,30 @@ iz_ac01,68,49,3	script	General Store Owner#ac	4_F_03,{
 	}
 }
 
-iz_ac01_a,68,49,3	duplicate(General Store Owner#ac)	General Store Owner#ac_a	4_F_03
-iz_ac01_b,68,49,3	duplicate(General Store Owner#ac)	General Store Owner#ac_b	4_F_03
-iz_ac01_c,68,49,3	duplicate(General Store Owner#ac)	General Store Owner#ac_c	4_F_03
-iz_ac01_d,68,49,3	duplicate(General Store Owner#ac)	General Store Owner#ac_d	4_F_03
+iz_ac01_a,68,49,3	duplicate(Proprietária da Loja Geral#ac)	Proprietária da Loja Geral#ac_a	4_F_03
+iz_ac01_b,68,49,3	duplicate(Proprietária da Loja Geral#ac)	Proprietária da Loja Geral#ac_b	4_F_03
+iz_ac01_c,68,49,3	duplicate(Proprietária da Loja Geral#ac)	Proprietária da Loja Geral#ac_c	4_F_03
+iz_ac01_d,68,49,3	duplicate(Proprietária da Loja Geral#ac)	Proprietária da Loja Geral#ac_d	4_F_03
 
-// - Battle Instructor
-// - Gives the player monster hunting quests.
 // -----------------------------------------------------------------------------
-iz_ac01,59,83,3	script	Battle Instructor#08	4_M_NOV_HUNT,{
+// - Instrutor de Batalha
+// - Dá ao jogador missões de caça a monstros.
+// -----------------------------------------------------------------------------
+iz_ac01,59,83,3	script	Instrutor de Batalha#08	4_M_NOV_HUNT,{
 	if (!checkweight(1201,1) || (MaxWeight - Weight) < 2000) {
-		mes "- You have too many items.";
-		mes "- Clear inventory and try again.";
+		mes "- Você tem itens demais.";
+		mes "- Limpe seu inventário e tente novamente.";
 		close;
 	}
 	if (Class == Job_Novice) {
 		if (isbegin_quest(4269) == 2) {
 			if (JobLevel == 10) {
-				mes "[Battle Instructor Subino]";
-				mes "You shouldn't be like this, you are high enough to change your job.";
-				mes "I won't stop you even if you stay still...";
+				mes "[Instrutor de Batalha Subino]";
+				mes "Você não deveria estar assim, já está alto o suficiente para mudar de classe.";
+				mes "Eu não vou te impedir, mesmo se você ficar parado...";
 				next;
-				mes "[Battle Instructor Subino]";
-				mes "Try to talk to ^ff0000each job instructor^000000 on the 2nd floor of the Academy if you aren't sure what job you want still.";
+				mes "[Instrutor de Batalha Subino]";
+				mes "Tente conversar com ^ff0000cada instrutor de classe^000000 no 2º andar da Academia se ainda não tiver certeza de qual classe escolher.";
 				for (set .@i,0; .@i < 6; set .@i,.@i+1) {
 					set .@quest_id,11339+.@i;
 					setarray .@bexp[0],90,90,135,200,0,120;
@@ -4528,187 +4530,187 @@ iz_ac01,59,83,3	script	Battle Instructor#08	4_M_NOV_HUNT,{
 				}
 				close;
 			}
-			mes "[Battle Instructor Subino]";
-			mes "Welcome!";
-			mes "I am ^ff0000Battle Instructor Subino^000000.";
-			mes "I ^ff0000provice a simple request^000000 to help you to grow up as good a soldier as fast as you can, so look around.";
+			mes "[Instrutor de Batalha Subino]";
+			mes "Bem-vindo!";
+			mes "Eu sou ^ff0000Instrutor de Batalha Subino^000000.";
+			mes "Eu ^ff0000forneço pedidos simples^000000 para ajudá-lo a crescer e se tornar um bom soldado o mais rápido possível, então dê uma olhada.";
 			next;
-			switch(select("Check requests", "Warp me to the Field", "End Conversation")) {
+			switch(select("Verificar pedidos", "Me teletransporte para o Campo", "Encerrar Conversa")) {
 				case 1:
-					switch(select("The most delicious in the world (1~3):Carrots are delicious (1~3):Fabre rolling clothes (4~6):Barrier!! (4~6):"+(BaseLevel<7?"":"Buzzing~ (7~10)")+":Stop.")) {
+					switch(select("O mais delicioso do mundo (1~3):Cenouras são deliciosas (1~3):Roupas de rolagem Fabre (4~6):Barreira!! (4~6):"+(BaseLevel<7?"":"Zumbindo~ (7~10)")+":Parar.")) {
 						case 1:
 							if (!isbegin_quest(11338)) {
 								setquest 11338;
 								completequest 11338;
 							}
 							if (checkquest(11339,HUNTING) < 2) {
-								mes "[Battle Instructor Subino]";
-								mes "^ff0000Poring^000000s are very cute monsters when you see them.";
+								mes "[Instrutor de Batalha Subino]";
+								mes "^ff0000Poring^000000s são monstros muito fofos quando você os vê.";
 								next;
-								mes "[Battle Instructor Subino]";
-								mes "They drop Jellopy which are regarded as a main cooking material in Criatura Academy so we always need to hunt Porings.";
+								mes "[Instrutor de Batalha Subino]";
+								mes "Eles dropam Jellopy, que é considerado um ingrediente principal de culinária na Academia Criatura, então sempre precisamos caçar Porings.";
 								next;
 							}
-							callsub L_Quest,11339,90,50,909,5,"Poring","can easily be found","Hunt","Jellopies";
+							callsub L_Quest,11339,90,50,909,5,"Poring","pode ser encontrado facilmente","Cace","Jellopies";
 						case 2:
 							if (!isbegin_quest(11338)) {
 								setquest 11338;
 								completequest 11338;
 							}
 							if (checkquest(11340,HUNTING) < 2) {
-								mes "[Battle Instructor Subino]";
-								mes "^ff0000Lunatic^000000s are very cute animal that live near Prontera.";
-								mes "Tender...Soft...Very cute... It is very cute........";
+								mes "[Instrutor de Batalha Subino]";
+								mes "^ff0000Lunatic^000000s são animais muito fofos que vivem perto de Prontera.";
+								mes "Macio...Fofo...Muito fofo... É muito fofo........";
 								next;
-								mes "[Battle Instructor Subino]";
-								mes "It always bring ^ff0000Carrot^000000s with it, so it is easy to get a delicious carrot by hunting them.";
+								mes "[Instrutor de Batalha Subino]";
+								mes "Ele sempre carrega ^ff0000Cenoura^000000s com ele, então é fácil obter uma cenoura deliciosa caçando-os.";
 								next;
-								mes "[Battle Instructor Subino]";
-								mes "A carrot has lots of fibrous cells and contains vitamin A and carotin so it is good for eyes!";
+								mes "[Instrutor de Batalha Subino]";
+								mes "Uma cenoura tem muitas células fibrosas e contém vitamina A e caroteno, então é bom para os olhos!";
 								next;
 							}
-							callsub L_Quest,11340,90,50,515,1,"Lunatic","is easily found","Catch","Carrot";
+							callsub L_Quest,11340,90,50,515,1,"Lunatic","é facilmente encontrado","Capture","Cenoura";
 						case 3:
 							if (!isbegin_quest(11338)) {
 								setquest 11338;
 								completequest 11338;
 							}
 							if (checkquest(11341,HUNTING) < 2) {
-								mes "[Battle Instructor Subino]";
-								mes "^ff0000Fabre^000000 is the most common bug which is usually seen in Rune-Midgarts Kingdom..";
-								mes "It is a worm but it is very popular because it looks cute.";
+								mes "[Instrutor de Batalha Subino]";
+								mes "^ff0000Fabre^000000 é o inseto mais comum, geralmente visto no Reino de Rune-Midgarts.";
+								mes "É uma larva, mas é muito popular porque parece fofa.";
 								next;
-								mes "[Battle Instructor Subino]";
-								mes "Most of the clothes provided by Criatura Academy are made from ^ff0000Fluff^000000 from Fabres. It makes very strong and warm fabric.";
+								mes "[Instrutor de Batalha Subino]";
+								mes "A maioria das roupas fornecidas pela Academia Criatura é feita de ^ff0000Fluff^000000 dos Fabres. Isso cria um tecido muito forte e quente.";
 								next;
 							}
-							callsub L_Quest,11341,135,100,914,3,"Fabre","is easily found","Hunt","Fluffs";
+							callsub L_Quest,11341,135,100,914,3,"Fabre","é facilmente encontrado","Cace","Fluffs";
 						case 4:
 							if (!isbegin_quest(11338)) {
 								setquest 11338;
 								completequest 11338;
 							}
 							if (checkquest(11344,HUNTING) < 2) {
-								mes "[Battle Instructor Subino]";
-								mes "^ff0000Pupa^000000 is the intermediate stage of a Fabre before transforming into a Creamy.";
-								mes "The process of a larva turning into a buttefly is mysterious.";
+								mes "[Instrutor de Batalha Subino]";
+								mes "^ff0000Pupa^000000 é o estágio intermediário de um Fabre antes de se transformar em um Creamy.";
+								mes "O processo de uma larva se transformando em borboleta é misterioso.";
 								next;
-								mes "[Battle Instructor Subino]";
-								mes "As a Fabre transforms to a Creamy I hope that all Novices turn to be great adventurers! So ^ff0000Chrysalis^000000.";
+								mes "[Instrutor de Batalha Subino]";
+								mes "Assim como um Fabre se transforma em um Creamy, espero que todos os Noviços se tornem grandes aventureiros! Então ^ff0000Crisálida^000000.";
 								next;
 							}
-							callsub L_Quest,11344,120,90,915,2,"Pupa","is easily found","Hunt","Chrysalises";
+							callsub L_Quest,11344,120,90,915,2,"Pupa","é facilmente encontrado","Cace","Crisálidas";
 						case 5:
 							if (!isbegin_quest(11338)) {
 								setquest 11338;
 								completequest 11338;
 							}
 							if (checkquest(11342,HUNTING) < 2) {
-								mes "[Battle Instructor Subino]";
-								mes "^ff0000Hornet^000000s are a group of bees that live near Prontera under control of the Queen bee Mistress.";
-								mes "Not aggressive... They only attack with their stingers when they are in danger.";
+								mes "[Instrutor de Batalha Subino]";
+								mes "^ff0000Hornet^000000s são um grupo de abelhas que vivem perto de Prontera sob o controle da abelha rainha Mistress.";
+								mes "Não são agressivas... Elas só atacam com seus ferrões quando estão em perigo.";
 								next;
-								mes "[Battle Instructor Subino]";
-								mes "There is a study about using the poison extracted from their stingers to make an antidote in Criatura Academy.";
+								mes "[Instrutor de Batalha Subino]";
+								mes "Há um estudo sobre o uso do veneno extraído de seus ferrões para fazer um antídoto na Academia Criatura.";
 								next;
 							}
-							callsub L_Quest,11342,200,175,939,3,"Hornet","are found","Hunt","Bee Stings";
+							callsub L_Quest,11342,200,175,939,3,"Hornet","são encontrados","Cace","Ferrões de Abelha";
 						case 6:
-							mes "[Battle Instructor Subino]";
-							mes "You don't seem to be interested.";
-							mes "Come back again if you change your mind.";
+							mes "[Instrutor de Batalha Subino]";
+							mes "Você não parece interessado.";
+							mes "Volte novamente se mudar de ideia.";
 							close;
 					}
 				case 2:
-					mes "[Battle Instructor Subino]";
-					mes "Ok, I'll send you to the West field of Izlude.";
-					mes "Be sure you know how to get back.";
+					mes "[Instrutor de Batalha Subino]";
+					mes "Ok, vou te enviar para o campo oeste de Izlude.";
+					mes "Certifique-se de saber como voltar.";
 					close2;
 					warp "prt_fild"+strnpcinfo(2), 344, 213;
 					end;
 				case 3:
-					mes "[Battle Instructor Subino]";
-					mes "You don't seem to be interested.";
-					mes "Come back again if you change your mind.";
+					mes "[Instrutor de Batalha Subino]";
+					mes "Você não parece interessado.";
+					mes "Volte novamente se mudar de ideia.";
 					close;
 			}
 		}
-		mes "[Battle Instructor Subino]";
-		mes "You didn't register with the ^ff0000Criatura Academy^000000 yet?";
-		mes "It requires a simple procedure so go and register.";
-		mes "You can register at the ^ff0000information center of academy^000000.";
+		mes "[Instrutor de Batalha Subino]";
+		mes "Você ainda não se registrou na ^ff0000Academia Criatura^000000?";
+		mes "Requer um procedimento simples, então vá e se registre.";
+		mes "Você pode se registrar no ^ff0000centro de informações da academia^000000.";
 		close;
 	} else {
-		mes "[Battle Instructor Subino]";
-		mes "You don't seem to need my help.";
-		mes "You'd better look around somewhere else or go to the wider world.";
+		mes "[Instrutor de Batalha Subino]";
+		mes "Você não parece precisar da minha ajuda.";
+		mes "É melhor você procurar em outro lugar ou ir para o mundo mais amplo.";
 		next;
-		mes "[Battle Instructor Subino]";
-		mes "Visit the ^ff0000support of the class guild (Lv. 10~20) or check out the Eden Group (Lv. 15~100)^000000.";
+		mes "[Instrutor de Batalha Subino]";
+		mes "Visite o ^ff0000suporte da guilda de classe (Nv. 10~20) ou confira o Grupo Eden (Nv. 15~100)^000000.";
 		next;
-		mes "[Battle Instructor Subino]";
-		mes "^ff0000Ask the staff of each job on the second floor about the location of each class guild^000000 and you will find the ^ff0000Eden Group Headquarters^000000 where you can find easy hunt quests.";
+		mes "[Instrutor de Batalha Subino]";
+		mes "^ff0000Pergunte à equipe de cada classe no segundo andar sobre a localização de cada guilda de classe^000000 e você encontrará a ^ff0000Sede do Grupo Eden^000000, onde pode encontrar missões de caça fáceis.";
 		next;
-		mes "[Battle Instructor Subino]";
-		mes "It is ^ff0000displayed in the map of right screen^000000, so search for it.";
-		mes "If you do not know, then you should get a help from a ^ff0000Town Guide^000000.";
+		mes "[Instrutor de Batalha Subino]";
+		mes "Está ^ff0000exibido no mapa da tela direita^000000, então procure por ele.";
+		mes "Se não souber, você deve pedir ajuda a um ^ff0000Guia da Cidade^000000.";
 		close;
 	}
 
 L_Quest:
 	.@quest_id = getarg(0);
 	if (checkquest(.@quest_id,HUNTING) == -1) {
-		if (select("Take quest.", "Stop.") == 2) {
-			mes "[Battle Instructor Subino]";
-			mes "You don't seem to be interested.";
-			mes "Come back again if you change your mind.";
+		if (select("Aceitar missão.", "Parar.") == 2) {
+			mes "[Instrutor de Batalha Subino]";
+			mes "Você não parece interessado.";
+			mes "Volte novamente se mudar de ideia.";
 			close;
 		}
-		mes "[Battle Instructor Subino]";
+		mes "[Instrutor de Batalha Subino]";
 		if (.@quest_id == 11342) {
-			mes getarg(5)+"s "+getarg(6)+" in ^ff0000West field of Prontera^000000.";
-			mes getarg(5)+"s are difficult to catch for a Novice... But if you gather more Novices, you can do it.";
+			mes getarg(5)+"s "+getarg(6)+" no ^ff0000campo oeste de Prontera^000000.";
+			mes getarg(5)+"s são difíceis de capturar para um Noviço... Mas se você reunir mais Noviços, conseguirá.";
 			next;
-			mes "[Battle Instructor Subino]";
+			mes "[Instrutor de Batalha Subino]";
 		} else
-			mes getarg(5)+" "+getarg(6)+" at the ^ff0000West field of Izlude^000000.";
-		mes getarg(7)+" ^ff0000"+(.@quest_id==11344?"5":"10")+" "+getarg(5)+"s^000000 and bring ^ff0000"+getarg(4)+" "+getarg(8)+"^000000.";
-		mes "You can check received quests by pressing ^ff0000Alt + U^000000.";
+			mes getarg(5)+" "+getarg(6)+" no ^ff0000campo oeste de Izlude^000000.";
+		mes getarg(7)+" ^ff0000"+(.@quest_id==11344?"5":"10")+" "+getarg(5)+"s^000000 e traga ^ff0000"+getarg(4)+" "+getarg(8)+"^000000.";
+		mes "Você pode verificar as missões recebidas pressionando ^ff0000Alt + U^000000.";
 		setquest .@quest_id;
 		close;
 	} else if (checkquest(.@quest_id,HUNTING) == 1) {
-		if (select("End Conversation", "Give up on the quest.") == 2) {
-			mes "[Battle Instructor Subino]";
-			mes "Will you really give up on the quest?";
+		if (select("Encerrar Conversa", "Desistir da missão.") == 2) {
+			mes "[Instrutor de Batalha Subino]";
+			mes "Você realmente vai desistir da missão?";
 			next;
-			if (select("End Conversation", "Give up for sure.") == 2) {
-				mes "[Battle Instructor Subino]";
-				mes "You can challenge the quest as long as you need my help so come to me anytime.";
+			if (select("Encerrar Conversa", "Desistir com certeza.") == 2) {
+				mes "[Instrutor de Batalha Subino]";
+				mes "Você pode desafiar a missão sempre que precisar da minha ajuda, então venha até mim a qualquer momento.";
 				erasequest .@quest_id;
 			}
 		}
 		close;
 	} else {
 		if (countitem(getarg(3)) < getarg(4)) {
-			mes "[Battle Instructor Subino]";
-			mes "You don't have enough ^ff0000"+getarg(8)+"^000000.";
-			mes "Do better!";
+			mes "[Instrutor de Batalha Subino]";
+			mes "Você não tem ^ff0000"+getarg(8)+"^000000 suficientes.";
+			mes "Faça melhor!";
 			next;
-			if (select("End Conversation", "Give up on the quest.") == 2) {
-				mes "[Battle Instructor Subino]";
-				mes "Will you really give up on the quest?";
+			if (select("Encerrar Conversa", "Desistir da missão.") == 2) {
+				mes "[Instrutor de Batalha Subino]";
+				mes "Você realmente vai desistir da missão?";
 				next;
-				if (select("End Conversation", "Yes, give up.") == 2) {
-					mes "[Battle Instructor Subino]";
-					mes "You can challenge the quest as long as you need my help so come to me anytime.";
+				if (select("Encerrar Conversa", "Sim, desisto.") == 2) {
+					mes "[Instrutor de Batalha Subino]";
+					mes "Você pode desafiar a missão sempre que precisar da minha ajuda, então venha até mim a qualquer momento.";
 					erasequest .@quest_id;
 				}
 			}
 			close;
 		}
-		mes "[Battle Instructor Subino]";
-		mes "Wow..!!";
-		mes "Well done!!";
+		mes "[Instrutor de Batalha Subino]";
+		mes "Uau..!!";
+		mes "Muito bem!!";
 		erasequest .@quest_id;
 		delitem getarg(3), getarg(4);
 		getexp getarg(1), getarg(2);
@@ -4722,158 +4724,159 @@ OnInit:
 	end;
 }
 
-iz_ac01_a,59,83,3	duplicate(Battle Instructor#08)	Battle Instructor#08a	4_M_NOV_HUNT
-iz_ac01_b,59,83,3	duplicate(Battle Instructor#08)	Battle Instructor#08b	4_M_NOV_HUNT
-iz_ac01_c,59,83,3	duplicate(Battle Instructor#08)	Battle Instructor#08c	4_M_NOV_HUNT
-iz_ac01_d,59,83,3	duplicate(Battle Instructor#08)	Battle Instructor#08d	4_M_NOV_HUNT
+iz_ac01_a,59,83,3	duplicate(Instrutor de Batalha#08)	Instrutor de Batalha#08a	4_M_NOV_HUNT
+iz_ac01_b,59,83,3	duplicate(Instrutor de Batalha#08)	Instrutor de Batalha#08b	4_M_NOV_HUNT
+iz_ac01_c,59,83,3	duplicate(Instrutor de Batalha#08)	Instrutor de Batalha#08c	4_M_NOV_HUNT
+iz_ac01_d,59,83,3	duplicate(Instrutor de Batalha#08)	Instrutor de Batalha#08d	4_M_NOV_HUNT
 
-// - Adept Adventurer
-// - Teaches the player about Pets.
 // -----------------------------------------------------------------------------
-iz_ac01,45,80,5	script	Adept Adventurer#ac	4_M_JOB_BLACKSMITH,{
+// - Aventureiro Experiente
+// - Ensina o jogador sobre Pets.
+// -----------------------------------------------------------------------------
+iz_ac01,45,80,5	script	Aventureiro Experiente#ac	4_M_JOB_BLACKSMITH,{
 	if (isbegin_quest(2298) > 1) {
-		mes "[Adept Adventurer]";
-		mes "Any questions about getting a monster to become a pet?";
+		mes "[Aventureiro Experiente]";
+		mes "Alguma pergunta sobre como conseguir um monstro para se tornar um pet?";
 		next;
 		while(1) {
-			switch(select("Taming a monster", "Hatching the egg", "Monitoring pet's status", "Feeding", "Performances", "Removing the accessory", "Transforming back to egg", "End Conversation")) {
+			switch(select("Domando um monstro", "Chocando o ovo", "Monitorando status do pet", "Alimentando", "Performances", "Removendo o acessório", "Transformando de volta em ovo", "Encerrar Conversa")) {
 			case 1:
-				mes "[Adept Adventurer]";
-				mes "Only some monsters can become pets and they all have different things to tame them.";
+				mes "[Aventureiro Experiente]";
+				mes "Apenas alguns monstros podem se tornar pets e todos têm coisas diferentes para domá-los.";
 				next;
-				mes "[Adept Adventurer]";
-				mes "Each monster that can be tamed requires a specific ^3131FFtaming item^000000.";
+				mes "[Aventureiro Experiente]";
+				mes "Cada monstro que pode ser domado requer um ^3131FFitem de domesticação específico^000000.";
 				next;
-				mes "[Adept Adventurer]";
-				mes "To begin taming,";
-				mes "^3131FFdouble click^000000 the taming item in your inventory and select which monster to tame.";
+				mes "[Aventureiro Experiente]";
+				mes "Para começar a domesticação,";
+				mes "^3131FFclique duplo^000000 no item de domesticação no seu inventário e selecione qual monstro domar.";
 				cutin "pet_ex_01.bmp", 3;
 				next;
-				mes "[Adept Adventurer]";
-				mes "Press ^3131FFClick^000000 in the center of the pop-up slot machine to tame the monster..";
+				mes "[Aventureiro Experiente]";
+				mes "Pressione ^3131FFClique^000000 no centro do caça-níquel pop-up para domar o monstro.";
 				cutin "pet_ex_02.bmp", 3;
 				next;
 				cutin "", 255;
-				mes "[Adept Adventurer]";
-				mes "If successful, the monster will be tranformed into an egg!";
+				mes "[Aventureiro Experiente]";
+				mes "Se for bem-sucedido, o monstro será transformado em um ovo!";
 				next;
 				break;
 			case 2:
-				mes "[Adept Adventurer]";
-				mes "Hatching requires you to have a ^3131FF<Pet Incubator>^000000 to awaken a monster in the egg.";
+				mes "[Aventureiro Experiente]";
+				mes "A incubação requer que você tenha uma ^3131FF<Incubadora de Pet>^000000 para despertar um monstro no ovo.";
 				next;
-				mes "[Adept Adventurer]";
-				mes "Most towns have a ^3131FF<Pet Groomer>^000000 where you can buy the ^3131FF<Pet Incubator>^000000.";
-				mes "Ask the town guide for the location of the Pet Groomer if you can't find them.";
+				mes "[Aventureiro Experiente]";
+				mes "A maioria das cidades tem um ^3131FF<Pet Groomer>^000000 onde você pode comprar a ^3131FF<Incubadora de Pet>^000000.";
+				mes "Pergunte ao guia da cidade sobre a localização do Pet Groomer se não conseguir encontrá-lo.";
 				next;
 				break;
 			case 3:
-				mes "[Adept Adventurer]";
-				mes "^3131FFRight-click^000000 on your pet and select ^3131ffCheck the Pet Status^000000 to check on its status. Or you can press ^3131FF<Alt+J>^000000.";
+				mes "[Aventureiro Experiente]";
+				mes "^3131FFClique com o botão direito^000000 no seu pet e selecione ^3131ffVerificar Status do Pet^000000 para verificar seu status. Ou você pode pressionar ^3131FF<Alt+J>^000000.";
 				next;
-				mes "[Adept Adventurer]";
-				mes "This will open up the Status Window. Here you can change the pet's ^3131FFname^000000 as well as check their ^3131FFHunter^000000 and ^3131FFIntimacy^000000.";
+				mes "[Aventureiro Experiente]";
+				mes "Isso abrirá a Janela de Status. Aqui você pode alterar o ^3131FFnome^000000 do pet, bem como verificar seu ^3131FFCaçador^000000 e ^3131FFIntimidade^000000.";
 				next;
-				mes "[Adept Adventurer]";
-				mes "There are some special pets that gives special skills when their ^3131FFIntimacy^000000 level becomes Loyal. Most pets start off as shy and time and food changes that.";
+				mes "[Aventureiro Experiente]";
+				mes "Existem alguns pets especiais que dão habilidades especiais quando seu nível de ^3131FFIntimidade^000000 se torna Leal. A maioria dos pets começa tímida e o tempo e a comida mudam isso.";
 				next;
 				break;
 			case 4:
-				mes "[Adept Adventurer]";
-				mes "<Pet Food> is normal food for pets but some pets prefer other foods. You should keep enough with you so your pet doesn't get hungry.";
+				mes "[Aventureiro Experiente]";
+				mes "<Ração para Pet> é comida normal para pets, mas alguns pets preferem outros alimentos. Você deve manter o suficiente com você para que seu pet não fique com fome.";
 				next;
-				mes "[Adept Adventurer]";
-				mes "Pets will ^3131FFrun away^000000 if they are too full or too hungry. So make sure you check your pets hunger status frequently!";
+				mes "[Aventureiro Experiente]";
+				mes "Pets ^3131FFfugirão^000000 se estiverem muito cheios ou com muita fome. Portanto, certifique-se de verificar o status de fome do seu pet com frequência!";
 				next;
 				break;
 			case 5:
-				mes "[Adept Adventurer]";
-				mes "Some pets will show a special performance when they are in a good mood.";
+				mes "[Aventureiro Experiente]";
+				mes "Alguns pets mostrarão uma performance especial quando estiverem de bom humor.";
 				next;
 				break;
 			case 6:
-				mes "[Adept Adventurer]";
-				mes "Some pets can even wear accessory items.";
-				mes "^3131FF<Pet Groomer>^000000 will sell some pet accessory items but some monsters will also drop pet accessory items as well.";
+				mes "[Aventureiro Experiente]";
+				mes "Alguns pets podem até usar itens de acessório.";
+				mes "^3131FF<Pet Groomer>^000000 venderá alguns itens de acessório para pets, mas alguns monstros também dropam itens de acessório para pets.";
 				next;
 				break;
 			case 7:
-				mes "[Adept Adventurer]";
-				mes "I think it is better off experiencing more together than transforming back to the eggs?";
+				mes "[Aventureiro Experiente]";
+				mes "Acho que é melhor viver mais experiências juntos do que transformar de volta em ovos?";
 				next;
 				break;
 			case 8:
-				mes "[Adept Adventurer]";
-				mes "Come back again when you have another question.";
+				mes "[Aventureiro Experiente]";
+				mes "Volte novamente quando tiver outra pergunta.";
 				close;
 			}
 		}
 	}
 	if (!isbegin_quest(2293)) {
-		mes "[Adventurer's Pet]";
-		mes "I am hungry~ Feed me first, then let's walk around~";
+		mes "[Pet do Aventureiro]";
+		mes "Estou com fome~ Me alimente primeiro, então vamos passear~";
 		next;
-		mes "[Adept Adventurer]";
-		mes "Calm down now, here you go!";
+		mes "[Aventureiro Experiente]";
+		mes "Acalme-se agora, aqui está!";
 		next;
-		mes "[Adventurer's Pet]";
-		mes "Phew, it was good. I'm full.";
+		mes "[Pet do Aventureiro]";
+		mes "Ufa, estava bom. Estou satisfeito.";
 		next;
-		if (select("A talking monster!", "Ignore it.") == 2) {
-			mes "[Adept Adventurer]";
-			mes "Pets make the best companions for lonely journeys...";
+		if (select("Um monstro falante!", "Ignorar.") == 2) {
+			mes "[Aventureiro Experiente]";
+			mes "Pets são os melhores companheiros para jornadas solitárias...";
 			close;
 		}
-		mes "[Adept Adventurer]";
-		mes "Once it was a dangerous monster, now it is my closest friend. This is my ^3131FFpet^000000 which is called as Debbie Ruchi.";
+		mes "[Aventureiro Experiente]";
+		mes "Antes era um monstro perigoso, agora é meu amigo mais próximo. Este é meu ^3131FFpet^000000 chamado Debbie Ruchi.";
 		next;
-		if (select("What is a pet?", "End Conversation") == 2) {
-			mes "[Adventurer's Pet]";
-			mes "Yawn~ I am bored to death!";
+		if (select("O que é um pet?", "Encerrar Conversa") == 2) {
+			mes "[Pet do Aventureiro]";
+			mes "Boa~ Estou morrendo de tédio!";
 			close;
 		}
-		mes "[Adept Adventurer]";
-		mes "Well they're loyal ^3131FFmonster^000000s that stand by your side.";
+		mes "[Aventureiro Experiente]";
+		mes "Bem, eles são ^3131FFmonstros^000000 leais que ficam ao seu lado.";
 		next;
-		select("Does it help you fight?");
-		mes "[Adept Adventurer]";
-		mes "It doesn't help me battle but it helps by giving me bonus ^3131FFstats^000000 and other bonus effects.";
+		select("Ele ajuda você a lutar?");
+		mes "[Aventureiro Experiente]";
+		mes "Não me ajuda na batalha, mas ajuda dando ^3131FFbônus de atributos^000000 e outros efeitos bônus.";
 		next;
-		mes "[Adept Adventurer]";
-		mes "All these things are possible when ^3131FFIntimacy^000000 with your pet is very high.";
+		mes "[Aventureiro Experiente]";
+		mes "Todas essas coisas são possíveis quando a ^3131FFIntimidade^000000 com seu pet é muito alta.";
 		next;
-		mes "[Adept Adventurer]";
-		mes "Intimacy requires a time commitment and a lot of food. Food is the way to any being's loyalty right? ha ha";
+		mes "[Aventureiro Experiente]";
+		mes "Intimidade requer comprometimento de tempo e muita comida. A comida é o caminho para a lealdade de qualquer ser, certo? ha ha";
 		next;
-		if (select("How do I get a pet?", "End Conversation") == 2) {
-			mes "[Adept Adventurer]";
-			mes "Pets make the best companions for lonely journeys...";
+		if (select("Como consigo um pet?", "Encerrar Conversa") == 2) {
+			mes "[Aventureiro Experiente]";
+			mes "Pets são os melhores companheiros para jornadas solitárias...";
 			close;
 		}
-		mes "[Adept Adventurer]";
-		mes "Do you need a pet?";
+		mes "[Aventureiro Experiente]";
+		mes "Você precisa de um pet?";
 		next;
-		mes "[Adept Adventurer]";
-		mes "Hmm then let's go to the Academy Gardens together!";
-		mes "I'll show you how it's done.";
+		mes "[Aventureiro Experiente]";
+		mes "Hmm, então vamos para os Jardins da Academia juntos!";
+		mes "Vou mostrar como é feito.";
 		next;
-		mes "[Adept Adventurer]";
-		mes "Talk to me when you are ready to go to the garden!";
+		mes "[Aventureiro Experiente]";
+		mes "Fale comigo quando estiver pronto para ir ao jardim!";
 		setquest 2293;
 		close;
 	} else {
-		mes "[Adept Adventurer]";
-		mes "Shall we go to the garden of Criatura Academy?";
+		mes "[Aventureiro Experiente]";
+		mes "Vamos para o jardim da Academia Criatura?";
 		next;
-		if (select("Send me now!", "Stay") == 1) {
-			mes "[Adept Adventurer]";
-			mes "All right, come this way.";
+		if (select("Me envie agora!", "Ficar") == 1) {
+			mes "[Aventureiro Experiente]";
+			mes "Tudo bem, venha por aqui.";
 			close2;
 			warp "new_1-3", 95, 171;
 			end;
 		}
-		mes "[Adept Adventurer]";
-		mes "If you want, I will guide you anytime.";
+		mes "[Aventureiro Experiente]";
+		mes "Se quiser, eu guiarei você a qualquer momento.";
 		close;
 	}
 
@@ -4882,29 +4885,30 @@ OnInit:
 	end;
 }
 
-iz_ac01_a,45,80,5	duplicate(Adept Adventurer#ac)	Adept Adventurer#ac_a	4_M_JOB_BLACKSMITH
-iz_ac01_b,45,80,5	duplicate(Adept Adventurer#ac)	Adept Adventurer#ac_b	4_M_JOB_BLACKSMITH
-iz_ac01_c,45,80,5	duplicate(Adept Adventurer#ac)	Adept Adventurer#ac_c	4_M_JOB_BLACKSMITH
-iz_ac01_d,45,80,5	duplicate(Adept Adventurer#ac)	Adept Adventurer#ac_d	4_M_JOB_BLACKSMITH
+iz_ac01_a,45,80,5	duplicate(Aventureiro Experiente#ac)	Aventureiro Experiente#ac_a	4_M_JOB_BLACKSMITH
+iz_ac01_b,45,80,5	duplicate(Aventureiro Experiente#ac)	Aventureiro Experiente#ac_b	4_M_JOB_BLACKSMITH
+iz_ac01_c,45,80,5	duplicate(Aventureiro Experiente#ac)	Aventureiro Experiente#ac_c	4_M_JOB_BLACKSMITH
+iz_ac01_d,45,80,5	duplicate(Aventureiro Experiente#ac)	Aventureiro Experiente#ac_d	4_M_JOB_BLACKSMITH
 
-// - Adventurer's Pet
 // -----------------------------------------------------------------------------
-iz_ac01,43,80,7	script	Adventurer's Pet#ac	4_DEVIRUCHI,{
+// - Pet do Aventureiro
+// -----------------------------------------------------------------------------
+iz_ac01,43,80,7	script	Pet do Aventureiro#ac	4_DEVIRUCHI,{
 	end;
 
 OnTimer60000:
 	switch(rand(1,4)) {
 	case 1:
-		npctalk "Adventurer's Pet : Yawn~ I am so bored!";
+		npctalk "Pet do Aventureiro : Boa~ Estou tão entediado!";
 		break;
 	case 2:
-		npctalk "Adventurer's Pet : Red Potion.. Is it delicious? Herb does not look delicious.. I bet that is bitter.";
+		npctalk "Pet do Aventureiro : Poção Vermelha.. É deliciosa? Erva não parece deliciosa.. Aposto que é amarga.";
 		break;
 	case 3:
-		npctalk "Adventurer's Pet : Ha. You are lucky to have this Devi.";
+		npctalk "Pet do Aventureiro : Ha. Você tem sorte de ter este Devi.";
 		break;
 	case 4:
-		npctalk "Adventurer's Pet : Isn't the floor cold? Well.. For me, Undead is more familiar.";
+		npctalk "Pet do Aventureiro : O chão não está frio? Bem.. Para mim, Morto-Vivo é mais familiar.";
 		break;
 	}
 
@@ -4913,213 +4917,216 @@ OnInit:
 	end;
 }
 
-iz_ac01_a,43,80,7	duplicate(Adventurer's Pet#ac)	Adventurer's Pet#ac_a	4_DEVIRUCHI
-iz_ac01_b,43,80,7	duplicate(Adventurer's Pet#ac)	Adventurer's Pet#ac_b	4_DEVIRUCHI
-iz_ac01_c,43,80,7	duplicate(Adventurer's Pet#ac)	Adventurer's Pet#ac_c	4_DEVIRUCHI
-iz_ac01_d,43,80,7	duplicate(Adventurer's Pet#ac)	Adventurer's Pet#ac_d	4_DEVIRUCHI
+iz_ac01_a,43,80,7	duplicate(Pet do Aventureiro#ac)	Pet do Aventureiro#ac_a	4_DEVIRUCHI
+iz_ac01_b,43,80,7	duplicate(Pet do Aventureiro#ac)	Pet do Aventureiro#ac_b	4_DEVIRUCHI
+iz_ac01_c,43,80,7	duplicate(Pet do Aventureiro#ac)	Pet do Aventureiro#ac_c	4_DEVIRUCHI
+iz_ac01_d,43,80,7	duplicate(Pet do Aventureiro#ac)	Pet do Aventureiro#ac_d	4_DEVIRUCHI
 
-// - Monster Spawn
+// -----------------------------------------------------------------------------
+// - Spawn de Monstros
 // -----------------------------------------------------------------------------
 new_1-3,0,0	monster	Little Poring	2398,30,50000
 
-// - Adept Adventurer (Cont...)
-// - Teaches the player about Pets.
 // -----------------------------------------------------------------------------
-new_1-3,92,169,5	script	Adept Adventurer#new_1-3	4_M_JOB_BLACKSMITH,{
+// - Aventureiro Experiente (Continuação...)
+// - Ensina o jogador sobre Pets.
+// -----------------------------------------------------------------------------
+new_1-3,92,169,5	script	Aventureiro Experiente#new_1-3	4_M_JOB_BLACKSMITH,{
 	if (isbegin_quest(2298) == 2) {
-		mes "[Adept Adventurer]";
-		mes "Any questions about the cute pet?";
+		mes "[Aventureiro Experiente]";
+		mes "Alguma pergunta sobre o pet fofo?";
 		next;
 		while(1) {
-			switch(select("Taming a monster", "Hatching the egg", "Monitoring pet's status", "Feeding", "Performances", "Removing the accessory", "Transforming back to egg", "End Conversation")) {
+			switch(select("Domando um monstro", "Chocando o ovo", "Monitorando status do pet", "Alimentando", "Performances", "Removendo o acessório", "Transformando de volta em ovo", "Encerrar Conversa")) {
 			case 1:
-				mes "[Adept Adventurer]";
-				mes "Only some monsters can become pets and they all have different things to tame them.";
+				mes "[Aventureiro Experiente]";
+				mes "Apenas alguns monstros podem se tornar pets e todos têm coisas diferentes para domá-los.";
 				next;
-				mes "[Adept Adventurer]";
-				mes "Each monster that can be tamed requires a specific ^3131FFtaming item^000000.";
+				mes "[Aventureiro Experiente]";
+				mes "Cada monstro que pode ser domado requer um ^3131FFitem de domesticação específico^000000.";
 				next;
-				mes "[Adept Adventurer]";
-				mes "To begin taming,";
-				mes "^3131FFdouble click^000000 the taming item in your inventory and select which monster to tame.";
+				mes "[Aventureiro Experiente]";
+				mes "Para começar a domesticação,";
+				mes "^3131FFclique duplo^000000 no item de domesticação no seu inventário e selecione qual monstro domar.";
 				cutin "pet_ex_01.bmp", 3;
 				next;
-				mes "[Adept Adventurer]";
-				mes "Press ^3131FFClick^000000 in the center of the pop-up slot machine to tame the monster..";
+				mes "[Aventureiro Experiente]";
+				mes "Pressione ^3131FFClique^000000 no centro do caça-níquel pop-up para domar o monstro.";
 				cutin "pet_ex_02.bmp", 3;
 				next;
 				cutin "", 255;
-				mes "[Adept Adventurer]";
-				mes "If successful, the monster will be tranformed into an egg!";
+				mes "[Aventureiro Experiente]";
+				mes "Se for bem-sucedido, o monstro será transformado em um ovo!";
 				next;
 				break;
 			case 2:
-				mes "[Adept Adventurer]";
-				mes "Hatching requires you to have a ^3131FF<Pet Incubator>^000000 to awaken a monster in the egg.";
+				mes "[Aventureiro Experiente]";
+				mes "A incubação requer que você tenha uma ^3131FF<Incubadora de Pet>^000000 para despertar um monstro no ovo.";
 				next;
-				mes "[Adept Adventurer]";
-				mes "Most towns have a ^3131FF<Pet Groomer>^000000 where you can buy the ^3131FF<Pet Incubator>^000000.";
-				mes "Ask the town guide for the location of the Pet Groomer if you can't find them.";
+				mes "[Aventureiro Experiente]";
+				mes "A maioria das cidades tem um ^3131FF<Pet Groomer>^000000 onde você pode comprar a ^3131FF<Incubadora de Pet>^000000.";
+				mes "Pergunte ao guia da cidade sobre a localização do Pet Groomer se não conseguir encontrá-lo.";
 				next;
 				break;
 			case 3:
-				mes "[Adept Adventurer]";
-				mes "^3131FFRight-click^000000 on your pet and select ^3131ffCheck the Pet Status^000000 to check on its status. Or you can press ^3131FF<Alt+J>^000000.";
+				mes "[Aventureiro Experiente]";
+				mes "^3131FFClique com o botão direito^000000 no seu pet e selecione ^3131ffVerificar Status do Pet^000000 para verificar seu status. Ou você pode pressionar ^3131FF<Alt+J>^000000.";
 				next;
-				mes "[Adept Adventurer]";
-				mes "This will open up the Status Window. Here you can change the pet's ^3131FFname^000000 as well as check their ^3131FFHunter^000000 and ^3131FFIntimacy^000000.";
+				mes "[Aventureiro Experiente]";
+				mes "Isso abrirá a Janela de Status. Aqui você pode alterar o ^3131FFnome^000000 do pet, bem como verificar seu ^3131FFCaçador^000000 e ^3131FFIntimidade^000000.";
 				next;
-				mes "[Adept Adventurer]";
-				mes "There are some special pets that gives special skills when their ^3131FFIntimacy^000000 level becomes Loyal. Most pets start off as shy and time and food changes that.";
+				mes "[Aventureiro Experiente]";
+				mes "Existem alguns pets especiais que dão habilidades especiais quando seu nível de ^3131FFIntimidade^000000 se torna Leal. A maioria dos pets começa tímida e o tempo e a comida mudam isso.";
 				next;
 				break;
 			case 4:
-				mes "[Adept Adventurer]";
-				mes "<Pet Food> is normal food for pets but some pets prefer other foods. You should keep enough with you so your pet doesn't get hungry.";
+				mes "[Aventureiro Experiente]";
+				mes "<Ração para Pet> é comida normal para pets, mas alguns pets preferem outros alimentos. Você deve manter o suficiente com você para que seu pet não fique com fome.";
 				next;
-				mes "[Adept Adventurer]";
-				mes "Pets will ^3131FFrun away^000000 if they are too full or too hungry. So make sure you check your pets hunger status frequently!";
+				mes "[Aventureiro Experiente]";
+				mes "Pets ^3131FFfugirão^000000 se estiverem muito cheios ou com muita fome. Portanto, certifique-se de verificar o status de fome do seu pet com frequência!";
 				next;
 				break;
 			case 5:
-				mes "[Adept Adventurer]";
-				mes "Some pets will show a special performance when they are in a good mood.";
+				mes "[Aventureiro Experiente]";
+				mes "Alguns pets mostrarão uma performance especial quando estiverem de bom humor.";
 				next;
 				break;
 			case 6:
-				mes "[Adept Adventurer]";
-				mes "Some pets can even wear accessory items.";
-				mes "^3131FF<Pet Groomer>^000000 will sell some pet accessory items but some monsters will also drop pet accessory items as well.";
+				mes "[Aventureiro Experiente]";
+				mes "Alguns pets podem até usar itens de acessório.";
+				mes "^3131FF<Pet Groomer>^000000 venderá alguns itens de acessório para pets, mas alguns monstros também dropam itens de acessório para pets.";
 				next;
 				break;
 			case 7:
-				mes "[Adept Adventurer]";
-				mes "I think it is better off experiencing more together than transforming back to the eggs?";
+				mes "[Aventureiro Experiente]";
+				mes "Acho que é melhor viver mais experiências juntos do que transformar de volta em ovos?";
 				next;
 				break;
 			case 8:
-				mes "[Adept Adventurer]";
-				mes "Come back again when you have another question.";
+				mes "[Aventureiro Experiente]";
+				mes "Volte novamente quando tiver outra pergunta.";
 				close;
 			}
 		}
 	}
 	if (!isbegin_quest(2293)) {
-		mes "[Adept Adventurer]";
-		mes "You can return to the Academy through the portal to the north.";
+		mes "[Aventureiro Experiente]";
+		mes "Você pode retornar à Academia através do portal ao norte.";
 		close;
 	} else if (isbegin_quest(2293) == 1) {
-		mes "[Adept Adventurer]";
-		mes "Would you look at that...Porings growing in the garden of the closed Criatura Academy like little Jelly Babies.";
+		mes "[Aventureiro Experiente]";
+		mes "Olhe só... Porings crescendo no jardim da fechada Academia Criatura como pequenos Jelly Babies.";
 		next;
-		mes "[Adept Adventurer]";
-		mes "Not all monsters in Midgard are our for your blood, just most of them.";
+		mes "[Aventureiro Experiente]";
+		mes "Nem todos os monstros em Midgard estão atrás do seu sangue, apenas a maioria deles.";
 		next;
-		mes "[Adept Adventurer]";
-		mes "Take a look at that, looks like that ^3131FFPoring^000000 has something to say to you";
+		mes "[Aventureiro Experiente]";
+		mes "Dê uma olhada naquilo, parece que aquele ^3131FFPoring^000000 tem algo a dizer para você";
 		completequest 2293;
 		setquest 2294;
 		close;
 	} else {
 		if (isbegin_quest(2296) == 1) {
-			mes "[Adept Adventurer]";
-			mes "If you are confused, Please check the quest status by pressing ^3131FF<Alt+U>^000000 anytime.";
+			mes "[Aventureiro Experiente]";
+			mes "Se estiver confuso, verifique o status da missão pressionando ^3131FF<Alt+U>^000000 a qualquer momento.";
 			next;
-			if (select("How to gain Unripe Apples", "End Conversation") == 1) {
-				mes "[Adept Adventurer]";
-				mes "You'd want to go to the Dispensary to learn how to make ^3131FFUnripe Apple^000000s.";
+			if (select("Como obter Maçãs Verdes", "Encerrar Conversa") == 1) {
+				mes "[Aventureiro Experiente]";
+				mes "Você deve ir à Dispensária para aprender a fazer ^3131FFMaçãs Verdes^000000.";
 				next;
-				mes "[Adept Adventurer]";
-				mes "One of the staff there should have a ^3131FFItem compounding book^000000 for novices, ^3131FFHow to make Unripe Apples^000000 is one of the subjects.";
+				mes "[Aventureiro Experiente]";
+				mes "Um dos funcionários de lá deve ter um ^3131FFLivro de combinação de itens para noviços^000000, ^3131FFComo fazer Maçãs Verdes^000000 é um dos assuntos.";
 				close;
 			}
 		}
 		if (isbegin_quest(2297) == 1) {
-			mes "[Adept Adventurer]";
-			mes "So you used the taming item on the Little Porings, then they turned into eggs?";
+			mes "[Aventureiro Experiente]";
+			mes "Então você usou o item de domesticação nos Little Porings, e eles viraram ovos?";
 			next;
-			mes "[Adept Adventurer]";
-			mes "Ha ha ha, don't fret my pet.";
-			mes "You just cleared ^3131FFtaming^000000.";
+			mes "[Aventureiro Experiente]";
+			mes "Ha ha ha, não se preocupe, meu pet.";
+			mes "Você acabou de concluir a ^3131FFdomesticação^000000.";
 			next;
-			select("Taming?");
-			mes "[Adept Adventurer]";
-			mes "Yep, it means you are ready to be a friend like me and Debbie Ruchi.";
+			select("Domesticação?");
+			mes "[Aventureiro Experiente]";
+			mes "Sim, significa que você está pronto para ser um amigo como eu e Debbie Ruchi.";
 			next;
-			mes "[Adept Adventurer]";
-			mes "There are lots of different monsters and tames out there.";
+			mes "[Aventureiro Experiente]";
+			mes "Existem muitos monstros e itens de domesticação diferentes por aí.";
 			next;
-			mes "[Adept Adventurer]";
-			mes "If you successfully tame it you end up with a little egg.";
+			mes "[Aventureiro Experiente]";
+			mes "Se você domar com sucesso, terminará com um pequeno ovo.";
 			next;
-			mes "[Adept Adventurer]";
-			mes "So congratulations again for passing the test, the friendship test!";
-			mes "Ask anytime whenever you have a question about cute pets.";
+			mes "[Aventureiro Experiente]";
+			mes "Então, parabéns novamente por passar no teste, o teste de amizade!";
+			mes "Pergunte a qualquer momento quando tiver uma dúvida sobre pets fofos.";
 			next;
-			mes "[Adept Adventurer]";
-			mes "Do you see the shivering poring over there? Go easy on the lil' blighter, okay?";
+			mes "[Aventureiro Experiente]";
+			mes "Você vê aquele poring tremendo ali? Vá com calma no pobrezinho, ok?";
 			completequest 2297;
 			setquest 2298;
 			close;
 		}
-		mes "[Adept Adventurer]";
-		mes "If you are confused, Please check the quest status by clicking ^3131FF<Alt+U>^000000 anytime.";
+		mes "[Aventureiro Experiente]";
+		mes "Se estiver confuso, verifique o status da missão clicando em ^3131FF<Alt+U>^000000 a qualquer momento.";
 		close;
 	}
 }
 
-// - Friendly Poring
 // -----------------------------------------------------------------------------
-new_1-3,99,169,3	script	Friendly Poring#ac	4_PORING,{
+// - Poring Amigável
+// -----------------------------------------------------------------------------
+new_1-3,99,169,3	script	Poring Amigável#ac	4_PORING,{
 	if (!checkweight(1301,3)) {
 		mes "[Poring]";
-		mes "You have too many items to continue the quest.";
+		mes "Você tem itens demais para continuar a missão.";
 		next;
 		mes "[Poring]";
-		mes "Open inventory with ^3131FFAlt+E^000000 key, if you find unnecessaty items, sell them to ^3131FFmerchant^000000 or put into ^3131FFwarehouse^000000 by using kafra service~.";
+		mes "Abra o inventário com a tecla ^3131FFAlt+E^000000, se encontrar itens desnecessários, venda-os para um ^3131FFcomerciante^000000 ou coloque no ^3131FFarmazém^000000 usando o serviço da kafra~.";
 		close;
 	}
 	if (!isbegin_quest(2294)) {
 		mes "[Poring]";
-		mes "Help me novice...";
+		mes "Ajude-me noviço...";
 		close;
 	} else if (isbegin_quest(2294) == 1) {
 		mes "[Poring]";
-		mes "Dear oh dear...what do we have 'ere?";
+		mes "Ora ora... o que temos aqui?";
 		next;
-		if (select("What happened?", "Ignore him/it?") == 2) {
+		if (select("O que aconteceu?", "Ignorar ele/isto?") == 2) {
 			mes "[Poring]";
-			mes "Oh dear, oh dear...";
+			mes "Oh céus, oh céus...";
 			close;
 		}
 		mes "[Poring]";
-		mes "Wot a sad state of affairs.";
+		mes "Que situação triste.";
 		next;
 		mes "[Poring]";
-		mes "That geeza' ghostring got defeated out in his dungeon and came here to pick on other monsters like me.";
+		mes "Aquele patife Ghostring foi derrotado em sua masmorra e veio aqui para importunar outros monstros como eu.";
 		next;
 		mes "[Poring]";
-		mes "I'm too low level to stop 'im, you can hear them cheering now...";
+		mes "Sou de nível muito baixo para detê-lo, você pode ouvi-los torcendo agora...";
 		next;
 		mes "[Ghostring]";
-		mes "Oi you lot! Tell me wot I want to hear!";
+		mes "Ei, vocês! Digam-me o que quero ouvir!";
 		emotion ET_SURPRISE, getnpcid(0, "Ghostring#cupet");
 		next;
-		mes "[Unskilled Poring]";
-		mes "Ghostring's the strongest in the world!";
-		emotion ET_WRAP, getnpcid(0, "Cowardly Poring#pet_1");
-		emotion ET_WRAP, getnpcid(0, "Unskilled Poring#pet_2");
-		emotion ET_WRAP, getnpcid(0, "Foolish Poring#pet_3");
+		mes "[Poring Inábil]";
+		mes "Ghostring é o mais forte do mundo!";
+		emotion ET_WRAP, getnpcid(0, "Poring Covarde#pet_1");
+		emotion ET_WRAP, getnpcid(0, "Poring Inábil#pet_2");
+		emotion ET_WRAP, getnpcid(0, "Poring Tolo#pet_3");
 		next;
 		mes "[Ghostring]";
-		mes "What kind of monster I am?";
+		mes "Que tipo de monstro eu sou?";
 		emotion ET_SURPRISE, getnpcid(0, "Ghostring#cupet");
 		next;
-		mes "[Unskilled Poring]";
-		mes "Ghostring's da Boss!";
-		emotion ET_WRAP, getnpcid(0, "Cowardly Poring#pet_1");
-		emotion ET_WRAP, getnpcid(0, "Unskilled Poring#pet_2");
-		emotion ET_WRAP, getnpcid(0, "Foolish Poring#pet_3");
+		mes "[Poring Inábil]";
+		mes "Ghostring é o Chefe!";
+		emotion ET_WRAP, getnpcid(0, "Poring Covarde#pet_1");
+		emotion ET_WRAP, getnpcid(0, "Poring Inábil#pet_2");
+		emotion ET_WRAP, getnpcid(0, "Poring Tolo#pet_3");
 		next;
 		mes "[Ghostring]";
 		mes "Bwa ha ha ha~";
@@ -5127,60 +5134,60 @@ new_1-3,99,169,3	script	Friendly Poring#ac	4_PORING,{
 		next;
 		emotion ET_CRY;
 		mes "[Poring]";
-		mes "Bleedin' shame...";
-		mes "Little Porings takin' up with a git like that and not bein' cute anymore.";
+		mes "Que vergonha...";
+		mes "Little Porings se juntando a um idiota daquele e não sendo mais fofos.";
 		next;
 		mes "[Poring]";
-		mes "The Little Porings aren't bad'uns, they've just not been to the outside world.";
+		mes "Os Little Porings não são maus, apenas não conhecem o mundo exterior.";
 		next;
 		mes "[Poring]";
-		mes "If this keeps up, all of the Porings in Midgard will be under the sway of Ghostring.";
+		mes "Se isso continuar, todos os Porings em Midgard estarão sob a influência do Ghostring.";
 		next;
-		if (select("Can I help you?", "Too bad.") == 2) {
+		if (select("Posso ajudá-lo?", "Que pena.") == 2) {
 			mes "[Poring]";
-			mes "Oh dear, oh dear.....";
+			mes "Oh céus, oh céus.....";
 			close;
 		}
 		mes "[Poring]";
-		mes "Now that you mention it sir, I could use some help.";
+		mes "Agora que você menciona, senhor, eu poderia usar alguma ajuda.";
 		next;
-		mes "[Unskilled Poring]";
-		mes "Wot's Dat? Onna them Poring's talkin' to a huumie.";
-		mes "Shall we beat him up?";
-		emotion ET_WRAP, getnpcid(0, "Cowardly Poring#pet_1");
-		emotion ET_WRAP, getnpcid(0, "Unskilled Poring#pet_2");
-		emotion ET_WRAP, getnpcid(0, "Foolish Poring#pet_3");
+		mes "[Poring Inábil]";
+		mes "O que é isso? Um daqueles Porings está conversando com um humano.";
+		mes "Vamos bater nele?";
+		emotion ET_WRAP, getnpcid(0, "Poring Covarde#pet_1");
+		emotion ET_WRAP, getnpcid(0, "Poring Inábil#pet_2");
+		emotion ET_WRAP, getnpcid(0, "Poring Tolo#pet_3");
 		next;
 		mes "[Poring]";
-		mes "Blimey!";
-		mes "Help me! Save me!";
+		mes "Caramba!";
+		mes "Ajude-me! Salve-me!";
 		emotion ET_HUK;
 		next;
-		select("What can I do to help?");
+		select("O que posso fazer para ajudar?");
 		mes "[Poring]";
-		mes "I do have a good idea!";
-		mes "Come over here!";
+		mes "Eu tenho uma boa ideia!";
+		mes "Venha aqui!";
 		completequest 2294;
 		setquest 2295;
 		close;
 	} else if (isbegin_quest(2295) == 1) {
 		mes "[Poring]";
-		mes "This is ^3131FFunripe apple^000000.";
-		mes "The favorite items for Little Poring to eat.";
+		mes "Esta é uma ^3131FFmaçã verde^000000.";
+		mes "O item favorito para Little Poring comer.";
 		next;
 		mes "[Poring]";
-		mes "Maybe you can use it to tempt them away from listenin' to Ghostring.";
+		mes "Talvez você possa usá-la para tentá-los a parar de ouvir o Ghostring.";
 		next;
 		mes "[Poring]";
-		mes "^3131FFDouble click the unripe apple^000000 that I gave you and ^3131FFselect^000000 a ^3131FFLittle Poring^000000 that you fancy.";
+		mes "^3131FFClique duplo na maçã verde^000000 que eu lhe dei e ^3131FFselecione^000000 um ^3131FFLittle Poring^000000 de sua preferência.";
 		cutin "pet_ex_01.bmp", 3;
 		next;
 		mes "[Poring]";
-		mes "TThe click the centre of the slot machine.";
+		mes "Então clique no centro do caça-níquel.";
 		cutin "pet_ex_02.bmp", 3;
 		next;
 		mes "[Poring]";
-		mes "That'll lure them from out of Ghostring's influence.";
+		mes "Isso os afastará da influência do Ghostring.";
 		cutin "", 255;
 		completequest 2295;
 		setquest 2296;
@@ -5189,82 +5196,82 @@ new_1-3,99,169,3	script	Friendly Poring#ac	4_PORING,{
 	} else if (isbegin_quest(2296) == 1) {
 		if (countitem(9062) > 0) {
 			mes "[Poring]";
-			mes "Ello' mate. Were you successful? Where are the lil' bleeders?";
+			mes "Olá, amigo. Você teve sucesso? Onde estão os pobrezinhos?";
 			next;
-			select("Show eggs");
+			select("Mostrar ovos");
 			mes "[Poring]";
-			mes "Steady on now guv'na...";
-			mes "What did you do to Unskilled Poring!?!? Novice!!!!!!";
+			mes "Calma aí, chefe...";
+			mes "O que você fez com o Poring Inábil!?!? Noviço!!!!!!";
 			next;
 			mes "["+strcharinfo(0)+"]";
-			mes "I used the unripe apples that you gave me, then they turned into eggs.";
+			mes "Usei as maçãs verdes que você me deu, então eles viraram ovos.";
 			next;
 			emotion ET_CRY;
 			mes "[Poring]";
-			mes "Oh, guess I didn't expect they'd be turned into pets so easily!";
+			mes "Ah, acho que não esperava que eles se tornariam pets tão facilmente!";
 			next;
 			mes "["+strcharinfo(0)+"]";
-			mes "Yeah, don't worry, I'll make sure to";
-			mes "give them a good home.";
+			mes "Sim, não se preocupe, vou garantir";
+			mes "dar um bom lar para eles.";
 			completequest 2296;
 			setquest 2297;
 			close;
 		} else {
 			mes "[Poring]";
-			mes "^3131FFDouble click the unripe apple^000000 that I gave you and ^3131FFselect^000000 your preferred ^3131FFLittle Poring^000000.";
+			mes "^3131FFClique duplo na maçã verde^000000 que eu lhe dei e ^3131FFselecione^000000 seu ^3131FFLittle Poring^000000 preferido.";
 			cutin "pet_ex_01.bmp", 3;
 			next;
 			mes "[Poring]";
-			mes "The all you have to do is ^3131FFclick ^0000 the middle of the slot machine.";
+			mes "Então tudo o que você tem a fazer é ^3131FFclicar ^0000 no meio do caça-níquel.";
 			cutin "pet_ex_02.bmp", 3;
 			next;
 			mes "[Poring]";
-			mes "It may fail, but keep trying to lure way those Little Porings!";
+			mes "Pode falhar, mas continue tentando atrair esses Little Porings!";
 			close3;
 		}
 	} else if (isbegin_quest(2297) == 1) {
 		mes "[Poring]";
-		mes "Have you ever heard about the changes of a novice from adept adventurer?";
+		mes "Você já ouviu falar sobre as mudanças de um noviço do aventureiro experiente?";
 		close;
 	} else if (isbegin_quest(2298) == 1) {
 		mes "[Poring]";
-		mes "Unripe Apples are the item to tame.";
-		mes "It will only work on the Little Porings hopping around.";
+		mes "Maçãs Verdes são o item para domesticação.";
+		mes "Só funcionará nos Little Porings pulando por aí.";
 		next;
 		mes "[Poring]";
-		mes "If you're going to make them a cute pet...";
-		mes "You must take care of your Little Poring!";
+		mes "Se você vai fazer deles um pet fofo...";
+		mes "Você deve cuidar do seu Little Poring!";
 		next;
-		select("What?");
+		select("O quê?");
 		mes "[Poring]";
-		mes "Even before that Ghostring came here, the Little Porings were kind of cowardly.";
-		next;
-		mes "[Poring]";
-		mes "Since they've never been out in the real world, sort of like human novices.";
+		mes "Mesmo antes daquele Ghostring vir aqui, os Little Porings eram meio covardes.";
 		next;
 		mes "[Poring]";
-		mes "You're just starting out on your adventure, right? You will visit many towns and meet many people and encounter the frightful Boss Monsters.";
+		mes "Como nunca estiveram no mundo real, meio que como noviços humanos.";
 		next;
 		mes "[Poring]";
-		mes "Won't you consider taking one of these chavs with you?";
+		mes "Você está apenas começando sua aventura, certo? Você visitará muitas cidades e conhecerá muitas pessoas e encontrará os assustadores Monstros Chefes.";
 		next;
 		mes "[Poring]";
-		mes "They're smeggin' talkative, but they'll be loyal friends!";
+		mes "Você não consideraria levar um desses pivetes com você?";
 		next;
 		mes "[Poring]";
-		mes "I'd say that the ^31311FAdept adventurer ^000000knows lots of things about pets, so you can ask him about your new Little Poring Friend.";
+		mes "Eles são muito faladores, mas serão amigos leais!";
 		next;
 		mes "[Poring]";
-		mes "By the way, you should have a ^3131FFportable egg incubator ^000000.";
-		mes "It was dropped by a careless ^3131FFPet Groomer^000000 traveling through.";
+		mes "Eu diria que o ^31311FAventureiro Experiente ^000000sabe muito sobre pets, então você pode perguntar a ele sobre seu novo Amigo Little Poring.";
 		next;
 		mes "[Poring]";
-		mes "I will also give you the Little Poring's favorite ^3131FFapple juice^000000, so make sure that it stays fed all the time!";
+		mes "A propósito, você deve ter uma ^3131FFincubadora de ovo portátil ^000000.";
+		mes "Foi dropada por um ^3131FFPet Groomer^000000 descuidado viajando por aqui.";
 		next;
 		mes "[Poring]";
-		mes "Oi, Little Poring.";
-		mes "I look forward to seeing you once you've explored Midgard!";
-		mes "Cheers mate.";
+		mes "Também darei a você o ^3131FFsuco de maçã^000000 favorito do Little Poring, então certifique-se de mantê-lo alimentado o tempo todo!";
+		next;
+		mes "[Poring]";
+		mes "Ei, Little Poring.";
+		mes "Espero vê-lo novamente depois que explorar Midgard!";
+		mes "Até mais, amigo.";
 		completequest 2298;
 		if (Class == Job_Novice)
 			getexp 500,50;
@@ -5273,16 +5280,17 @@ new_1-3,99,169,3	script	Friendly Poring#ac	4_PORING,{
 		close;
 	} else {
 		mes "[Poring]";
-		mes "Take good care of your Little Poring. Ask the adept adventurer if you have any questions about cute pets!";
+		mes "Cuide bem do seu Little Poring. Pergunte ao aventureiro experiente se tiver alguma dúvida sobre pets fofos!";
 		close;
 	}
 }
 
+// -----------------------------------------------------------------------------
 // - Ghostring
 // -----------------------------------------------------------------------------
 new_1-3,108,165,3	script	Ghostring#cupet	4_GHOSTRING,{
 	mes "[Ghostring]";
-	mes "I am da biggest and da meanest Ghostring!";
+	mes "Eu sou o maior e mais malvado Ghostring!";
 	close;
 }
 
