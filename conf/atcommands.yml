@@ -1129,6 +1129,15 @@ Body:
   - Command: reject
     Help: |
       Rejeita automaticamente convites para duelos.
+  - Command: reload
+    Help: |
+      Params: <type>
+      Recarrega um banco de dados ou um arquivo de configuração.
+      itemdb               mobdb               skilldb
+      atcommand         battleconf          statusdb
+      pcdb                  motd                 script
+      questdb             msgconf             packetdb
+      cashdb               logconf
   - Command: reloadachievementdb
     Help: |
       Recarrega o banco de dados de conquistas.
@@ -1168,6 +1177,8 @@ Body:
     Help: |
       Recarrega a configuração de mensagens.
   - Command: reloadnpcfile
+    Aliases:
+      - reloadnpc
     Help: |
       Parâmetros: <caminho> - caminho para o script
       Descarrega e carrega um arquivo de script de <caminho>.

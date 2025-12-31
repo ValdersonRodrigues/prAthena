@@ -1,30 +1,30 @@
-# rAthena EditorConfig file
-# EditorConfig is awesome: https://EditorConfig.org
-# This file should be encoded in UTF-8 with CRLF or LF line endings.
+# Arquivo EditorConfig do rAthena
+# EditorConfig é incrível: https://EditorConfig.org
+# Este arquivo deve ser codificado em UTF-8 com finais de linha CRLF ou LF.
 
 root = true
 
-# Add a blank newline to the end of every file after saving
-# Trim trailing whitespace
-# Adjust character set
+# Adiciona uma linha em branco ao final de cada arquivo após salvar
+# Remove espaços em branco no final das linhas
+# Ajusta o conjunto de caracteres
 [*]
 insert_final_newline = true
 trim_trailing_whitespace = true
 charset = utf-8
 
-# Use tabs in source
+# Usar tabulações no código-fonte
 [*.{cpp,c,hpp,h}]
 indent_style = tab
 
-# YAML does not support hard tabs.
+# YAML não suporta tabulações rígidas.
 [*.{yml,yaml}]
 indent_style = space
 indent_size = 4
 
-# Use tabs in Makefiles
+# Usar tabulações em Makefiles
 [Makefile*]
 indent_style = tab
 
-# Scripts should use hard tabs to prevent script header goofs.
+# Scripts devem usar tabulações rígidas para evitar problemas no cabeçalho do script.
 [npc/**.txt]
 indent_style = tab

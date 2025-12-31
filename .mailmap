@@ -1,15 +1,19 @@
 ##################################################################
-# This maps commits from different aliases to the same account   #
+# Este arquivo mapeia commits de diferentes aliases para a mesma #
+# conta                                                          #
 #                                                                #
-# Always try to map to the GitHub username and try to use the    #
-# @users.noreply.github.com mail addresses where possible.       #
-# The entries are sorted ascending by the username.              #
+# Sempre tente mapear para o nome de usuário do GitHub e tente   #
+# usar os endereços de e-mail @users.noreply.github.com sempre   #
+# que possível.                                                  #
+# As entradas estão ordenadas em ordem crescente pelo nome de    #
+# usuário.                                                       #
 #                                                                #
-# If you want to have your mail changed feel free to contact us. #
+# Se você quiser ter seu e-mail alterado, sinta-se à vontade     #
+# para entrar em contato conosco.                                #
 #                                                                #
-# If you know any of the missing commiters please also let us    #
-# know.                                                          #
-# You can generate the list of commiters with:                   #
+# Se você conhecer algum dos committers ausentes, por favor      #
+# também nos avise.                                              #
+# Você pode gerar a lista de committers com:                     #
 # git shortlog -sne                                              #
 ##################################################################
 
