@@ -1,39 +1,39 @@
-# Este arquivo faz parte do rAthena.
-#   Copyright(C) 2022 Equipe de Desenvolvimento rAthena
+# This file is a part of rAthena.
+#   Copyright(C) 2022 rAthena Development Team
 #   https://rathena.org - https://github.com/rathena
 #
-# Este programa é um software livre: você pode redistribuí-lo e/ou modificá-lo
-# sob os termos da Licença Pública Geral GNU conforme publicada pela
-# Free Software Foundation, seja a versão 3 da Licença ou
-# (a seu critério) qualquer versão posterior.
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 #
-# Este programa é distribuído na expectativa de que seja útil,
-# mas SEM QUALQUER GARANTIA; sem mesmo a garantia implícita de
-# COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM DETERMINADO FIM. Consulte a
-# Licença Pública Geral GNU para mais detalhes.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
 #
-# Você deve ter recebido uma cópia da Licença Pública Geral GNU
-# juntamente com este programa. Caso contrário, veja <http://www.gnu.org/licenses/>.
-#
-###########################################################################
-# Banco de Dados do Estilista
-###########################################################################
-#
-# Configurações do Estilista
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ###########################################################################
-# - Look                     Aparência que será alterada.
-#   Options                  Opções possíveis para seleção.
-#     - Index                Índice do lado do cliente da opção.
-#       Value                Valor da aparência (também pode ser o nome de um item).
-#       CostsHuman:          Custos para jogadores humanos.
-#           Price            Zeny necessário. (Padrão: 0)
-#           RequiredItem     Item necessário. (Padrão: Nenhum)
-#           RequiredItemBox  Caixa de item necessária. (Padrão: Nenhuma)
-#       CostsDoram:          Custos para jogadores doram.
-#           Price            Zeny necessário. (Padrão: 0)
-#           RequiredItem     Item necessário. (Padrão: Nenhum)
-#           RequiredItemBox  Caixa de item necessária. (Padrão: Nenhuma)
+# Stylist Database
+###########################################################################
+#
+# Stylist Settings
+#
+###########################################################################
+# - Look                     Look that will be changed.
+#   Options                  Possible options to select from.
+#     - Index                Client side index of the option.
+#       Value                Value of the look (can also be an item name).
+#       CostsHuman:          Costs for human players.
+#           Price            Required zeny. (Default: 0)
+#           RequiredItem     Required item. (Default: None)
+#           RequiredItemBox  Required item box. (Default: None)
+#       CostsDoram:          Costs for doram players.
+#           Price            Required zeny. (Default: 0)
+#           RequiredItem     Required item. (Default: None)
+#           RequiredItemBox  Required item box. (Default: None)
 ###########################################################################
 
 Header:

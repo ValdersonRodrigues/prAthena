@@ -1,5 +1,5 @@
-name: Bug Report
-description: Criar um Relatório detalhando comportamento quebrado ou inesperado
+name: Relatório de Bug
+description: Crie uma Issue que detalhe comportamentos quebrados ou inesperados
 labels: ["type:bug"]
 body:
   - type: input
@@ -8,82 +8,74 @@ body:
       label: Hash do rAthena
       description: |
         Por favor, especifique o [hash do GitHub](https://help.github.com/articles/autolinked-references-and-urls/#commit-shas) do rAthena no qual você encontrou este problema.
-        Uma forma de obter o hash é digitando `git rev-parse --short HEAD` no seu console.
+        Uma forma de obter o hash é digitar `git rev-parse --short HEAD` no seu console.
     validations:
       required: true
-
   - type: input
     id: date
     attributes:
       label: Data do Cliente
-      description: Especifique a data do cliente que você está usando quando este problema ocorreu.
+      description: Especifique a data do cliente que você está usando quando esta Issue ocorreu.
       placeholder: YYYY-MM-DD
     validations:
       required: true
-
   - type: dropdown
     id: mode
     attributes:
       label: Modo do Servidor
-      description: Especifique o modo do servidor que você está usando quando este problema ocorreu.
+      description: Especifique o modo do servidor que você está usando quando esta Issue ocorreu.
       multiple: true
       options:
-        - Pré-Renewal
+        - Pre-Renewal
         - Renewal
     validations:
       required: true
-
   - type: textarea
     id: result
     attributes:
       label: Resultado
-      description: Descreva o problema que você experienciou em detalhes.
+      description: Descreva em detalhes o problema que você experimentou.
       placeholder: |
         1. Neste ambiente...
         2. Com esta configuração...
-        3. Disparar o evento '...'
+        3. Acionar evento '...'
         4. Ver erro...
     validations:
       required: true
-
   - type: textarea
     id: logs
     attributes:
       label: Saída de Log Relevante
-      description: Copie e cole qualquer saída de log relevante. Isso será automaticamente formatado como código, então não há necessidade de crases.
+      description: Por favor, copie e cole qualquer saída de log relevante. Isso será automaticamente formatado como código, portanto não é necessário usar crases.
       render: Shell
     validations:
       required: false
-
   - type: textarea
     id: expected
     attributes:
       label: Resultado Esperado
-      description: Descreva em detalhes o que você esperava que acontecesse.
+      description: Descreva em detalhes o que você esperaria que acontecesse.
     validations:
       required: true
-
   - type: textarea
     id: howto
     attributes:
       label: Como Reproduzir
-      description: Caso ainda não tenha explicado na descrição do resultado, forneça um guia curto de como podemos reproduzir o problema.
+      description: Se você ainda não informou na descrição do resultado, por favor nos dê um guia curto de como podemos reproduzir o seu problema.
     validations:
       required: true
-
   - type: textarea
     id: info
     attributes:
       label: Informações Oficiais
-      description: Se possível, forneça informações de servidores oficiais (kRO ou outras fontes) que provem que o resultado está errado. Leve em conta que iRO (especialmente iRO Wiki) nem sempre é igual ao kRO.
+      description: Se possível, forneça informações de servidores oficiais (kRO ou outras fontes) que comprovem que o resultado está incorreto. Por favor, leve em consideração que o iRO (especialmente o iRO Wiki) nem sempre é igual ao kRO.
     validations:
       required: true
-
   - type: textarea
     id: modifications
     attributes:
       label: Modificações que podem afetar os resultados
       description: |
         Se você estiver usando quaisquer modificações, especialmente em /src/, você deve listá-las aqui.
-        Mesmo alterações pequenas podem causar problemas. Precisamos saber o que você personalizou.
-        Isso pode incluir configurações modificadas, valores alterados no banco de dados, ou até modificações externas no source.
+        Mesmo as menores alterações podem fazer com que as coisas quebrem. Precisamos saber o que você personalizou.
+        Isso pode incluir configurações que você alterou, valores de banco de dados que você modificou ou até modificações externas no código-fonte.

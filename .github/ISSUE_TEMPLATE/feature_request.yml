@@ -1,32 +1,32 @@
-name: Solicitação de Recurso
-description: Sugerir uma ideia para este projeto
+name: Solicitação de Funcionalidade
+description: Sugira uma ideia para este projeto
 labels: ["type:enhancement"]
 body:
   - type: dropdown
     id: missing
     attributes:
-      label: Sua solicitação está relacionada a um recurso oficial ausente?
+      label: Sua solicitação está relacionada a uma funcionalidade oficial ausente?
       options:
-        - "Sim"
-        - "Não"
+        - "Yes"
+        - "No"
     validations:
       required: true
   - type: textarea
     id: solution
     attributes:
       label: Descreva a solução desejada
-      description: Forneça uma descrição clara e concisa do que você quer que aconteça.
+      description: Forneça uma descrição clara e concisa do que você gostaria que acontecesse.
     validations:
       required: true
   - type: textarea
     id: alternatives
     attributes:
-      label: Descreva alternativas que você considerou
-      description: Informe-nos sobre outras soluções que você tentou ou pesquisou.
+      label: Descreva as alternativas que você considerou
+      description: Conte-nos sobre outras soluções que você tentou ou pesquisou.
   - type: textarea
     id: context
     attributes:
       label: Contexto adicional
       description: |
-        Há mais alguma coisa que você possa acrescentar sobre a proposta?
-        Você pode querer incluir links para issues relacionadas aqui, caso ainda não tenha feito isso.
+        Há algo mais que você possa adicionar sobre a proposta?
+        Talvez você queira adicionar links para issues relacionadas aqui, caso ainda não o tenha feito.

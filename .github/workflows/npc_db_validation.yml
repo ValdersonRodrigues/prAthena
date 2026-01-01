@@ -1,8 +1,8 @@
-name: Validar Scripts de NPC e Mudanças no Banco de Dados
+name: Validar Scripts de NPC e Alterações no Banco de Dados
 # npc_db_validation.yml
 
-# Para validação de NPC e Banco de Dados, precisamos apenas de duas compilações: uma para Renewal e uma para verificações Pre-Renewal.
-# Scripts de NPC e arquivos de banco de dados não dependem de plataforma, então podemos realizar esta validação usando apenas uma configuração Linux simples.
+# Para validação de NPC e DB, precisamos apenas de duas builds: uma de Renewal e uma de Pre-Renewal.
+# Scripts de NPC e arquivos de banco de dados não dependem da plataforma, então podemos realizar essa validação usando apenas um ambiente Linux simples.
 
 concurrency:
   group: ${{ github.repository }}-${{ github.workflow }}-${{ github.ref }}
@@ -15,44 +15,44 @@ on:
       - master
   pull_request:
     paths:
-      # Sempre acionar todas as GitHub Actions se uma action ou algo relacionado ao CI foi alterado
+      # Sempre executar todas as GitHub Actions se uma action ou algo relacionado ao CI for alterado
       - '.github/workflows/**'
       - 'tools/ci/**'
-      # Este workflow deve rodar quando um arquivo nos diretórios db/ ou npc/ foi modificado.
+      # Este workflow deve rodar quando um arquivo nos diretórios db/ ou npc/ for modificado.
       - 'db/**'
       - 'npc/**'
 
 jobs:
   build:
-    # GitHub Actions verifica por '[ci skip]', '[skip ci]', '[no ci]', '[skip actions]', ou '[actions skip]' mas não versões hifenizadas.
-    # É um catch-all caso um Pull Request tenha sido aberto e alguém esteja no piloto automático.
+    # O GitHub Actions verifica por '[ci skip]', '[skip ci]', '[no ci]', '[skip actions]' ou '[actions skip]', mas não por versões com hífen.
+    # Isso é um coringa caso um Pull Request seja aberto e alguém esteja no piloto automático.
     if: "!contains(github.event.head_commit.message, 'ci-skip')"
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-          # A label ubuntu-latest atualmente aponta para ubuntu-24.04.
-          # Disponível: ubuntu-24.04, ubuntu-22.04
+          # O rótulo ubuntu-latest atualmente aponta para ubuntu-24.04.
+          # Disponíveis: ubuntu-24.04, ubuntu-22.04
           os: [ubuntu-latest]
-          # Apenas uma única versão do GCC é necessária para validar scripts de NPC e mudanças no banco de dados.
+          # Apenas uma versão do GCC é necessária para validar scripts de NPC e alterações no banco de dados.
           gcc: ['11']
-          # Executamos verificações de compilação tanto para Renewal quanto para PRE-Renewal
+          # Executamos as verificações de build tanto para Renewal quanto para Pre-Renewal
           mode: ['PRE', 'RE']
 
     steps:
       - uses: actions/checkout@v4
       
-      # Um simples 'yes' e 'no' pode ser confuso, então usamos nomes para exibir no job atual e depois os convertemos para uso no compilador.
-      - name: Parse de Variáveis - PRE
+      # Um simples 'yes' e 'no' pode ser confuso, então usamos nomes para exibir no job atual e depois convertê-los para uso no compilador.
+      - name: Processamento de Variáveis - PRE
         if: ${{ matrix.mode == 'PRE' }} 
         run: |
           echo "PRERE=yes" >> $GITHUB_ENV
-      - name: Parse de Variáveis - RE
+      - name: Processamento de Variáveis - RE
         if: ${{ matrix.mode == 'RE' }} 
         run: |
           echo "PRERE=no" >> $GITHUB_ENV
 
-      - name: Atualizar & Instalar pacotes
-        # Os runners do Ubuntu já possuem a maioria dos pacotes que o rAthena requer para compilar.
+      - name: Atualizar e Instalar Pacotes
+        # Os runners do Ubuntu já possuem a maioria dos pacotes necessários para compilar o rAthena.
         # https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-Readme.md
         run: |
           sudo apt update
@@ -67,7 +67,7 @@ jobs:
         run: ./configure $CONFIGURE_FLAGS
       
       # npc.sh habilita todos os scripts de NPC nas pastas custom e test.
-      - name: Habilitar Todos os NPCs para Testes
+      - name: Habilitar Todos os NPCs para Teste
         run: ./tools/ci/npc.sh
 
       - name: Comando - make clean
@@ -83,7 +83,7 @@ jobs:
       - name: Executar Uma Vez - yaml2sql
         run: ./yaml2sql
 
-      - name: Configurar Banco de Dados e importar dados da tabela
+      - name: Configurar Banco de Dados e Importar Dados das Tabelas
         run: ./tools/ci/sql.sh
 
       - name: Comando - make map
