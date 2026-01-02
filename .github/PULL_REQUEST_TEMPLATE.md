@@ -1,16 +1,16 @@
-<!-- NOTE: Anything within these brackets will be hidden on the preview of the Pull Request. -->
+<!-- NOTA: Tudo que estiver dentro destes colchetes ficará oculto na visualização do Pull Request. -->
 
-* **Addressed Issue(s)**: 
+* **Issue(s) Endereçada(s)**: 
 
 <!--
-Please specify the rAthena [GitHub issue(s)](https://help.github.com/articles/autolinked-references-and-urls/#issues-and-pull-requests) this pull request amends.
-If no issue exists yet, please [create one](https://github.com/rathena/rathena/issues/new) first and then link your pull request to the amendment!
+Por favor, especifique a(s) [issue(s) do GitHub do rAthena](https://help.github.com/articles/autolinked-references-and-urls/#issues-and-pull-requests) que este pull request corrige.
+Caso ainda não exista uma issue, por favor [crie uma](https://github.com/rathena/rathena/issues/new) primeiro e depois vincule seu pull request à correção!
 -->
 
-* **Server Mode**: 
+* **Modo do Servidor**: 
 
-<!-- Which mode does this pull request apply to: Pre-Renewal, Renewal, or Both? -->
+<!-- A qual modo este pull request se aplica: Pre-Renewal, Renewal ou Ambos? -->
 
-* **Description of Pull Request**: 
+* **Descrição do Pull Request**: 
 
-<!-- Describe how this pull request will resolve the issue(s) listed above. -->
+<!-- Descreva como este pull request irá resolver a(s) issue(s) listada(s) acima. -->
