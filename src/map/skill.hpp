@@ -512,6 +512,7 @@ e_cast_type skill_get_casttype(uint16 skill_id); //[Skotlex]
 const char*	skill_get_name( uint16 skill_id ); 	// [Skotlex]
 const char*	skill_get_desc( uint16 skill_id ); 	// [Skotlex]
 int32 skill_tree_get_max( uint16 skill_id, int32 b_class );	// Celest
+int32 skill_greed(block_list* bl, va_list ap);
 int32 skill_cell_overlap(block_list* bl, va_list ap);
 
 // Accessor to the skills database
@@ -637,6 +638,8 @@ int32 skill_calc_heal(block_list *src, block_list *target, uint16 skill_id, uint
 
 bool skill_check_cloaking(block_list *bl, struct status_change_entry *sce);
 int8 skill_isCopyable(map_session_data *sd, uint16 skill_id);
+
+int32 skill_graffitiremover(block_list *bl, va_list ap); // [Valaris]
 
 // Abnormal status
 bool skill_isNotOk( uint16 skill_id, map_session_data& sd );
