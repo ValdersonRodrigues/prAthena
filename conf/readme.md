@@ -1,118 +1,142 @@
-# Import Directories
+# Diretórios de Importação
 
-## What is the import directory for?
+## Para que serve o diretório import?
 
-The `import/` directory provides a way for you to change your config settings without the need to even touch the main `/conf/` and `/db/` files.
+O diretório `import/` fornece uma forma de você alterar suas configurações sem precisar nem tocar nos arquivos principais `/conf/` e `/db/`.
 
-By placing your custom entries into the `import/` directory within these two locations, your core files will not need to have any conflicts resolved when you update your server. You store your changes, and the rest is updated with rAthena.
+Ao colocar suas entradas personalizadas dentro do diretório `import/` nessas duas localizações, seus arquivos centrais não terão conflitos quando você atualizar o servidor. Você guarda apenas suas alterações, e o resto é atualizado pelo rAthena.
 
-## How does this work?
+## Como isso funciona?
 
-Think of "import" as in "override". Place only the settings you have changed in the import files, or settings you are "overriding".
+Pense em "import" como "sobrescrever". Coloque apenas as configurações que você modificou nos arquivos de importação, ou seja, apenas as configurações que você está substituindo.
 
-For example, when setting up a server there are always a few config settings that users would like to change in order for rAthena to suit their needs. The following example will show you how to use the `/conf/import/` directory correctly. (for `/db/import/` examples, see [/db/readme.md](/db/readme.md))
+Por exemplo, ao configurar um servidor, sempre existem algumas opções que os usuários querem mudar para que o rAthena se adapte às suas necessidades. O exemplo a seguir mostra como usar corretamente o diretório `/conf/import/`.  
+(para exemplos de `/db/import/`, veja [/db/readme.md](/db/readme.md))
 
-### Login Server
 ---
-We want to use MD5 passwords and disable `_m/f` account creation methods.
+
+### Servidor de Login
+---
+Queremos usar senhas MD5 e desativar os métodos de criação de conta `_m/f`.
 
 #### /conf/import/login_conf.txt
 
-	new_account: no
-	use_MD5_passwords: yes
+```
+new_account: no
+use_MD5_passwords: yes
+```
 
-
-### Char Server
 ---
-We want to change the server name to "Odin".
+
+### Servidor de Personagens (Char Server)
+---
+Queremos mudar o nome do servidor para "Odin".
 
 #### /conf/import/char_conf.txt
 
-	server_name: Odin
+```
+server_name: Odin
+```
 
-
-### Map Server
 ---
-We want to hide all error messages and add a few custom maps.
+
+### Servidor de Mapas (Map Server)
+---
+Queremos esconder todas as mensagens de erro e adicionar alguns mapas personalizados.
 
 #### /conf/import/map_conf.txt
 
-	//Makes server output more silent by omitting certain types of messages:
-	//16: Hide Error and SQL Error messages.
-	console_silent: 16
-	map: 1@toy
-	map: 1@valley
-	map: shops
+```
+// Torna a saída do servidor mais silenciosa, omitindo certos tipos de mensagens:
+//16: Ocultar mensagens de Erro e Erro SQL.
+console_silent: 16
+map: 1@toy
+map: 1@valley
+map: shops
+```
 
-
-### Inter Server
 ---
-We want to use MySQL tables instead of .txt files.
+
+### Servidor Intermediário (Inter Server)
+---
+Queremos usar tabelas MySQL em vez de arquivos .txt.
 
 #### /conf/import/inter_conf.txt
 
-	use_sql_db: yes
+```
+use_sql_db: yes
+```
 
-
-### Logging Settings
 ---
-We want to log all items and all chat messages.
+
+### Configurações de Log
+---
+Queremos registrar todos os itens e todas as mensagens de chat.
 
 #### /conf/import/log_conf.txt
 
-	log_filter: 1
-	// Log CHAT (Global, Whisper, Party, Guild, Main chat, Clan) (Note 3)
-	// log_chat: 63 = logs everything
-	log_chat: 63
+```
+log_filter: 1
+// Log de CHAT (Global, Sussurro, Grupo, Guilda, Chat principal, Clã) (Nota 3)
+// log_chat: 63 = registra tudo
+log_chat: 63
+```
 
-
-### Battle Configs
 ---
-We want to change the way various mechanics work. For anything that would be configured in the `/conf/battle/` directory, it will go into `import/battle_conf.txt`. To help you find which configs came from where, it's generally a good idea to comment out the name of the file that specific collection of configs came from.
+
+### Configurações de Batalha
+---
+Queremos alterar a forma como várias mecânicas funcionam. Tudo o que normalmente seria configurado no diretório `/conf/battle/` deve ir para `import/battle_conf.txt`.
+
+Para ajudar a identificar de qual arquivo cada configuração veio, geralmente é uma boa ideia comentar o nome do arquivo original de onde aquele conjunto de configurações foi retirado.
 
 #### /conf/import/battle_conf.txt
 
-	// guild.conf
-	guild_exp_limit: 90
+```
+// guild.conf
+guild_exp_limit: 90
 
-	// items.conf
-	vending_over_max: no
-	vending_tax: 100
-	weapon_produce_rate: 200
-	potion_produce_rate: 200
-	produce_item_name_input: 0x03
+// items.conf
+vending_over_max: no
+vending_tax: 100
+weapon_produce_rate: 200
+potion_produce_rate: 200
+produce_item_name_input: 0x03
 
-	// misc.conf
-	duel_time_interval: 2
-	at_mapflag: yes
-	at_monsterignore: yes
-	cashshop_show_points: yes
-	hide_fav_sell: yes
-	// Whether or not mail box status is displayed upon login.
-	// Default: 0
-	// 0 = No
-	// 1 = Yes
-	// 2 = Yes, when there are unread mails
-	mail_show_status: 2
+// misc.conf
+duel_time_interval: 2
+at_mapflag: yes
+at_monsterignore: yes
+cashshop_show_points: yes
+hide_fav_sell: yes
+// Define se o status da caixa de correio é exibido ao logar.
+// Padrão: 0
+// 0 = Não
+// 1 = Sim
+// 2 = Sim, quando houver cartas não lidas
+mail_show_status: 2
 
-	// monster.conf
-	show_mob_info: 3
+// monster.conf
+show_mob_info: 3
 
-	// party.conf
-	party_hp_mode: 1
-	display_party_name: yes
+// party.conf
+party_hp_mode: 1
+display_party_name: yes
 
-	// pet.conf
-	pet_rename: yes
+// pet.conf
+pet_rename: yes
 
-	// player.conf
-	max_aspd: 196
-	max_third_aspd: 196
-	max_extended_aspd: 196
-	vip_disp_rate: no
+// player.conf
+max_aspd: 196
+max_third_aspd: 196
+max_extended_aspd: 196
+vip_disp_rate: no
 
-	// status.conf
-	debuff_on_logout: 3
+// status.conf
+debuff_on_logout: 3
+```
 
+---
 
-We cannot stress enough how helpful this system is for everyone. The majority of git conflicts will simply go away if users make use of the `import/` system.
+Não podemos enfatizar o suficiente o quanto esse sistema é útil para todos.  
+A maioria dos conflitos de git simplesmente deixará de existir se os usuários utilizarem corretamente o sistema `import/`.
