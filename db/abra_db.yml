@@ -1,31 +1,31 @@
-# This file is a part of rAthena.
-#   Copyright(C) 2021 rAthena Development Team
+# Este arquivo faz parte do rAthena.
+#   Copyright(C) 2021 Equipe de Desenvolvimento do rAthena
 #   https://rathena.org - https://github.com/rathena
 #
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+# Este programa é um software livre: você pode redistribuí-lo e/ou modificá-lo
+# sob os termos da Licença Pública Geral GNU conforme publicada pela
+# Free Software Foundation, seja a versão 3 da Licença, ou
+# (a seu critério) qualquer versão posterior.
 #
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
+# Este programa é distribuído na esperança de que seja útil,
+# mas SEM QUALQUER GARANTIA; sem sequer a garantia implícita de
+# COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM DETERMINADO PROPÓSITO. Veja a
+# Licença Pública Geral GNU para mais detalhes.
 #
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
-#
-###########################################################################
-# Abracadabra Database
-###########################################################################
-#
-# Abracadabra Settings
+# Você deve ter recebido uma cópia da Licença Pública Geral GNU
+# junto com este programa. Caso contrário, veja <http://www.gnu.org/licenses/>.
 #
 ###########################################################################
-# - Skill             Skill to be casted by Abracadabra.
-#   Probability:      Probability of skill compared to others in database (1 = 0.01%, 10000 = 100%). (Default: 500)
-#     - Level         Skill level.
-#       Probability   Probability at specific skill level (1 = 0.01%, 10000 = 100%). (Default: 0)
+# Banco de Dados do Abracadabra
+###########################################################################
+#
+# Configurações do Abracadabra
+#
+###########################################################################
+# - Skill             Habilidade a ser conjurada pelo Abracadabra.
+#   Probability:      Probabilidade da habilidade em comparação às outras no banco de dados (1 = 0,01%, 10000 = 100%). (Padrão: 500)
+#     - Level         Nível da habilidade.
+#       Probability   Probabilidade em um nível específico da habilidade (1 = 0,01%, 10000 = 100%). (Padrão: 0)
 ###########################################################################
 
 Header:

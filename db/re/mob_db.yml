@@ -85,7 +85,7 @@ Header:
 Body:
   - Id: 1001
     AegisName: SCORPION
-    Name: Escorpião
+    Name: Scorpion
     Level: 16
     Hp: 136
     BaseExp: 169
@@ -470,7 +470,7 @@ Body:
         StealProtected: true
   - Id: 1010
     AegisName: WILOW
-    Name: Salgueiro
+    Name: Willow
     Level: 8
     Hp: 78
     BaseExp: 160
@@ -568,7 +568,7 @@ Body:
         StealProtected: true
   - Id: 1012
     AegisName: RODA_FROG
-    Name: Sapo de Roda
+    Name: Roda Frog
     Level: 13
     Hp: 140
     BaseExp: 162
@@ -612,7 +612,7 @@ Body:
         StealProtected: true
   - Id: 1013
     AegisName: WOLF
-    Name: Lobo
+    Name: Wolf
     Level: 45
     Hp: 1091
     BaseExp: 369
@@ -660,7 +660,7 @@ Body:
         StealProtected: true
   - Id: 1014
     AegisName: SPORE
-    Name: Esporo
+    Name: Spore
     Level: 18
     Hp: 223
     BaseExp: 175
@@ -708,7 +708,7 @@ Body:
         StealProtected: true
   - Id: 1015
     AegisName: ZOMBIE
-    Name: Zumbi
+    Name: Zombie
     Level: 17
     Hp: 204
     BaseExp: 189
@@ -754,7 +754,7 @@ Body:
         StealProtected: true
   - Id: 1016
     AegisName: ARCHER_SKELETON
-    Name: Esqueleto Arqueiro
+    Name: Archer Skeleton
     Level: 50
     Hp: 1458
     BaseExp: 436
@@ -1094,7 +1094,7 @@ Body:
 #        Rate: 300
   - Id: 1023
     AegisName: ORK_WARRIOR
-    Name: Guerreiro Orc
+    Name: Orc Warrior
     Level: 44
     Hp: 1047
     BaseExp: 361
@@ -17602,8 +17602,8 @@ Body:
         StealProtected: true
   - Id: 1373
     AegisName: LORD_OF_DEATH
-    Name: Lorde da Morte
-    JapaneseName:  Lorde da Morte
+    Name: Lord of the Dead
+    JapaneseName: Lord of Death
     Level: 94
     Hp: 603883
     BaseExp: 262272
@@ -17713,7 +17713,7 @@ Body:
         StealProtected: true
   - Id: 1375
     AegisName: THE_PAPER
-    Name: Papel
+    Name: The Paper
     Level: 97
     Hp: 8939
     BaseExp: 1330
@@ -17757,7 +17757,7 @@ Body:
         StealProtected: true
   - Id: 1376
     AegisName: HARPY
-    Name: Harpia
+    Name: Harpy
     Level: 83
     Hp: 4454
     BaseExp: 986
@@ -17812,7 +17812,7 @@ Body:
         StealProtected: true
   - Id: 1377
     AegisName: ELDER
-    Name: Ancião
+    Name: Elder
     Level: 92
     Hp: 7780
     BaseExp: 1238

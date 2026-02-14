@@ -7,38 +7,38 @@
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
+# Este programa é distribuído na esperança de que seja útil,
+# mas SEM QUALQUER GARANTIA; sem sequer a garantia implícita de
+# COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM DETERMINADO PROPÓSITO. Veja a
+# Licença Pública Geral GNU para mais detalhes.
 #
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
-#
-###########################################################################
-# Achievement Database
-###########################################################################
-#
-# Achievement Settings
+# Você deve ter recebido uma cópia da Licença Pública Geral GNU
+# junto com este programa. Caso contrário, veja <http://www.gnu.org/licenses/>.
 #
 ###########################################################################
-# - Id                  Achievement ID.
-#   Group               Achievement group type. (Defaut: None)
-#   Name                Achievement name.
-#   Targets:            List of targets the achievement requires. (Default: null)
-#     - Id              Index value used for import methods.
-#       Mob             Target mob. (Default: 0)
-#       Count           Target count. (Default: 1)
-#   Condition           Conditional statement that must be met for the achievement to be considered complete. (Default: null)
-#   Map                 Map name that is used for the AG_CHATTING type. (Default: -1)
-#   Dependents:         List of achievements that need to be completed before this achievement is considered complete. (Default: null)
-#     - Id: <bool>      Achievement ID pre-requisite.
-#   Rewards:            List of rewards that are given on completion. (Default: null)
-#     Item              Item name.
-#     Amount            Amount of item. (Default: 1)
-#     Script            Bonus Script. (Default: null)
-#     TitleId           Title ID. (Default: 0)
-#   Score               Achievement points that are given on completion. (Default: 0)
+# Banco de Dados de Conquistas
+###########################################################################
+#
+# Configurações de Conquistas
+#
+###########################################################################
+# - Id                  ID da Conquista.
+#   Group               Tipo de grupo da conquista. (Padrão: None)
+#   Name                Nome da conquista.
+#   Targets:            Lista de alvos exigidos pela conquista. (Padrão: null)
+#     - Id              Valor de índice usado para métodos de importação.
+#       Mob             Monstro alvo. (Padrão: 0)
+#       Count           Quantidade alvo. (Padrão: 1)
+#   Condition           Condição que deve ser atendida para que a conquista seja considerada completa. (Padrão: null)
+#   Map                 Nome do mapa usado para o tipo AG_CHATTING. (Padrão: -1)
+#   Dependents:         Lista de conquistas que precisam ser concluídas antes que esta conquista seja considerada completa. (Padrão: null)
+#     - Id: <bool>      ID da conquista pré-requisito.
+#   Rewards:            Lista de recompensas concedidas ao concluir. (Padrão: null)
+#     Item              Nome do item.
+#     Amount            Quantidade do item. (Padrão: 1)
+#     Script            Script de bônus. (Padrão: null)
+#     TitleId           ID do título. (Padrão: 0)
+#   Score               Pontos de conquista concedidos ao concluir. (Padrão: 0)
 ###########################################################################
 
 Header:

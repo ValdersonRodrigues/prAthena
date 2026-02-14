@@ -1,124 +1,131 @@
-//===== Scripts Vrods	=====================================
-//= Solicitado
-//===== Por: ================================================
-//= Vrods
-//===== VersÃ£o Atual: =======================================
-//= 1.0
-//===== CompatÃ­vel com: =====================================
-//= rAthena
-//===== DescriÃ§Ã£o: ==========================================
-//= Sistema de recompensas diÃ¡rias
+//===========================================================
+// NPC Recompensa Diária + VIP
+// Compatível: rAthena
 //===========================================================
 
-prontera,5,5,5	script	Recompensa_Login	111,{
+prontera,150,180,5	script	Recompensa Diária	4_F_KAFRA1,{
 
-OnPCLoginEvent:
-	attachrid getcharid(3);
+	mes "[Recompensa]";
+	mes "Olá, ^0000FF"+strcharinfo(0)+"^000000!";
+	mes "O que deseja fazer?";
+	next;
 
-	if (!@logintime)
-		@logintime = gettimetick(2);
+	switch(select("Coletar recompensa:Ver próxima recompensa:Sair")) {
 
-	callsub S_CheckReward;
-	end;
+	case 1:
+		callsub S_CheckReward;
+		close;
 
-OnLoginCmnd:
-	attachrid getcharid(3);
-	callsub S_CheckReward;
-	end;
+	case 2:
+		callsub S_ShowNext;
+		close;
 
+	default:
+		close;
+	}
+
+//===========================================================
+// ENTREGA RECOMPENSA
+//===========================================================
 S_CheckReward:
 
-	.@hoje = gettime(DT_YEAR) * 12 * 31 + gettime(DT_MONTH) * 31 + gettime(DT_DAYOFMONTH);
+	.@today = gettime(DT_YEAR)*10000 + gettime(DT_MONTH)*100 + gettime(DT_DAYOFMONTH);
 
-	if (.Reset && .@hoje > #LastDailyReward + 1)
+	if (.Reset && .@today > #LastDailyReward + 1)
 		#DRewardCon = 0;
-	if (.Reset && .@hoje > #LastVIPReward + 1)
+	if (.Reset && .@today > #LastVIPReward + 1)
 		#VIPRewardCon = 0;
 
-	.@vipSize = getarraysize(.VIPRewards$);
-	.@size = getarraysize(.Rewards$);
-
-	if (#DRewardCon >= .@size && #VIPRewardCon >= .@vipSize) {
-		#LastDailyReward = .@hoje;
-		#LastVIPReward = .@hoje;
-		return;
-	}
-
-	sleep2 1000;
-
-	for (.@k = 0; .@k < 2; .@k++) {
-
-		if (!.@k) {
-			if (!vip_status(VIP_STATUS_ACTIVE))
-				continue;
-			if (#VIPRewardCon >= .@vipSize)
-				continue;
-			if (.@hoje <= #LastVIPReward)
-				continue;
-
-			explode(.@XT$,.VIPRewards$[#VIPRewardCon+1],",");
-
-		} else {
-			if (#DRewardCon >= .@size)
-				continue;
-			if (.@hoje <= #LastDailyReward)
-				continue;
-
-			explode(.@XT$,.Rewards$[#DRewardCon+1],",");
-		}
-
-		deletearray .@itms[0], getarraysize(.@itms);
-		deletearray .@qnts[0], getarraysize(.@qnts);
-
-		.@y = 0;
-		for (.@i = 4; .@i < getarraysize(.@XT$); .@i += 2) {
-		.@itms[.@y] = atoi(.@XT$[.@i]);
-		.@qnts[.@y] = atoi(.@XT$[.@i+1]);
-		.@y++;
-		}
-
-		if (!checkweight2(.@itms,.@qnts)) {
-			message strcharinfo(0),"[Recompensa]: Peso excessivo. Guarde itens e relogue.";
-			return;
-		}
-
-		for (.@i = 0; .@i < .@y; .@i++) {
-			getitem .@itms[.@i], .@qnts[.@i];
-		}
-
-		if (atoi(.@XT$[0]) > 0) {
-			zeny += atoi(.@XT$[0]);
-			message strcharinfo(0),"[Recompensa]: VocÃª recebeu "+atoi(.@XT$[0])+" Zeny.";
-		}
-
-		if (!.@k) {
-			#VIPRewardCon++;
-			#LastVIPReward = .@hoje;
-			message strcharinfo(0),"[Recompensa]: Recompensa VIP recebida.";
-		} else {
+	// DAILY
+	if (.@today > #LastDailyReward) {
+		if (#DRewardCon < getarraysize(.Rewards$)) {
+			callsub S_GiveReward, .Rewards$[#DRewardCon+1];
 			#DRewardCon++;
-			#LastDailyReward = .@hoje;
-			message strcharinfo(0),"[Recompensa]: Recompensa diÃ¡ria recebida.";
+			#LastDailyReward = .@today;
+			mes "[Recompensa]";
+			mes "Você recebeu sua ^0000FFrecompensa diária^000000!";
+		} else {
+			mes "[Recompensa]";
+			mes "Você já completou todas as recompensas diárias.";
+		}
+	} else {
+		mes "[Recompensa]";
+		mes "Você já coletou a recompensa diária hoje.";
+	}
+
+	// VIP
+	if (vip_status(VIP_STATUS_ACTIVE)) {
+		if (.@today > #LastVIPReward) {
+			if (#VIPRewardCon < getarraysize(.VIPRewards$)) {
+				callsub S_GiveReward, .VIPRewards$[#VIPRewardCon+1];
+				#VIPRewardCon++;
+				#LastVIPReward = .@today;
+				mes "E também sua ^0000FFrecompensa VIP^000000!";
+			}
 		}
 	}
+
+	close;
+
+//===========================================================
+// MOSTRAR PRÓXIMA
+//===========================================================
+S_ShowNext:
+
+	mes "[Recompensa]";
+
+	if (#DRewardCon >= getarraysize(.Rewards$)) {
+		mes "Você já completou todas as recompensas diárias.";
+		close;
+	}
+
+	.@data$ = .Rewards$[#DRewardCon+1];
+	explode(.@X$, .@data$, ",");
+
+	if (atoi(.@X$[0]) > 0)
+		mes "Zeny: "+atoi(.@X$[0]);
+
+	for (.@i = 4; .@i < getarraysize(.@X$); .@i += 2)
+		mes "Item "+getitemname(atoi(.@X$[.@i]))+" x"+atoi(.@X$[.@i+1]);
+
+	close;
+
+//===========================================================
+// FUNÇÃO ENTREGA
+//===========================================================
+S_GiveReward:
+	.@data$ = getarg(0);
+	explode(.@X$, .@data$, ",");
+
+	deletearray .@itms;
+	deletearray .@qnts;
+
+	.@y = 0;
+	for (.@i = 4; .@i < getarraysize(.@X$); .@i += 2) {
+		.@itms[.@y] = atoi(.@X$[.@i]);
+		.@qnts[.@y] = atoi(.@X$[.@i+1]);
+		.@y++;
+	}
+
+	if (!checkweight2(.@itms, .@qnts)) {
+		mes "[Recompensa]";
+		mes "Peso excessivo. Libere espaço e tente novamente.";
+		close;
+	}
+
+	for (.@i = 0; .@i < .@y; .@i++)
+		getitem .@itms[.@i], .@qnts[.@i];
+
+	if (atoi(.@X$[0]) > 0)
+		zeny += atoi(.@X$[0]);
+
 	return;
 
-OnNextCmnd:
-	attachrid getcharid(3);
-	message strcharinfo(0),"[Recompensa]: Use @collectdaily para coletar.";
-	end;
-
-OnHour00:
-	if (gettime(DT_DAYOFMONTH) == 1) {
-		query_sql("DELETE FROM `acc_reg_num` WHERE `key` IN ('#DRewardCon','#VIPRewardCon','#LastVIPReward','#LastDailyReward')");
-	}
-	end;
-
+//===========================================================
+// INIT
+//===========================================================
 OnInit:
 	.Reset = 1;
-
-	bindatcmd "collectdaily", strnpcinfo(3)+"::OnLoginCmnd", 0, 99;
-	bindatcmd "nextreward", strnpcinfo(3)+"::OnNextCmnd", 0, 99;
 
 	setarray .Rewards$[1],
 		"1000",
